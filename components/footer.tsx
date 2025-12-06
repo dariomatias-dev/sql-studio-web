@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaArrowUp, FaChevronRight } from "react-icons/fa";
 
-import { socialLinks } from "@/contants/social-links";
+import { socialLinks } from "@/constants/social-links";
 import { PingIndicator } from "./ping-indicator";
 
 export const Footer = () => {
