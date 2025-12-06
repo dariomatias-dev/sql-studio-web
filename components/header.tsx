@@ -8,13 +8,7 @@ import { FaGooglePlay } from "react-icons/fa";
 
 import { useHeaderTransparency } from "@/context/header-transparency-context";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/#features", label: "Features" },
-  { href: "/#workflow", label: "Workflow" },
-  { href: "/#screenshots", label: "Screenshots" },
-  { href: "/#faq", label: "FAQ" },
-];
+import { navLinks } from "@/constants/nav-links";
 
 export const Header = () => {
   const { enabled, setEnabled } = useHeaderTransparency();
