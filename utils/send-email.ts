@@ -24,7 +24,7 @@ export const sendEmail = async (data: EmailData): Promise<void> => {
         message: data.message,
         email: data.email,
       },
-      publicKey
+      publicKey,
     );
   } catch (error) {
     console.error("EmailJS Error:", error);

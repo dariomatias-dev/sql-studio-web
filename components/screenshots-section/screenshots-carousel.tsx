@@ -5,10 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-const screenshots = Array.from(
-  { length: 10 },
-  (_, i) => `/screenshots/screenshot_${i + 1}.jpg`
-);
+const screenshots = Array.from({ length: 10 }, (_, i) => `/screenshots/screenshot_${i + 1}.jpg`);
 
 export const ScreenshotsCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -22,10 +19,7 @@ export const ScreenshotsCarousel = () => {
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback(
-    (index: number) => emblaApi?.scrollTo(index),
-    [emblaApi]
-  );
+  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -59,7 +53,7 @@ export const ScreenshotsCarousel = () => {
               return (
                 <div
                   key={index}
-                  className="relative min-w-0 flex-[0_0_75%] px-2 sm:flex-[0_0_50%] md:flex-[0_0_35%] lg:flex-[0_0_25%] sm:px-4"
+                  className="relative min-w-0 flex-[0_0_75%] px-2 sm:flex-[0_0_50%] sm:px-4 md:flex-[0_0_35%] lg:flex-[0_0_25%]"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <div
@@ -74,7 +68,7 @@ export const ScreenshotsCarousel = () => {
                       filter: isSelected ? "grayscale(0%)" : "grayscale(100%)",
                     }}
                   >
-                    <div className="relative overflow-hidden rounded-4xl sm:rounded-4xl border-[3px] sm:border-4 border-slate-200 bg-white shadow-xl sm:shadow-2xl transition-all duration-300">
+                    <div className="relative overflow-hidden rounded-4xl border-[3px] border-slate-200 bg-white shadow-xl transition-all duration-300 sm:rounded-4xl sm:border-4 sm:shadow-2xl">
                       <div className="relative aspect-9/21 w-full bg-slate-50">
                         <Image
                           src={src}
@@ -89,10 +83,8 @@ export const ScreenshotsCarousel = () => {
                     </div>
 
                     <div
-                      className={`absolute -bottom-6 sm:-bottom-10 left-1/2 h-4 w-3/4 -translate-x-1/2 rounded-[100%] bg-slate-400/30 blur-lg sm:blur-xl transition-all duration-500 ${
-                        isSelected
-                          ? "opacity-100 scale-100"
-                          : "opacity-0 scale-75"
+                      className={`absolute -bottom-6 left-1/2 h-4 w-3/4 -translate-x-1/2 rounded-[100%] bg-slate-400/30 blur-lg transition-all duration-500 sm:-bottom-10 sm:blur-xl ${
+                        isSelected ? "scale-100 opacity-100" : "scale-75 opacity-0"
                       }`}
                     />
                   </div>
@@ -103,16 +95,16 @@ export const ScreenshotsCarousel = () => {
         </div>
       </div>
 
-      <div className="z-20 mt-8 md:mt-14 flex items-center gap-3 sm:gap-4 rounded-full border border-slate-100 bg-white/80 p-1.5 sm:p-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl max-w-[90vw] sm:max-w-none">
+      <div className="z-20 mt-8 flex max-w-[90vw] items-center gap-3 rounded-full border border-slate-100 bg-white/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl sm:max-w-none sm:gap-4 sm:p-2 md:mt-14">
         <button
           onClick={scrollPrev}
-          className="group flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:bg-[#00BCD4] hover:text-white active:scale-95"
+          className="group flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:bg-[#00BCD4] hover:text-white active:scale-95 sm:h-10 sm:w-10"
           aria-label="Previous slide"
         >
-          <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 transition-colors group-hover:text-white" />
+          <ArrowLeft className="h-4 w-4 text-slate-400 transition-colors group-hover:text-white sm:h-5 sm:w-5" />
         </button>
 
-        <div className="hidden sm:flex items-center gap-2 px-2">
+        <div className="hidden items-center gap-2 px-2 sm:flex">
           {screenshots.map((_, i) => (
             <button
               key={i}
@@ -122,28 +114,25 @@ export const ScreenshotsCarousel = () => {
             >
               <div
                 className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
-                  i === selectedIndex
-                    ? "w-6 bg-[#00BCD4]"
-                    : "w-1.5 bg-slate-200 hover:bg-slate-300"
+                  i === selectedIndex ? "w-6 bg-[#00BCD4]" : "w-1.5 bg-slate-200 hover:bg-slate-300"
                 }`}
               />
             </button>
           ))}
         </div>
 
-        <div className="sm:hidden px-2 min-w-[60px] text-center">
+        <div className="min-w-[60px] px-2 text-center sm:hidden">
           <span className="text-sm font-semibold text-slate-600">
-            {selectedIndex + 1} <span className="text-slate-300 mx-1">/</span>{" "}
-            {screenshots.length}
+            {selectedIndex + 1} <span className="mx-1 text-slate-300">/</span> {screenshots.length}
           </span>
         </div>
 
         <button
           onClick={scrollNext}
-          className="group flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:bg-[#00BCD4] hover:text-white active:scale-95"
+          className="group flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:bg-[#00BCD4] hover:text-white active:scale-95 sm:h-10 sm:w-10"
           aria-label="Next slide"
         >
-          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 transition-colors group-hover:text-white" />
+          <ArrowRight className="h-4 w-4 text-slate-400 transition-colors group-hover:text-white sm:h-5 sm:w-5" />
         </button>
       </div>
     </div>

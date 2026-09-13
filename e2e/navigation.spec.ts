@@ -6,9 +6,7 @@ import { expect, test } from "@playwright/test";
 // page itself.
 
 test.describe("header", () => {
-  test("desktop nav links scroll to the matching section", async ({
-    page,
-  }) => {
+  test("desktop nav links scroll to the matching section", async ({ page }) => {
     await page.goto("/");
 
     await page.getByRole("navigation").getByText("Features").click();
@@ -18,9 +16,7 @@ test.describe("header", () => {
     await expect(page).toHaveURL("/#faq");
   });
 
-  test("mobile menu opens, locks scroll, and closes on link click", async ({
-    page,
-  }) => {
+  test("mobile menu opens, locks scroll, and closes on link click", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 800 });
     await page.goto("/");
 
@@ -35,16 +31,12 @@ test.describe("header", () => {
     await toggle.click();
     await expect(overlay).toHaveCSS("opacity", "1");
     await expect(mobileFaqLink).toBeVisible();
-    expect(
-      await page.evaluate(() => document.body.style.overflow)
-    ).toBe("hidden");
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe("hidden");
 
     await mobileFaqLink.click();
     await expect(page).toHaveURL("/#faq");
     await expect(overlay).toHaveCSS("opacity", "0");
-    expect(
-      await page.evaluate(() => document.body.style.overflow)
-    ).toBe("");
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe("");
   });
 });
 
@@ -64,15 +56,10 @@ test.describe("footer", () => {
     await expect(page).toHaveURL("/contact");
   });
 
-  test("product links scroll to the matching home section", async ({
-    page,
-  }) => {
+  test("product links scroll to the matching home section", async ({ page }) => {
     await page.goto("/");
 
-    await page
-      .locator("footer")
-      .getByRole("link", { name: "Screenshots", exact: true })
-      .click();
+    await page.locator("footer").getByRole("link", { name: "Screenshots", exact: true }).click();
     await expect(page).toHaveURL("/#screenshots");
   });
 
@@ -83,25 +70,21 @@ test.describe("footer", () => {
     // The icon-only social links appear before the "Built by" bar at the
     // bottom, which also links to the same GitHub profile by name.
     await expect(
-      footer.locator('a[href="https://github.com/dariomatias-dev"]').first()
+      footer.locator('a[href="https://github.com/dariomatias-dev"]').first(),
     ).toBeVisible();
     await expect(footer.locator('a[href^="mailto:"]')).toHaveAttribute(
       "href",
-      "mailto:matiasdario75@gmail.com"
+      "mailto:matiasdario75@gmail.com",
     );
   });
 
   test("back to top scrolls the window to the top", async ({ page }) => {
     await page.goto("/");
     await page.evaluate(() => window.scrollTo(0, 2000));
-    await expect
-      .poll(() => page.evaluate(() => window.scrollY))
-      .toBeGreaterThan(0);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
 
     await page.getByRole("button", { name: "Back to Top" }).click();
-    await expect
-      .poll(() => page.evaluate(() => window.scrollY), { timeout: 5000 })
-      .toBeLessThan(5);
+    await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 5000 }).toBeLessThan(5);
   });
 });
 
@@ -110,9 +93,7 @@ test.describe("screenshots carousel", () => {
     await page.goto("/#screenshots");
 
     const dot = (n: number) =>
-      page
-        .getByRole("button", { name: `Go to slide ${n}`, exact: true })
-        .locator("div");
+      page.getByRole("button", { name: `Go to slide ${n}`, exact: true }).locator("div");
 
     await expect(dot(1)).toHaveClass(/w-6/);
 
@@ -136,7 +117,7 @@ test.describe("FAQ", () => {
       name: "Is SQL Studio free?",
     });
     const answer = page.getByText(
-      "SQL Studio is completely free and offers all essential features"
+      "SQL Studio is completely free and offers all essential features",
     );
 
     await expect(answer).not.toBeVisible();

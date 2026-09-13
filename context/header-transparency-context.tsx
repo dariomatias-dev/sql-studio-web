@@ -7,9 +7,9 @@ type HeaderTransparencyContextType = {
   setEnabled: (value: boolean) => void;
 };
 
-const HeaderTransparencyContext = createContext<
-  HeaderTransparencyContextType | undefined
->(undefined);
+const HeaderTransparencyContext = createContext<HeaderTransparencyContextType | undefined>(
+  undefined,
+);
 
 export const HeaderTransparencyProvider = ({
   children,
@@ -30,9 +30,7 @@ export const HeaderTransparencyProvider = ({
 export const useHeaderTransparency = () => {
   const ctx = useContext(HeaderTransparencyContext);
   if (!ctx) {
-    throw new Error(
-      "useHeaderTransparency must be used within a HeaderTransparencyProvider"
-    );
+    throw new Error("useHeaderTransparency must be used within a HeaderTransparencyProvider");
   }
 
   return ctx;

@@ -18,7 +18,7 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
-      <body className="bg-background text-foreground antialiased selection:bg-[#00BCD4] selection:text-primary-foreground">
+      <body className="bg-background text-foreground selection:text-primary-foreground antialiased selection:bg-[#00BCD4]">
         <HeaderTransparencyProvider>
           <Header />
 

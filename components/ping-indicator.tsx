@@ -22,19 +22,12 @@ export const PingIndicator = ({
       style={{ width: px, height: px }}
     >
       <span
-        className={cn(
-          "absolute inline-flex h-full w-full opacity-75 animate-ping",
-          common
-        )}
+        className={cn("absolute inline-flex h-full w-full animate-ping opacity-75", common)}
         style={{ backgroundColor: color }}
       />
 
       <span
-        className={cn(
-          "relative inline-flex",
-          glow && "shadow-[0_0_10px]",
-          common
-        )}
+        className={cn("relative inline-flex", glow && "shadow-[0_0_10px]", common)}
         style={{
           width: px,
           height: px,

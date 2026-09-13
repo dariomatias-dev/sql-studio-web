@@ -20,10 +20,9 @@ for (const { path, heading } of routes) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
 
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      heading,
-      { useInnerText: true }
-    );
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(heading, {
+      useInnerText: true,
+    });
 
     expect(consoleErrors).toEqual([]);
   });
@@ -33,7 +32,5 @@ test("unknown path renders the app's 404 page", async ({ page }) => {
   const response = await page.goto("/this-page-does-not-exist");
 
   expect(response?.status()).toBe(404);
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Page not found" })
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Page not found" })).toBeVisible();
 });

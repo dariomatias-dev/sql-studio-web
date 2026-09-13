@@ -1,11 +1,4 @@
-import {
-  Code,
-  Database,
-  LayoutDashboard,
-  Lock,
-  Palette,
-  Play,
-} from "lucide-react";
+import { Code, Database, LayoutDashboard, Lock, Palette, Play } from "lucide-react";
 import { PingIndicator } from "./ping-indicator";
 
 const features = [
@@ -49,47 +42,44 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <section
-      id="features"
-      className="relative py-24 px-4 md:px-8 bg-white overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+    <section id="features" className="relative overflow-hidden bg-white px-4 py-24 md:px-8">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[40px_40px]" />
 
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-[#00BCD4]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-slate-100 rounded-full blur-[80px] pointer-events-none" />
+      <div className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/2 translate-y-1/2 rounded-full bg-slate-100 blur-[80px]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00BCD4]/30 bg-[#00BCD4]/5 text-[#00BCD4] text-xs font-bold uppercase tracking-wider mb-6">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#00BCD4]/30 bg-[#00BCD4]/5 px-3 py-1 text-xs font-bold tracking-wider text-[#00BCD4] uppercase">
             Powerful Capabilities
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
             Engineered for <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#00BCD4] to-cyan-600">
+            <span className="bg-linear-to-r from-[#00BCD4] to-cyan-600 bg-clip-text text-transparent">
               Modern Performance.
             </span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed font-light">
-            SQL Studio combines the raw power of a desktop client with the
-            elegance of a mobile app. Every pixel designed for efficiency.
+          <p className="text-lg leading-relaxed font-light text-slate-500">
+            SQL Studio combines the raw power of a desktop client with the elegance of a mobile app.
+            Every pixel designed for efficiency.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-3xl bg-white border border-slate-100 transition-all duration-300 hover:border-[#00BCD4]/30 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,188,212,0.15)]"
+              className="group relative rounded-3xl border border-slate-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#00BCD4]/30 hover:shadow-[0_10px_40px_-10px_rgba(0,188,212,0.15)]"
             >
-              <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#00BCD4]/5 border border-[#00BCD4]/20 text-[#00BCD4] mb-6 overflow-hidden transition-all duration-300 group-hover:bg-[#00BCD4] group-hover:border-[#00BCD4] group-hover:scale-110 group-hover:rotate-3 shadow-sm">
-                <feature.icon className="h-7 w-7 relative z-10 group-hover:text-white transition-colors duration-300" />
+              <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-[#00BCD4]/20 bg-[#00BCD4]/5 text-[#00BCD4] shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:border-[#00BCD4] group-hover:bg-[#00BCD4]">
+                <feature.icon className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-white" />
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#00BCD4] transition-colors duration-200">
+              <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors duration-200 group-hover:text-[#00BCD4]">
                 {feature.title}
               </h3>
 
-              <p className="text-slate-600 leading-relaxed text-sm md:text-base group-hover:text-slate-700">
+              <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-700 md:text-base">
                 {feature.description}
               </p>
 

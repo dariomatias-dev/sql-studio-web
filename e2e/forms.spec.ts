@@ -7,20 +7,14 @@ test.describe("/contact validation", () => {
     // Name and message stay empty; subject keeps its valid default.
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(
-      page.getByText("Name must be at least 2 characters")
-    ).toBeVisible();
+    await expect(page.getByText("Name must be at least 2 characters")).toBeVisible();
     await expect(page.getByText("Invalid email address")).toBeVisible();
-    await expect(
-      page.getByText("Message must be at least 10 characters")
-    ).toBeVisible();
+    await expect(page.getByText("Message must be at least 10 characters")).toBeVisible();
   });
 });
 
 test.describe("/download beta request", () => {
-  test("a valid submission calls EmailJS and shows the success state", async ({
-    page,
-  }) => {
+  test("a valid submission calls EmailJS and shows the success state", async ({ page }) => {
     let emailjsRequestCount = 0;
     await page.route("https://api.emailjs.com/**", async (route) => {
       emailjsRequestCount += 1;
@@ -31,9 +25,7 @@ test.describe("/download beta request", () => {
     await page.locator("#email").fill("tester@example.com");
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
-    await expect(
-      page.getByRole("heading", { name: "Request Received" })
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Request Received" })).toBeVisible();
     expect(emailjsRequestCount).toBe(1);
   });
 
@@ -46,8 +38,6 @@ test.describe("/download beta request", () => {
     await page.locator("#email").fill("tester@example.com");
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
-    await expect(
-      page.getByText("Failed to send request. Please try again.")
-    ).toBeVisible();
+    await expect(page.getByText("Failed to send request. Please try again.")).toBeVisible();
   });
 });
