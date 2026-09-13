@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local reference screenshots (plan.md), never committed
+# local reference screenshots, never committed
 /.baseline-screenshots/
