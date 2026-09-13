@@ -38,4 +38,35 @@ describe("ScreenshotsCarousel", () => {
     await user.click(screen.getByLabelText("Go to slide 5"));
     expect(activeDotIndex()).toBe(4);
   });
+
+  it("renders each slide as a focusable button with a descriptive label", () => {
+    render(<ScreenshotsCarousel />);
+
+    const carousel = screen.getByRole("region", { name: "App screenshots" });
+    const slides = screen.getAllByRole("group", { name: /\d+ of 10/ });
+    expect(slides).toHaveLength(10);
+    expect(carousel).toHaveAttribute("aria-roledescription", "carousel");
+    for (const slide of slides) {
+      expect(slide).toHaveAttribute("aria-roledescription", "slide");
+    }
+
+    const firstSlideImage = screen.getAllByRole("img")[0];
+    expect(firstSlideImage.getAttribute("alt")).not.toMatch(/^Screen \d+$/);
+  });
+
+  it("advances to the next slide with the right arrow key", async () => {
+    const user = userEvent.setup();
+    render(<ScreenshotsCarousel />);
+
+    const slideButtons = screen.getAllByRole("group").map((group) => group.querySelector("button"));
+    const firstSlideButton = slideButtons[0];
+    if (!firstSlideButton) throw new Error("First slide button not found");
+
+    firstSlideButton.focus();
+    await user.keyboard("{ArrowRight}");
+    expect(activeDotIndex()).toBe(1);
+
+    await user.keyboard("{ArrowLeft}");
+    expect(activeDotIndex()).toBe(0);
+  });
 });

@@ -5,6 +5,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
+import type { UseEmblaCarouselType } from "embla-carousel-react";
+
+const screenshotDescriptions = [
+  "SQL editor with an empty query, quick-insert buttons for common statements, and an empty results console below",
+  'Database list showing a saved "shop" database, with a button to create a new one',
+  "SELECT * FROM users query results, showing two user rows with their names, emails, and creation dates",
+  "SELECT * FROM users query results scrolled down to a third user row",
+  "Visual schema diagram of an e-commerce database, showing tables like users, products, orders, and reviews connected by their relationships",
+  "List of pre-built practice databases, including To-Do List, Contacts, Library, Fitness Club, Car Rental, Restaurant, and HR Payroll",
+  "Settings screen with Language, SQL Suggestions, and Workspace Layout options, plus app version and legal links",
+  "Language selection sheet with English, Español, and Português options",
+  "Suggestion settings screen with toggles for Basic Suggestions, Advanced Suggestions, and Character Suggestions",
+  "Workspace layout settings comparing Split Layout and Tabs Layout, with a live preview of the editor and console",
+];
+
 const screenshots = Array.from({ length: 10 }, (_, i) => `/screenshots/screenshot_${i + 1}.jpg`);
 
 export const ScreenshotsCarousel = () => {
@@ -16,6 +31,16 @@ export const ScreenshotsCarousel = () => {
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Embla only exists after mount, so the first render where it becomes
+  // available needs selectedIndex synced to it. Doing that here, during
+  // render, avoids calling setState from inside an effect body just to
+  // read an already-current value (see https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes).
+  const [syncedApi, setSyncedApi] = useState<UseEmblaCarouselType[1]>(undefined);
+  if (emblaApi !== syncedApi) {
+    setSyncedApi(emblaApi);
+    if (emblaApi) setSelectedIndex(emblaApi.selectedScrollSnap());
+  }
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -30,9 +55,6 @@ export const ScreenshotsCarousel = () => {
   useEffect(() => {
     if (!emblaApi) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    onSelect();
-
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
 
@@ -42,10 +64,29 @@ export const ScreenshotsCarousel = () => {
     };
   }, [emblaApi, onSelect]);
 
+  const handleSlideKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        scrollNext();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        scrollPrev();
+      }
+    },
+    [scrollNext, scrollPrev],
+  );
+
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-8 md:py-12">
       <div className="z-10 w-full max-w-[1800px] perspective-[1000px]">
-        <div className="overflow-visible" ref={emblaRef}>
+        <div
+          className="overflow-visible"
+          ref={emblaRef}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="App screenshots"
+        >
           <div className="flex touch-pan-y items-center">
             {screenshots.map((src, index) => {
               const isSelected = index === selectedIndex;
@@ -55,10 +96,15 @@ export const ScreenshotsCarousel = () => {
                   key={index}
                   className="relative min-w-0 flex-[0_0_75%] px-2 sm:flex-[0_0_50%] sm:px-4 md:flex-[0_0_35%] lg:flex-[0_0_25%]"
                   style={{ transformStyle: "preserve-3d" }}
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${screenshots.length}`}
                 >
-                  <div
-                    className="group relative cursor-pointer transition-all duration-500 ease-out"
+                  <button
+                    type="button"
+                    className="group relative w-full cursor-pointer transition-all duration-500 ease-out"
                     onClick={() => scrollTo(index)}
+                    onKeyDown={handleSlideKeyDown}
                     style={{
                       transform: isSelected
                         ? "scale(1) translateZ(0)"
@@ -72,7 +118,7 @@ export const ScreenshotsCarousel = () => {
                       <div className="relative aspect-9/21 w-full bg-slate-50">
                         <Image
                           src={src}
-                          alt={`Screen ${index + 1}`}
+                          alt={screenshotDescriptions[index]}
                           fill
                           className="object-cover"
                           sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1024px) 35vw, 25vw"
@@ -87,7 +133,7 @@ export const ScreenshotsCarousel = () => {
                         isSelected ? "scale-100 opacity-100" : "scale-75 opacity-0"
                       }`}
                     />
-                  </div>
+                  </button>
                 </div>
               );
             })}
