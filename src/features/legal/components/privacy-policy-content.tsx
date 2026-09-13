@@ -1,18 +1,8 @@
 "use client";
 
 import { Calendar, Shield } from "lucide-react";
-import { useEffect } from "react";
-
-import { useHeaderTransparency } from "@/features/layout";
 
 const PrivacyPolicyContent = () => {
-  const { setEnabled } = useHeaderTransparency();
-
-  useEffect(() => {
-    setEnabled(false);
-    return () => setEnabled(true);
-  }, [setEnabled]);
-
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />

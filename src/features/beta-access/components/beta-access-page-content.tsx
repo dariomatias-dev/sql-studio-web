@@ -3,9 +3,8 @@
 import emailjs from "@emailjs/browser";
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { useHeaderTransparency } from "@/features/layout";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 import { GooglePlayIcon } from "@/shared/icons";
 
@@ -17,14 +16,8 @@ enum Status {
 }
 
 const BetaAccessPageContent = () => {
-  const { setEnabled } = useHeaderTransparency();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>(Status.Idle);
-
-  useEffect(() => {
-    setEnabled(false);
-    return () => setEnabled(true);
-  }, [setEnabled]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

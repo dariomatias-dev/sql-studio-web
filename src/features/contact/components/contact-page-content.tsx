@@ -11,11 +11,10 @@ import {
   Send,
   User,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { useHeaderTransparency } from "@/features/layout";
 import { GithubIcon, LinkedinIcon } from "@/shared/icons";
 import type { EmailData } from "@/shared/lib/email";
 import { sendEmail } from "@/shared/lib/email";
@@ -36,7 +35,6 @@ enum SubmitStatus {
 }
 
 const ContactPageContent = () => {
-  const { setEnabled } = useHeaderTransparency();
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(SubmitStatus.Idle);
 
   const {
@@ -53,11 +51,6 @@ const ContactPageContent = () => {
       message: "",
     },
   });
-
-  useEffect(() => {
-    setEnabled(false);
-    return () => setEnabled(true);
-  }, [setEnabled]);
 
   const onSubmit = async (value: FormData) => {
     setSubmitStatus(SubmitStatus.Idle);

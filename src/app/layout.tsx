@@ -1,4 +1,4 @@
-import { Footer, Header, HeaderTransparencyProvider } from "@/features/layout";
+import { Footer, Header } from "@/features/layout";
 
 import type { Metadata } from "next";
 
@@ -17,13 +17,11 @@ const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
       <body className="bg-background text-foreground selection:text-primary-foreground antialiased selection:bg-[#00BCD4]">
-        <HeaderTransparencyProvider>
-          <Header />
+        <Header />
 
-          <main>{children}</main>
+        <main>{children}</main>
 
-          <Footer />
-        </HeaderTransparencyProvider>
+        <Footer />
       </body>
     </html>
   );

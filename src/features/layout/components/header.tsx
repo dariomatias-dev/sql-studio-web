@@ -3,74 +3,59 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 import { GooglePlayIcon } from "@/shared/icons";
 import { cn } from "@/shared/lib/cn";
 
 import { navLinks } from "../data/nav-links";
-import { useHeaderTransparency } from "../lib/header-transparency-context";
 
 export const Header = () => {
-  const { enabled, setEnabled } = useHeaderTransparency();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
-  const prevEnabled = useRef(true);
-
-  const [scrolled, setScrolled] = useState(false);
+  // Every page but the home page has a light background from the first
+  // paint, so the header must render solid immediately there — no flash of
+  // white-on-white text while waiting for an effect to run. Only the home
+  // page's dark hero needs the header to start transparent and turn solid
+  // on scroll.
+  const [scrolled, setScrolled] = useState(!isHomePage);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const closeMenuActions = useCallback(() => {
-    setEnabled(prevEnabled.current);
-
+  const closeMenu = useCallback(() => {
+    setMobileMenuOpen(false);
     document.body.style.overflow = "";
-  }, [setEnabled]);
-
-  const openMenuActions = useCallback(() => {
-    prevEnabled.current = enabled;
-
-    setEnabled(false);
-
-    document.body.style.overflow = "hidden";
-  }, [enabled, setEnabled]);
+  }, []);
 
   const toggleMenu = useCallback(() => {
-    if (mobileMenuOpen) {
-      closeMenuActions();
-    } else {
-      openMenuActions();
-    }
-
-    setMobileMenuOpen(!mobileMenuOpen);
-  }, [mobileMenuOpen, openMenuActions, closeMenuActions]);
-
-  const closeMenu = useCallback(() => {
-    if (!mobileMenuOpen) return;
-
-    closeMenuActions();
-
-    setMobileMenuOpen(false);
-  }, [mobileMenuOpen, closeMenuActions]);
+    setMobileMenuOpen((open) => {
+      document.body.style.overflow = open ? "" : "hidden";
+      return !open;
+    });
+  }, []);
 
   useEffect(() => {
-    if (!enabled) {
-      requestAnimationFrame(() => setScrolled(true));
-      return;
-    }
+    if (!isHomePage) return;
 
     const handleScroll = () => setScrolled(window.scrollY > 0);
 
     window.addEventListener("scroll", handleScroll);
-    requestAnimationFrame(handleScroll);
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [enabled]);
+  }, [isHomePage]);
+
+  // The mobile menu overlay is an opaque light panel, so the header above
+  // it must read as solid while it's open, even on the home page.
+  const solid = scrolled || mobileMenuOpen;
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 z-50 w-full border-b border-transparent transition-all duration-500",
-          scrolled
+          solid
             ? "border-slate-200/50 bg-white/90 py-3 shadow-sm backdrop-blur-xl"
             : "bg-transparent py-6",
         )}
@@ -90,7 +75,7 @@ export const Header = () => {
               <span
                 className={cn(
                   "text-2xl font-extrabold tracking-tight transition-colors duration-300",
-                  scrolled ? "text-slate-900" : "text-white",
+                  solid ? "text-slate-900" : "text-white",
                 )}
               >
                 SQL Studio<span className="text-[#00BCD4]">.</span>
@@ -104,7 +89,7 @@ export const Header = () => {
                   href={href}
                   className={cn(
                     "relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 hover:text-[#00BCD4]",
-                    scrolled ? "text-slate-600" : "text-slate-300 hover:text-white",
+                    solid ? "text-slate-600" : "text-slate-300 hover:text-white",
                   )}
                 >
                   <span className="relative z-10">{label}</span>
@@ -118,7 +103,7 @@ export const Header = () => {
                 href="/download"
                 className={cn(
                   "group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 hover:shadow-lg",
-                  scrolled
+                  solid
                     ? "bg-slate-900 text-white hover:bg-[#00BCD4]"
                     : "bg-white text-slate-950 hover:bg-slate-100",
                 )}
@@ -132,7 +117,7 @@ export const Header = () => {
               onClick={toggleMenu}
               className={cn(
                 "relative z-50 p-2 transition-colors duration-300 focus:outline-none md:hidden",
-                scrolled ? "text-slate-800" : "text-white",
+                solid ? "text-slate-800" : "text-white",
               )}
             >
               {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
