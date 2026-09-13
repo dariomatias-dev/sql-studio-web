@@ -51,3 +51,29 @@ already includes the fix, `pnpm audit` stops flagging it and the override
 becomes a no-op. Safe to delete at that point — verify with
 `pnpm why <package>` that the installed version already meets the override
 target on its own.
+
+## Renovate
+
+`renovate.json` opens a PR for outdated dependencies weekly (Monday before
+6am, `America/Sao_Paulo`), prefixing commits with `build(deps):` and
+labeling PRs `dependencies`.
+
+Disabled entirely for `next`, `eslint-config-next`, `react`, `react-dom` —
+these four are bumped by hand, together, in one commit (see "Exact-pinned
+dependencies" above); a caret range or an automated PR touching just one of
+them risks a version combination nobody tested. `@types/react` and
+`@types/react-dom` are grouped into a single `react-types` PR instead of
+disabled, since they only type whichever React is pinned and don't need
+the same hand-coordination. GitHub Actions minor/patch bumps are grouped
+into one PR to cut noise; major bumps still open individually.
+
+**Triaging a Renovate PR:**
+
+1. Check the PR is one of the grouped/expected kinds (`react-types`,
+   `github-actions`, or a single-package bump) — an unexpected package
+   showing up usually means a `packageRules` match needs updating.
+2. Let CI run (`quality`, `unit`, `build`, `e2e`); a green run is normally
+   enough to merge a patch/minor bump.
+3. For a major bump, skim the package's changelog for breaking changes
+   before merging, even if CI is green — Renovate doesn't know about
+   runtime-only breakage (e.g. a removed CSS class, a changed default).

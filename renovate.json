@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommits"],
+  "commitMessagePrefix": "build(deps):",
+  "timezone": "America/Sao_Paulo",
+  "schedule": ["before 6am on monday"],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "@types/react* move together, since they track the react version they're typing even though react itself is pinned - see docs/dependencies.md",
+      "matchPackageNames": ["@types/react", "@types/react-dom"],
+      "groupName": "react-types"
+    },
+    {
+      "description": "Group GitHub Actions minor/patch bumps to cut PR noise",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "github-actions"
+    },
+    {
+      "description": "next pinned exact - see docs/dependencies.md for why",
+      "matchPackageNames": ["next"],
+      "enabled": false
+    },
+    {
+      "description": "eslint-config-next pinned exact together with next - see docs/dependencies.md",
+      "matchPackageNames": ["eslint-config-next"],
+      "enabled": false
+    },
+    {
+      "description": "react pinned exact together with next - see docs/dependencies.md",
+      "matchPackageNames": ["react"],
+      "enabled": false
+    },
+    {
+      "description": "react-dom pinned exact together with next - see docs/dependencies.md",
+      "matchPackageNames": ["react-dom"],
+      "enabled": false
+    }
+  ]
+}
