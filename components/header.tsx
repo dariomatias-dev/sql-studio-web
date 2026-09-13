@@ -6,9 +6,9 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { GooglePlayIcon } from "@/components/icons";
+import { navLinks } from "@/constants/nav-links";
 import { useHeaderTransparency } from "@/context/header-transparency-context";
 import { cn } from "@/lib/utils";
-import { navLinks } from "@/constants/nav-links";
 
 export const Header = () => {
   const { enabled, setEnabled } = useHeaderTransparency();

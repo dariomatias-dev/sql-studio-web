@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 
 /**
  * GitHub mark, scaling with the surrounding font size unless

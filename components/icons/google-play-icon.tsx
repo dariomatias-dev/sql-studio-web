@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 
 /**
  * Google Play "play button" mark. Scales with the surrounding font size

@@ -4,6 +4,7 @@ import { ArrowUp, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { socialLinks } from "@/constants/social-links";
+
 import { PingIndicator } from "./ping-indicator";
 
 export const Footer = () => {

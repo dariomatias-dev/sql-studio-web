@@ -1,6 +1,7 @@
 import { Minus, Plus } from "lucide-react";
 
 import { faqs } from "@/constants/faqs";
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 
 export const FaqSection = () => {

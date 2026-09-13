@@ -120,7 +120,7 @@ const DownloadBetaPage = () => {
                 </Link>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
                 <div className="space-y-3">
                   <label
                     htmlFor="email"

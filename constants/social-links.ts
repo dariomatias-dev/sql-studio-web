@@ -1,7 +1,7 @@
 import { Mail } from "lucide-react";
 
+import type { SocialLink } from "@/@types/social-link";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { SocialLink } from "@/@types/social-link";
 
 export const socialLinks: SocialLink[] = [
   { href: "https://github.com/dariomatias-dev", icon: GithubIcon },

@@ -17,7 +17,8 @@ import * as z from "zod";
 
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useHeaderTransparency } from "@/context/header-transparency-context";
-import { EmailData, sendEmail } from "@/utils/send-email";
+import type { EmailData } from "@/utils/send-email";
+import { sendEmail } from "@/utils/send-email";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -166,7 +167,7 @@ const ContactPage = () => {
           <div className="relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] sm:p-8 md:p-10">
             <div className="absolute top-0 right-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-transform group-hover:scale-110" />
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={(e) => void handleSubmit(onSubmit)(e)} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-slate-700">

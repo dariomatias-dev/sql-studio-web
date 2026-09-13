@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-
-import "./globals.css";
-
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeaderTransparencyProvider } from "@/context/header-transparency-context";
+
+import type { Metadata } from "next";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SQL Studio",
