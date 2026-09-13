@@ -24,6 +24,20 @@ env:
   NEXT_PUBLIC_PUBLIC_KEY: test-public-key
 
 jobs:
+  commit-lint:
+    name: Commit lint
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+
+      - name: Validate PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: echo "$PR_TITLE" | pnpm exec commitlint --config commitlint.ci.config.mjs
+
   quality:
     name: Quality
     runs-on: ubuntu-latest
