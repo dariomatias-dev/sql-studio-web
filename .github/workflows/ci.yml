@@ -55,6 +55,31 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
+  vulnerabilities:
+    name: Vulnerabilities (report only)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Scan the lockfile with osv-scanner
+        uses: google/osv-scanner-action/osv-scanner-action@v2.5.1
+        with:
+          scan-args: |-
+            --lockfile=pnpm-lock.yaml
+        continue-on-error: true
+
+      - name: Scan for committed secrets
+        uses: gitleaks/gitleaks-action@v3.0.0
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   unit:
     name: Unit tests
     runs-on: ubuntu-latest
