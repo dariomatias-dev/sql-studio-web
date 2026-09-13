@@ -1,10 +1,11 @@
 "use client";
 
+import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 import { GooglePlayIcon } from "@/shared/icons";
 import { cn } from "@/shared/lib/cn";
@@ -22,18 +23,7 @@ export const Header = () => {
   // on scroll.
   const [scrolled, setScrolled] = useState(!isHomePage);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const closeMenu = useCallback(() => {
-    setMobileMenuOpen(false);
-    document.body.style.overflow = "";
-  }, []);
-
-  const toggleMenu = useCallback(() => {
-    setMobileMenuOpen((open) => {
-      document.body.style.overflow = open ? "" : "hidden";
-      return !open;
-    });
-  }, []);
+  const mobileMenuId = useId();
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -46,12 +36,26 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
+  useEffect(() => {
+    // Fixes B5: without this, resizing to desktop with the menu open leaves the page scroll-locked.
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) setMobileMenuOpen(false);
+    };
+
+    handleChange(desktopQuery);
+    desktopQuery.addEventListener("change", handleChange);
+
+    return () => desktopQuery.removeEventListener("change", handleChange);
+  }, []);
+
   // The mobile menu overlay is an opaque light panel, so the header above
   // it must read as solid while it's open, even on the home page.
   const solid = scrolled || mobileMenuOpen;
 
   return (
-    <>
+    <Dialog.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
       <header
         className={cn(
           "fixed top-0 left-0 z-50 w-full border-b border-transparent transition-all duration-500",
@@ -62,7 +66,11 @@ export const Header = () => {
       >
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <nav className="flex items-center justify-between">
-            <Link href="/" onClick={closeMenu} className="group z-50 flex items-center gap-3">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="group z-50 flex items-center gap-3"
+            >
               <div className="relative">
                 <Image
                   src="/icons/sql_studio.png"
@@ -113,49 +121,68 @@ export const Header = () => {
               </Link>
             </div>
 
-            <button
-              onClick={toggleMenu}
-              className={cn(
-                "relative z-50 p-2 transition-colors duration-300 focus:outline-none md:hidden",
-                solid ? "text-slate-800" : "text-white",
-              )}
-            >
-              {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-            </button>
+            <Dialog.Trigger asChild>
+              <button
+                aria-label="Open menu"
+                aria-controls={mobileMenuId}
+                className={cn(
+                  "relative z-50 rounded-md p-2 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[#00BCD4] focus-visible:outline-none md:hidden",
+                  solid ? "text-slate-800" : "text-white",
+                )}
+              >
+                <Menu className="h-7 w-7" />
+              </button>
+            </Dialog.Trigger>
           </nav>
         </div>
       </header>
 
-      <div
-        className={cn(
-          "fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-in-out md:hidden",
-          mobileMenuOpen
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-full opacity-0",
-        )}
-      >
-        <div className="flex flex-col items-center space-y-6">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={closeMenu}
-              className="text-2xl font-bold text-slate-800 transition-colors hover:text-[#00BCD4]"
-            >
-              {label}
-            </Link>
-          ))}
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-40 md:hidden" />
 
-          <Link
-            href="/download"
-            onClick={closeMenu}
-            className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#00BCD4] px-8 py-3 text-lg font-bold text-white shadow-lg shadow-[#00BCD4]/30"
-          >
-            <GooglePlayIcon className="h-5 w-5" />
-            Download App
-          </Link>
-        </div>
-      </div>
-    </>
+        <Dialog.Content
+          id={mobileMenuId}
+          className={cn(
+            "fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-white/95 backdrop-blur-2xl duration-500 md:hidden",
+            "data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:slide-in-from-top",
+            "data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:slide-out-to-top",
+          )}
+        >
+          <Dialog.Title className="sr-only">Navigation menu</Dialog.Title>
+
+          <Dialog.Close asChild>
+            <button
+              aria-label="Close menu"
+              className="absolute top-6 right-4 p-2 text-slate-800 focus-visible:ring-2 focus-visible:ring-[#00BCD4] focus-visible:outline-none"
+            >
+              <X className="h-7 w-7" />
+            </button>
+          </Dialog.Close>
+
+          <div className="flex flex-col items-center space-y-6">
+            {navLinks.map(({ href, label }) => (
+              <Dialog.Close key={href} asChild>
+                <Link
+                  href={href}
+                  className="text-2xl font-bold text-slate-800 transition-colors hover:text-[#00BCD4]"
+                >
+                  {label}
+                </Link>
+              </Dialog.Close>
+            ))}
+
+            <Dialog.Close asChild>
+              <Link
+                href="/download"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#00BCD4] px-8 py-3 text-lg font-bold text-white shadow-lg shadow-[#00BCD4]/30"
+              >
+                <GooglePlayIcon className="h-5 w-5" />
+                Download App
+              </Link>
+            </Dialog.Close>
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };

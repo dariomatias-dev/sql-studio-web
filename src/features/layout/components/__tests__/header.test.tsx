@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { usePathname } from "next/navigation";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { Header } from "../header";
 
@@ -12,11 +12,6 @@ vi.mock("next/navigation", () => ({
 describe("Header", () => {
   beforeEach(() => {
     vi.mocked(usePathname).mockReturnValue("/");
-    document.body.style.overflow = "";
-  });
-
-  afterEach(() => {
-    document.body.style.overflow = "";
   });
 
   it("renders every nav link", () => {
@@ -28,21 +23,34 @@ describe("Header", () => {
     }
   });
 
-  it("opens the mobile menu, locks scroll, and closes it on link click", async () => {
+  it("opens the mobile menu as a dialog and closes it on link click", async () => {
     const user = userEvent.setup();
     render(<Header />);
 
-    const toggle = screen.getByRole("navigation").querySelector("button");
-    if (!toggle) throw new Error("Mobile menu toggle not found");
+    const toggle = screen.getByRole("button", { name: "Open menu" });
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
 
     await user.click(toggle);
-    expect(document.body.style.overflow).toBe("hidden");
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    expect(screen.getByRole("button", { name: "Close menu" })).toBeInTheDocument();
 
     const mobileFaqLink = screen.getAllByText("FAQ").find((el) => el.tagName === "A");
     if (!mobileFaqLink) throw new Error("Mobile FAQ link not found");
 
     await user.click(mobileFaqLink);
-    expect(document.body.style.overflow).toBe("");
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("closes the mobile menu on Escape", async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    await user.click(screen.getByRole("button", { name: "Open menu" }));
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
+
+    await user.keyboard("{Escape}");
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("starts solid (no transparent variant) on any page but the home page", () => {

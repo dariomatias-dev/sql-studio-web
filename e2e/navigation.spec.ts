@@ -16,27 +16,48 @@ test.describe("header", () => {
     await expect(page).toHaveURL("/#faq");
   });
 
-  test("mobile menu opens, locks scroll, and closes on link click", async ({ page }) => {
+  test("mobile menu opens as a dialog, locks scroll, and closes on link click", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 375, height: 800 });
     await page.goto("/");
 
-    const toggle = page.getByRole("navigation").locator("button");
-    const overlay = page.locator("div.fixed.inset-0");
-    const mobileFaqLink = overlay.getByText("FAQ", { exact: true });
+    const toggle = page.getByRole("button", { name: "Open menu" });
+    const dialog = page.getByRole("dialog");
 
-    // The overlay is always in the DOM, just toggled via opacity/transform,
-    // so `toBeVisible()` doesn't reflect open vs. closed here.
-    await expect(overlay).toHaveCSS("opacity", "0");
+    await expect(dialog).not.toBeVisible();
 
     await toggle.click();
-    await expect(overlay).toHaveCSS("opacity", "1");
+    await expect(dialog).toBeVisible();
+    const mobileFaqLink = dialog.getByText("FAQ", { exact: true });
     await expect(mobileFaqLink).toBeVisible();
-    expect(await page.evaluate(() => document.body.style.overflow)).toBe("hidden");
+
+    const scrollYBeforeWheel = await page.evaluate(() => window.scrollY);
+    await page.mouse.move(200, 400);
+    await page.mouse.wheel(0, 500);
+    await page.waitForTimeout(200);
+    expect(await page.evaluate(() => window.scrollY)).toBe(scrollYBeforeWheel);
 
     await mobileFaqLink.click();
     await expect(page).toHaveURL("/#faq");
-    await expect(overlay).toHaveCSS("opacity", "0");
-    expect(await page.evaluate(() => document.body.style.overflow)).toBe("");
+    await expect(dialog).not.toBeVisible();
+  });
+
+  test("resizing to desktop with the mobile menu open unlocks scroll (B5)", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 800 });
+    await page.goto("/");
+
+    await page.getByRole("button", { name: "Open menu" }).click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(page.getByRole("dialog")).not.toBeVisible();
+
+    const scrollYBeforeWheel = await page.evaluate(() => window.scrollY);
+    await page.mouse.move(640, 400);
+    await page.mouse.wheel(0, 500);
+    await page.waitForTimeout(200);
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(scrollYBeforeWheel);
   });
 });
 
