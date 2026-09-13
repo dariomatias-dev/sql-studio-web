@@ -19,9 +19,12 @@ notices.
   section's components, data, and lib; `src/shared/` holds code with no
   single feature owner (`components/`, `icons/`, `lib/`). Each feature
   exposes its public API through `index.ts`; reach into another feature's
-  internals only through that barrel, never a deep import (ESLint doesn't
-  enforce this yet — a later step adds `import/no-restricted-paths`).
-  `docs/architecture.md` will describe this in full once it exists.
+  internals only through that barrel, never a deep import —
+  `eslint.config.mjs`'s `import/no-restricted-paths` enforces this.
+  See [docs/architecture.md](docs/architecture.md) for the full picture:
+  dependency rules, rendering (what's a Server vs. Client Component and
+  why), how the forms submit, and the reasoning behind SSG and
+  feature-first.
 - **Invariants — never break these:**
   - `GET /privacy-policy` returns 200 (linked from the app's settings and
     the Play Store listing).
