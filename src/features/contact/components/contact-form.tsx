@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, AtSign, CheckCircle, Loader2, Send, User } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import type { EmailData } from "@/shared/lib/email";
@@ -18,6 +18,11 @@ enum SubmitStatus {
 
 export const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(SubmitStatus.Idle);
+  const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  useEffect(() => {
+    return () => clearTimeout(resetTimeoutRef.current);
+  }, []);
 
   const {
     register,
@@ -50,7 +55,7 @@ export const ContactForm = () => {
 
       reset();
 
-      setTimeout(() => setSubmitStatus(SubmitStatus.Idle), 5000);
+      resetTimeoutRef.current = setTimeout(() => setSubmitStatus(SubmitStatus.Idle), 5000);
     } catch {
       setSubmitStatus(SubmitStatus.Error);
     }

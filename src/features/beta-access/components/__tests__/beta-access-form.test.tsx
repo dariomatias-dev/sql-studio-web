@@ -1,28 +1,22 @@
-import emailjs from "@emailjs/browser";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+
+import { sendEmail } from "@/shared/lib/email";
 
 import { BetaAccessForm } from "../beta-access-form";
 
-vi.mock("@emailjs/browser", () => ({
-  default: { send: vi.fn() },
+vi.mock("@/shared/lib/email", () => ({
+  sendEmail: vi.fn(),
 }));
 
 describe("BetaAccessForm", () => {
-  beforeEach(() => {
-    process.env.NEXT_PUBLIC_SERVICE_ID = "service-id";
-    process.env.NEXT_PUBLIC_TEMPLATE_ID = "template-id";
-    process.env.NEXT_PUBLIC_PUBLIC_KEY = "public-key";
-    vi.mocked(emailjs.send).mockReset();
-  });
-
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.mocked(sendEmail).mockReset();
   });
 
-  it("calls emailjs.send and shows the success state on submission", async () => {
-    vi.mocked(emailjs.send).mockResolvedValueOnce({ status: 200, text: "OK" });
+  it("calls sendEmail and shows the success state on submission", async () => {
+    vi.mocked(sendEmail).mockResolvedValueOnce();
     const user = userEvent.setup();
     render(<BetaAccessForm />);
 
@@ -30,16 +24,15 @@ describe("BetaAccessForm", () => {
     await user.click(screen.getByRole("button", { name: "Join Beta Waitlist" }));
 
     expect(await screen.findByText("Request Received")).toBeInTheDocument();
-    expect(emailjs.send).toHaveBeenCalledWith(
-      "service-id",
-      "template-id",
-      expect.objectContaining({ email: "tester@example.com" }),
-      "public-key",
-    );
+    expect(sendEmail).toHaveBeenCalledWith({
+      email: "tester@example.com",
+      subject: "Beta Access Request",
+      message: "Requesting beta access for Google Play email: tester@example.com",
+    });
   });
 
-  it("shows an error message when emailjs.send rejects", async () => {
-    vi.mocked(emailjs.send).mockRejectedValueOnce(new Error("network down"));
+  it("shows an error message when sendEmail rejects", async () => {
+    vi.mocked(sendEmail).mockRejectedValueOnce(new Error("network down"));
     vi.spyOn(console, "error").mockImplementation(() => {});
     const user = userEvent.setup();
     render(<BetaAccessForm />);

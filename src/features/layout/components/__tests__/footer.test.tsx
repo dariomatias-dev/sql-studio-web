@@ -51,4 +51,12 @@ describe("Footer", () => {
 
     expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
   });
+
+  it("shows the current year in the copyright notice", () => {
+    render(<Footer />);
+
+    expect(
+      screen.getByText(`© ${new Date().getFullYear()} SQL Studio. All rights reserved.`),
+    ).toBeInTheDocument();
+  });
 });

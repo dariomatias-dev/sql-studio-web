@@ -1,11 +1,11 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { GooglePlayIcon } from "@/shared/icons";
+import { sendEmail } from "@/shared/lib/email";
 
 enum Status {
   Idle,
@@ -17,33 +17,28 @@ enum Status {
 export const BetaAccessForm = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>(Status.Idle);
+  const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  useEffect(() => {
+    return () => clearTimeout(resetTimeoutRef.current);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus(Status.Submitting);
 
-    const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID as string;
-    const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
-    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
-
     try {
-      await emailjs.send(
-        serviceID,
-        templateID,
-        {
-          subject: "Beta Access Request",
-          message: `Requesting beta access for Google Play email: ${email}`,
-          email: email,
-          name: "Beta Candidate",
-        },
-        publicKey,
-      );
+      await sendEmail({
+        email,
+        subject: "Beta Access Request",
+        message: `Requesting beta access for Google Play email: ${email}`,
+      });
 
       setStatus(Status.Success);
     } catch (error) {
       console.error("Beta request failed:", error);
       setStatus(Status.Error);
-      setTimeout(() => setStatus(Status.Idle), 4000);
+      resetTimeoutRef.current = setTimeout(() => setStatus(Status.Idle), 4000);
     }
   };
 
