@@ -102,6 +102,7 @@ const eslintConfig = [
     "next-env.d.ts",
     "playwright-report/**",
     "test-results/**",
+    "coverage/**",
   ]),
 ];
 

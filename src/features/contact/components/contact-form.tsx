@@ -4,19 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, AtSign, CheckCircle, Loader2, Send, User } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 
 import type { EmailData } from "@/shared/lib/email";
 import { sendEmail } from "@/shared/lib/email";
 
-const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.email("Invalid email address"),
-  subject: z.string().min(1, "Please select a subject"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type FormData = z.infer<typeof schema>;
+import { schema, type FormData } from "../lib/schema";
 
 enum SubmitStatus {
   Idle,
