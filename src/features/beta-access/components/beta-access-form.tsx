@@ -4,6 +4,7 @@ import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-rea
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { NoJsWarning } from "@/shared/components/no-js-warning";
 import { GooglePlayIcon } from "@/shared/icons";
 import { sendEmail } from "@/shared/lib/email";
 
@@ -81,6 +82,8 @@ export const BetaAccessForm = () => {
           </div>
         ) : (
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
+            <NoJsWarning />
+
             <div className="space-y-3">
               <label htmlFor="email" className="ml-1 block text-sm font-semibold text-slate-700">
                 Google Play Email Address

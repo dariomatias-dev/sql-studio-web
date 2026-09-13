@@ -5,6 +5,7 @@ import { AlertCircle, AtSign, CheckCircle, Loader2, Send, User } from "lucide-re
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { NoJsWarning } from "@/shared/components/no-js-warning";
 import type { EmailData } from "@/shared/lib/email";
 import { sendEmail } from "@/shared/lib/email";
 
@@ -66,6 +67,8 @@ export const ContactForm = () => {
       <div className="absolute top-0 right-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-transform group-hover:scale-110" />
 
       <form onSubmit={(e) => void handleSubmit(onSubmit)(e)} className="space-y-6">
+        <NoJsWarning />
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-slate-700">

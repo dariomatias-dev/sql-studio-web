@@ -46,3 +46,38 @@ test.describe("header without JavaScript", () => {
     expect(luminance).toBeLessThan(128);
   });
 });
+
+test.describe("main content without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  for (const [path, heading] of [
+    ["/", "SQL Studio Anywhere."],
+    ["/contact", "Get in Touch"],
+    ["/download", "Join the Development Program"],
+    ["/privacy-policy", "Privacy Policy"],
+    ["/terms-of-service", "Terms of Service"],
+  ] as const) {
+    test(`${path} shows its heading`, async ({ page }) => {
+      await page.goto(path);
+
+      await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
+    });
+  }
+});
+
+test.describe("forms warn when JavaScript is off", () => {
+  test.use({ javaScriptEnabled: false });
+
+  for (const path of ["/contact", "/download"] as const) {
+    test(`${path} shows the no-JS warning inside the form`, async ({ page }) => {
+      await page.goto(path);
+
+      // Playwright's own text-matching doesn't see into <noscript> content.
+      const warning = page.locator("form noscript");
+      await expect(warning).toBeVisible();
+
+      const text = await warning.evaluate((el) => el.textContent);
+      expect(text).toContain("This form requires JavaScript to be enabled");
+    });
+  }
+});
