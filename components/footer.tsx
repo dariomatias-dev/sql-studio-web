@@ -1,7 +1,7 @@
 "use client";
 
+import { ArrowUp, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { FaArrowUp, FaChevronRight } from "react-icons/fa";
 
 import { socialLinks } from "@/constants/social-links";
 import { PingIndicator } from "./ping-indicator";
@@ -19,7 +19,7 @@ export const Footer = () => {
 
       <div className="absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent via-[#00BCD4]/40 to-transparent shadow-[0_0_15px_rgba(0,188,212,0.5)]" />
 
-      <div className="pointer-events-none absolute -top-[300px] left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[#00BCD4]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-75 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full bg-[#00BCD4]/10 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-20 flex flex-col items-start justify-between gap-10 lg:flex-row">
@@ -53,7 +53,7 @@ export const Footer = () => {
               Back to Top
             </span>
             <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-[#00BCD4]/10 text-[#00BCD4] transition-all duration-300 group-hover:bg-[#00BCD4] group-hover:text-black">
-              <FaArrowUp size={12} className="transition-transform group-hover:-translate-y-0.5" />
+              <ArrowUp size={12} className="transition-transform group-hover:-translate-y-0.5" />
             </div>
           </button>
         </div>
@@ -70,7 +70,7 @@ export const Footer = () => {
                     href={`/#${item.toLowerCase()}`}
                     className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
                   >
-                    <FaChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                    <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {item}
                     </span>
@@ -87,7 +87,7 @@ export const Footer = () => {
                   href="/privacy-policy"
                   className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
                 >
-                  <FaChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Privacy Policy
                   </span>
@@ -98,7 +98,7 @@ export const Footer = () => {
                   href="/terms-of-service"
                   className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
                 >
-                  <FaChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Terms of Service
                   </span>
@@ -109,7 +109,7 @@ export const Footer = () => {
                   href="/contact"
                   className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
                 >
-                  <FaChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Contact Support
                   </span>

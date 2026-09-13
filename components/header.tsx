@@ -4,8 +4,8 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { FaGooglePlay } from "react-icons/fa";
 
+import { GooglePlayIcon } from "@/components/icons";
 import { useHeaderTransparency } from "@/context/header-transparency-context";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/constants/nav-links";
@@ -122,7 +122,7 @@ export const Header = () => {
                     : "bg-white text-slate-950 hover:bg-slate-100",
                 )}
               >
-                <FaGooglePlay className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-15deg]" />
+                <GooglePlayIcon className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-15deg]" />
                 <span>Download App</span>
               </Link>
             </div>
@@ -165,7 +165,7 @@ export const Header = () => {
             onClick={closeMenu}
             className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#00BCD4] px-8 py-3 text-lg font-bold text-white shadow-lg shadow-[#00BCD4]/30"
           >
-            <FaGooglePlay className="h-5 w-5" />
+            <GooglePlayIcon className="h-5 w-5" />
             Download App
           </Link>
         </div>

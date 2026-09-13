@@ -1,9 +1,10 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Mail } from "lucide-react";
 
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { SocialLink } from "@/@types/social-link";
 
 export const socialLinks: SocialLink[] = [
-  { href: "https://github.com/dariomatias-dev", icon: FaGithub },
-  { href: "https://www.linkedin.com/in/dariomatias-dev/", icon: FaLinkedin },
-  { href: "mailto:matiasdario75@gmail.com", icon: FaEnvelope },
+  { href: "https://github.com/dariomatias-dev", icon: GithubIcon },
+  { href: "https://www.linkedin.com/in/dariomatias-dev/", icon: LinkedinIcon },
+  { href: "mailto:matiasdario75@gmail.com", icon: Mail },
 ];

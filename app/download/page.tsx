@@ -4,8 +4,8 @@ import emailjs from "@emailjs/browser";
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaGooglePlay } from "react-icons/fa";
 
+import { GooglePlayIcon } from "@/components/icons";
 import { PingIndicator } from "@/components/ping-indicator";
 import { useHeaderTransparency } from "@/context/header-transparency-context";
 
@@ -115,7 +115,7 @@ const DownloadBetaPage = () => {
                   target="_blank"
                   className="group relative inline-flex w-full items-center justify-center gap-3 rounded-xl bg-slate-900 px-6 py-4 text-base font-bold text-white shadow-xl shadow-slate-200 transition-all duration-300 hover:scale-[1.02] hover:bg-slate-800"
                 >
-                  <FaGooglePlay className="text-xl text-[#00BCD4]" />
+                  <GooglePlayIcon className="text-xl text-[#00BCD4]" />
                   <span>Open in Play Store</span>
                 </Link>
               </div>

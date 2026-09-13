@@ -5,8 +5,6 @@ import {
   AlertCircle,
   AtSign,
   CheckCircle,
-  Github,
-  Linkedin,
   Loader2,
   Mail,
   MessageSquare,
@@ -17,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useHeaderTransparency } from "@/context/header-transparency-context";
 import { EmailData, sendEmail } from "@/utils/send-email";
 
@@ -83,8 +82,8 @@ const ContactPage = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
-      <div className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
+      <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center md:mb-20">
@@ -139,7 +138,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"
                   >
-                    <Github className="h-5 w-5" />
+                    <GithubIcon className="h-5 w-5" />
                     GitHub Profile
                   </a>
                   <a
@@ -148,7 +147,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"
                   >
-                    <Linkedin className="h-5 w-5" />
+                    <LinkedinIcon className="h-5 w-5" />
                     LinkedIn
                   </a>
                 </div>
