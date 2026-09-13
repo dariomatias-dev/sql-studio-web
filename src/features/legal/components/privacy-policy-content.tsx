@@ -1,5 +1,3 @@
-"use client";
-
 import { Calendar, Shield } from "lucide-react";
 
 const PrivacyPolicyContent = () => {

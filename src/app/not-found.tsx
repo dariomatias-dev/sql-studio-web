@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft, FileQuestion } from "lucide-react";
 import Link from "next/link";
 

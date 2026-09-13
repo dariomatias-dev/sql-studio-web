@@ -1,5 +1,3 @@
-"use client";
-
 import { Calendar, FileText } from "lucide-react";
 
 const TermsOfServiceContent = () => {
