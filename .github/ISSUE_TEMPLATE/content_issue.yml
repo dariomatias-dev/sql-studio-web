@@ -1,0 +1,33 @@
+name: Content issue
+description: Wrong or outdated text, a broken screenshot, or a mismatch with the current app (not a code bug; use "Bug report" for that).
+labels: ["content"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: https://sql-studio-web.vercel.app/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of issue is it?
+      options:
+        - Outdated or incorrect text
+        - Outdated or misleading screenshot
+        - Broken or dead link
+        - Typo or grammar mistake
+        - Mismatch with the current app behavior
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong, specifically?
+      description: Quote or describe the exact text or image, and what it should say or show instead if you know.
+    validations:
+      required: true
