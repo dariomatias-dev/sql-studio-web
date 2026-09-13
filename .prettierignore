@@ -1,0 +1,8 @@
+node_modules
+.next
+dist
+public
+pnpm-lock.yaml
+# Not tracked by git.
+plan.md
+.pnpm-store
