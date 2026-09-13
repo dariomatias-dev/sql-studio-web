@@ -32,15 +32,7 @@ const eslintConfig = defineConfig([
     // Type-aware rules need the type checker, which is slow and only makes
     // sense for the app's own source; config files at the repo root stay on
     // the plain (non type-aware) parser from nextTs.
-    files: [
-      "app/**/*.{ts,tsx}",
-      "components/**/*.{ts,tsx}",
-      "constants/**/*.{ts,tsx}",
-      "context/**/*.{ts,tsx}",
-      "lib/**/*.{ts,tsx}",
-      "utils/**/*.{ts,tsx}",
-      "e2e/**/*.ts",
-    ],
+    files: ["src/**/*.{ts,tsx}", "e2e/**/*.ts"],
     languageOptions: {
       parserOptions: {
         projectService: true,

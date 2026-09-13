@@ -14,13 +14,14 @@ notices.
   is in English. Repo documentation ships in three languages once it
   exists (`docs/`, root READMEs): flat, suffixed files — `X.md` (English,
   default), `X.pt-BR.md`, `X.es.md` — never per-language subfolders.
-- **Structure (current, pre-refactor).** The app is still organized by
-  technical layer at the repo root: `app/` (routes), `components/`,
-  `constants/`, `context/`, `lib/`, `utils/`, `@types/`. This moves to a
-  feature-first `src/features/<name>/` layout in a later step of the
-  update plan; until then, keep new code consistent with the layer it
-  belongs to today. Once the restructure lands, this file and
-  `docs/architecture.md` describe the dependency rules.
+- **Structure.** Feature-first under `src/`: `src/app/` holds thin routes
+  that only compose features; `src/features/<name>/` owns a page's or
+  section's components, data, and lib; `src/shared/` holds code with no
+  single feature owner (`components/`, `icons/`, `lib/`). Each feature
+  exposes its public API through `index.ts`; reach into another feature's
+  internals only through that barrel, never a deep import (ESLint doesn't
+  enforce this yet — a later step adds `import/no-restricted-paths`).
+  `docs/architecture.md` will describe this in full once it exists.
 - **Invariants — never break these:**
   - `GET /privacy-policy` returns 200 (linked from the app's settings and
     the Play Store listing).
