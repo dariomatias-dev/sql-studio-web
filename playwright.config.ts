@@ -32,5 +32,15 @@ export default defineConfig({
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    // Dummy EmailJS credentials so the forms attempt a real request (which
+    // e2e specs intercept, per the "never send real email in tests" rule)
+    // instead of failing early on the "missing env vars" guard. NEXT_PUBLIC_*
+    // vars are inlined at build time, so they must be set here, not just at
+    // runtime.
+    env: {
+      NEXT_PUBLIC_SERVICE_ID: "test-service-id",
+      NEXT_PUBLIC_TEMPLATE_ID: "test-template-id",
+      NEXT_PUBLIC_PUBLIC_KEY: "test-public-key",
+    },
   },
 });
