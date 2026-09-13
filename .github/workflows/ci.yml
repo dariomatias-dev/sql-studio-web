@@ -41,6 +41,17 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
+  unit:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+
+      - name: Unit tests with coverage
+        run: pnpm run test:coverage
+
   build:
     name: Build
     runs-on: ubuntu-latest

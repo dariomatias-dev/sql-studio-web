@@ -121,7 +121,7 @@ export const ScreenshotsCarousel = () => {
           ))}
         </div>
 
-        <div className="min-w-[60px] px-2 text-center sm:hidden">
+        <div className="min-w-15 px-2 text-center sm:hidden">
           <span className="text-sm font-semibold text-slate-600">
             {selectedIndex + 1} <span className="mx-1 text-slate-300">/</span> {screenshots.length}
           </span>

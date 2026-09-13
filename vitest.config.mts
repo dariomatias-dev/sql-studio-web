@@ -25,6 +25,20 @@ export default defineConfig({
         // shadcn/Radix primitives: styling only, no logic of our own.
         "src/shared/components/ui/**",
       ],
+      // Floor, not a target: measured minus a small margin (actual was
+      // 81.64/94.04/70.68/82.31 on 2026-09-13, right after the E29 component
+      // tests). Known gaps — most section components with no interaction of
+      // their own (cta, features-showcase, hero, workflow), the page-content
+      // wrappers now that their forms are tested separately, and the icon
+      // components — are a backlog, not a reason to lower this further.
+      // Raise it whenever a change measurably improves the aggregate;
+      // lowering it needs a reason in the commit message.
+      thresholds: {
+        statements: 78,
+        branches: 90,
+        functions: 65,
+        lines: 78,
+      },
     },
   },
 });
