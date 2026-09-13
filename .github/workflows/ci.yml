@@ -146,3 +146,25 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 7
+
+  lighthouse:
+    name: Lighthouse (report only)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+
+      # Pinned to v4: act's local artifact server (nektos/act#6022).
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: next-build
+          path: .next
+
+      - name: Run Lighthouse CI
+        run: pnpm run lighthouse
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        continue-on-error: true
