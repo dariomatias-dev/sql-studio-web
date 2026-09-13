@@ -109,10 +109,11 @@ export const Footer = () => {
               Built with passion for the SQL community.
             </p>
             <div className="flex items-center gap-3">
-              {socialLinks.map(({ href, icon: Icon }) => (
+              {socialLinks.map(({ href, icon: Icon, label }) => (
                 <a
                   key={href}
                   href={href}
+                  aria-label={label}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                   className="group relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-zinc-900 text-zinc-400 transition-all duration-300 hover:border-[#00BCD4]/30 hover:bg-[#00BCD4]/10 hover:text-[#00BCD4] hover:shadow-[0_0_20px_-5px_rgba(0,188,212,0.2)]"

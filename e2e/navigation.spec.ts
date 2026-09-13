@@ -90,10 +90,12 @@ test.describe("footer", () => {
 
     // The icon-only social links appear before the "Built by" bar at the
     // bottom, which also links to the same GitHub profile by name.
-    await expect(
-      footer.locator('a[href="https://github.com/dariomatias-dev"]').first(),
-    ).toBeVisible();
-    await expect(footer.locator('a[href^="mailto:"]')).toHaveAttribute(
+    await expect(footer.getByRole("link", { name: "GitHub" })).toHaveAttribute(
+      "href",
+      "https://github.com/dariomatias-dev",
+    );
+    await expect(footer.getByRole("link", { name: "LinkedIn" })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "Email" })).toHaveAttribute(
       "href",
       "mailto:matiasdario75@gmail.com",
     );

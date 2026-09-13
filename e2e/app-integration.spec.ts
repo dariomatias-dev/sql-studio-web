@@ -39,7 +39,7 @@ test.describe("/contact", () => {
     await page.locator("#message").fill("Testing the contact form.");
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(page.getByText("Message sent successfully!")).toBeVisible();
+    await expect(page.locator("form").getByRole("status")).toHaveText("Message sent successfully!");
     expect(emailjsRequestCount).toBe(1);
   });
 
@@ -54,6 +54,18 @@ test.describe("/contact", () => {
     await page.locator("#message").fill("Testing the contact form.");
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(page.getByText("Failed to send. Please try again.")).toBeVisible();
+    await expect(page.locator("form").getByRole("alert")).toHaveText(
+      "Failed to send. Please try again.",
+    );
+  });
+
+  test("an invalid submission marks fields invalid and focuses the first one", async ({ page }) => {
+    await page.goto("/contact");
+    await page.getByRole("button", { name: "Send Message" }).click();
+
+    const nameInput = page.locator("#name");
+    await expect(nameInput).toHaveAttribute("aria-invalid", "true");
+    await expect(nameInput).toHaveAttribute("aria-describedby", "name-error");
+    await expect(nameInput).toBeFocused();
   });
 });

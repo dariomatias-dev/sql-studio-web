@@ -49,7 +49,7 @@ export const BetaAccessForm = () => {
         <div className="absolute top-0 left-1/2 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent via-[#00BCD4]/30 to-transparent"></div>
 
         {status == Status.Success ? (
-          <div className="animate-in fade-in zoom-in text-center duration-500">
+          <div role="status" className="animate-in fade-in zoom-in text-center duration-500">
             <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-emerald-100 bg-emerald-50 shadow-[0_0_30px_-10px_rgba(16,185,129,0.2)]">
               <CheckCircle2 className="h-10 w-10 text-emerald-500" />
             </div>
@@ -134,7 +134,10 @@ export const BetaAccessForm = () => {
               </button>
 
               {status === Status.Error && (
-                <div className="animate-in fade-in slide-in-from-top-2 flex items-center justify-center gap-2 rounded-xl border border-red-100 bg-red-50 p-3 text-red-600">
+                <div
+                  role="alert"
+                  className="animate-in fade-in slide-in-from-top-2 flex items-center justify-center gap-2 rounded-xl border border-red-100 bg-red-50 p-3 text-red-600"
+                >
                   <AlertCircle className="h-5 w-5" />
                   <span className="text-sm font-medium">
                     Failed to send request. Please try again.
