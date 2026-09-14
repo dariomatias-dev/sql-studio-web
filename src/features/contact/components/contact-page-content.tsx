@@ -29,9 +29,9 @@ const ContactPageContent = () => {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="space-y-10">
             <div>
-              <h3 className="mb-4 text-2xl font-bold text-slate-900">
+              <h2 className="mb-4 text-2xl font-bold text-slate-900">
                 Let&apos;s start a conversation
-              </h3>
+              </h2>
               <p className="mb-8 leading-relaxed text-slate-600">
                 Since SQL Studio is an offline-first app tailored for developers, your feedback is
                 crucial for future updates. Whether it&apos;s a technical issue or a feature
@@ -80,7 +80,7 @@ const ContactPageContent = () => {
             </div>
 
             <div className="rounded-2xl border border-[#00BCD4]/10 bg-[#00BCD4]/5 p-6">
-              <h4 className="mb-2 font-semibold text-slate-900">Reporting a Bug?</h4>
+              <h3 className="mb-2 font-semibold text-slate-900">Reporting a Bug?</h3>
               <p className="text-sm leading-relaxed text-slate-600">
                 Please include your device model and Android version to help us resolve the issue
                 faster.

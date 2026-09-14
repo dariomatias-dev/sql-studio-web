@@ -54,7 +54,7 @@ export const BetaAccessForm = () => {
               <CheckCircle2 className="h-10 w-10 text-emerald-500" />
             </div>
 
-            <h3 className="mb-3 text-2xl font-bold text-slate-900">Request Received</h3>
+            <h2 className="mb-3 text-2xl font-bold text-slate-900">Request Received</h2>
             <p className="mb-8 text-sm leading-relaxed text-slate-500">
               You have been added to the waiting list. Please wait for an{" "}
               <span className="font-bold text-slate-700">invitation email</span> within the next 24

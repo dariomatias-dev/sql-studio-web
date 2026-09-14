@@ -11,7 +11,10 @@ const NotFoundPage = () => {
 
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
         <div className="relative mb-8 flex justify-center">
-          <div className="absolute inset-0 -z-10 flex items-center justify-center">
+          <div
+            className="absolute inset-0 -z-10 flex items-center justify-center"
+            aria-hidden="true"
+          >
             <span className="text-[12rem] leading-none font-black tracking-tighter text-slate-50 select-none md:text-[18rem]">
               404
             </span>

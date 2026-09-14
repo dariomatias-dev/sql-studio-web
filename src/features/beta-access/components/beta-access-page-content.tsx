@@ -34,7 +34,7 @@ const BetaAccessPageContent = () => {
         <BetaAccessForm />
 
         <div className="mt-12 w-full border-t border-slate-200 pt-8">
-          <h4 className="mb-6 text-center font-semibold text-slate-900">How it works</h4>
+          <h2 className="mb-6 text-center font-semibold text-slate-900">How it works</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
               {

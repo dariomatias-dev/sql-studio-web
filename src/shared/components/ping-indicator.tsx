@@ -18,6 +18,7 @@ export const PingIndicator = ({
 
   return (
     <span
+      aria-hidden="true"
       className={cn("relative flex items-center justify-center", className)}
       style={{ width: px, height: px }}
     >
