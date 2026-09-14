@@ -5,9 +5,11 @@ import { AlertCircle, AtSign, CheckCircle, Loader2, Send, User } from "lucide-re
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { HoneypotField } from "@/shared/components/honeypot-field";
 import { NoJsWarning } from "@/shared/components/no-js-warning";
 import type { EmailData } from "@/shared/lib/email";
 import { sendEmail } from "@/shared/lib/email";
+import { useSpamGuard } from "@/shared/lib/spam-guard";
 
 import { schema, type FormData } from "../lib/schema";
 
@@ -20,6 +22,7 @@ enum SubmitStatus {
 export const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(SubmitStatus.Idle);
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const { honeypotRef, isSpam } = useSpamGuard();
 
   useEffect(() => {
     return () => clearTimeout(resetTimeoutRef.current);
@@ -43,6 +46,13 @@ export const ContactForm = () => {
 
   const onSubmit = async (value: FormData) => {
     setSubmitStatus(SubmitStatus.Idle);
+
+    if (isSpam()) {
+      setSubmitStatus(SubmitStatus.Success);
+      reset();
+      resetTimeoutRef.current = setTimeout(() => setSubmitStatus(SubmitStatus.Idle), 5000);
+      return;
+    }
 
     try {
       const data: EmailData = {
@@ -74,6 +84,7 @@ export const ContactForm = () => {
 
       <form onSubmit={(e) => void handleSubmit(onSubmit, onInvalid)(e)} className="space-y-6">
         <NoJsWarning />
+        <HoneypotField inputRef={honeypotRef} />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="space-y-2">

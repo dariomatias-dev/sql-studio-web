@@ -4,9 +4,11 @@ import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-rea
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { HoneypotField } from "@/shared/components/honeypot-field";
 import { NoJsWarning } from "@/shared/components/no-js-warning";
 import { GooglePlayIcon } from "@/shared/icons";
 import { sendEmail } from "@/shared/lib/email";
+import { useSpamGuard } from "@/shared/lib/spam-guard";
 
 enum Status {
   Idle,
@@ -19,6 +21,7 @@ export const BetaAccessForm = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>(Status.Idle);
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const { honeypotRef, isSpam } = useSpamGuard();
 
   useEffect(() => {
     return () => clearTimeout(resetTimeoutRef.current);
@@ -26,6 +29,12 @@ export const BetaAccessForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isSpam()) {
+      setStatus(Status.Success);
+      return;
+    }
+
     setStatus(Status.Submitting);
 
     try {
@@ -83,6 +92,7 @@ export const BetaAccessForm = () => {
         ) : (
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
             <NoJsWarning />
+            <HoneypotField inputRef={honeypotRef} />
 
             <div className="space-y-3">
               <label htmlFor="email" className="ml-1 block text-sm font-semibold text-slate-700">

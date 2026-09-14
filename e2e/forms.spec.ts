@@ -23,6 +23,8 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
+    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
+    await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
     await expect(page.getByRole("heading", { name: "Request Received" })).toBeVisible();
@@ -36,6 +38,8 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
+    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
+    await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
     await expect(page.getByText("Failed to send request. Please try again.")).toBeVisible();

@@ -37,6 +37,8 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
+    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
+    await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(page.locator("form").getByRole("status")).toHaveText("Message sent successfully!");
@@ -52,6 +54,8 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
+    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
+    await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(page.locator("form").getByRole("alert")).toHaveText(

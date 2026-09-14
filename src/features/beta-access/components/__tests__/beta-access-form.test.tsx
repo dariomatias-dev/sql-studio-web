@@ -10,6 +10,13 @@ vi.mock("@/shared/lib/email", () => ({
   sendEmail: vi.fn(),
 }));
 
+// The spam guard's minimum-fill-time check would otherwise flag these
+// instant, scripted submissions as spam; its own blocking behavior is
+// covered separately in beta-access-form.spam.test.tsx.
+vi.mock("@/shared/lib/spam-guard", () => ({
+  useSpamGuard: () => ({ honeypotRef: { current: null }, isSpam: () => false }),
+}));
+
 describe("BetaAccessForm", () => {
   afterEach(() => {
     vi.mocked(sendEmail).mockReset();
