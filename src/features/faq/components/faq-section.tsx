@@ -17,7 +17,7 @@ export const FaqSection = () => {
 
       <div className="relative z-10 mx-auto max-w-4xl">
         <div className="mb-16 text-center md:mb-20">
-          <span className="mb-3 block text-xs font-bold tracking-wider text-[#00BCD4] uppercase">
+          <span className="mb-3 block text-xs font-bold tracking-wider text-cyan-700 uppercase">
             Common Questions
           </span>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">

@@ -33,7 +33,7 @@ export const WorkflowSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="lg:w-1/2">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#00BCD4]/10 px-3 py-1 text-xs font-bold tracking-wider text-[#00BCD4] uppercase">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#00BCD4]/10 px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
               Seamless Workflow
             </div>
 
@@ -50,7 +50,7 @@ export const WorkflowSection = () => {
             </p>
 
             <div className="relative space-y-12">
-              <div className="absolute top-4 bottom-4 left-[27px] w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />
+              <div className="absolute top-4 bottom-4 left-6.75 w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />
 
               {steps.map((step, index) => (
                 <div key={index} className="group relative flex gap-8">

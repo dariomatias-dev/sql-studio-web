@@ -130,11 +130,11 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-10 text-sm md:flex-row">
-          <p className="font-medium text-zinc-500">
+          <p className="font-medium text-zinc-400">
             &copy; <CopyrightYear /> SQL Studio. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5 rounded-full border border-white/5 bg-zinc-900/30 px-5 py-2.5 backdrop-blur-sm transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-800/50">
-            <span className="text-xs font-bold tracking-wider text-zinc-500 uppercase">
+            <span className="text-xs font-bold tracking-wider text-zinc-400 uppercase">
               Built by
             </span>
             <a

@@ -1,4 +1,17 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+
+test.describe("axe scan", () => {
+  for (const path of ["/", "/contact", "/download", "/privacy-policy", "/terms-of-service"]) {
+    test(`${path} has no automatically detectable violations`, async ({ page }) => {
+      await page.goto(path);
+
+      const results = await new AxeBuilder({ page }).analyze();
+
+      expect(results.violations).toEqual([]);
+    });
+  }
+});
 
 test.describe("heading hierarchy", () => {
   for (const path of ["/", "/contact", "/download", "/privacy-policy", "/terms-of-service"]) {

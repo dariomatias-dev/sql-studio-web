@@ -54,7 +54,7 @@ const BetaAccessPageContent = () => {
               },
             ].map((item, idx) => (
               <div key={idx} className="group flex flex-col items-center gap-2 text-center">
-                <span className="mb-1 rounded-md border border-[#00BCD4]/20 bg-[#00BCD4]/10 px-2 py-1 text-xs font-bold text-[#00BCD4]">
+                <span className="mb-1 rounded-md border border-[#00BCD4]/20 bg-[#00BCD4]/10 px-2 py-1 text-xs font-bold text-cyan-700">
                   Step {item.step}
                 </span>
                 <span className="text-sm font-bold text-slate-700">{item.title}</span>

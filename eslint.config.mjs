@@ -4,6 +4,7 @@ import { globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import eslintConfigPrettier from "eslint-config-prettier";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 // Resolves an except pattern to an absolute path.
 const abs = (p) => path.resolve(import.meta.dirname, p);
@@ -27,6 +28,8 @@ const eslintConfig = [
   ...nextTs,
   {
     rules: {
+      // Only .rules: eslint-config-next already registers the jsx-a11y plugin, re-registering it errors.
+      ...jsxA11y.flatConfigs.recommended.rules,
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

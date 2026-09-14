@@ -102,7 +102,7 @@ const TermsOfServiceContent = () => {
                     href="https://policies.google.com/terms"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-[#00BCD4] hover:underline"
+                    className="font-medium text-cyan-700 hover:underline"
                   >
                     Google Play Services
                   </a>
@@ -156,7 +156,7 @@ const TermsOfServiceContent = () => {
                 hesitate to contact the Service Provider at{" "}
                 <a
                   href="mailto:matiasdario75@gmail.com"
-                  className="font-medium text-[#00BCD4] decoration-2 underline-offset-4 hover:text-[#00ACC1] hover:underline"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
                   matiasdario75@gmail.com
                 </a>

@@ -7,7 +7,7 @@ export const ScreenshotsSection = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="mx-auto mb-6 max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#00BCD4]/30 bg-[#00BCD4]/5 px-3 py-1 text-xs font-bold tracking-wider text-[#00BCD4] uppercase">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#00BCD4]/30 bg-[#00BCD4]/5 px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
             Interface Design
           </div>
 

@@ -129,7 +129,7 @@ const PrivacyPolicyContent = () => {
                 at{" "}
                 <a
                   href="mailto:matiasdario75@gmail.com"
-                  className="font-medium text-[#00BCD4] decoration-2 underline-offset-4 hover:text-[#00ACC1] hover:underline"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
                   matiasdario75@gmail.com
                 </a>{" "}
@@ -156,7 +156,7 @@ const PrivacyPolicyContent = () => {
                 Provider (
                 <a
                   href="mailto:matiasdario75@gmail.com"
-                  className="font-medium text-[#00BCD4] decoration-2 underline-offset-4 hover:text-[#00ACC1] hover:underline"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
                   matiasdario75@gmail.com
                 </a>
@@ -201,7 +201,7 @@ const PrivacyPolicyContent = () => {
                 questions about the practices, please contact the Service Provider via email at{" "}
                 <a
                   href="mailto:matiasdario75@gmail.com"
-                  className="font-medium text-[#00BCD4] decoration-2 underline-offset-4 hover:text-[#00ACC1] hover:underline"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
                   matiasdario75@gmail.com
                 </a>

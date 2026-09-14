@@ -15,11 +15,11 @@ export default defineConfig({
   },
   projects: [
     { name: "chromium-desktop", use: { ...devices["Desktop Chrome"] } },
-    // Runs only smoke.spec.ts and app-integration.spec.ts.
+    // Runs only smoke.spec.ts, app-integration.spec.ts, and a11y.spec.ts.
     {
       name: "mobile-chrome",
       use: { ...devices["Pixel 7"] },
-      testMatch: /(smoke|app-integration)\.spec\.ts/,
+      testMatch: /(smoke|app-integration|a11y)\.spec\.ts/,
     },
   ],
   webServer: {
