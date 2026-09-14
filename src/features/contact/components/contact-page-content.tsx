@@ -1,6 +1,7 @@
 import { Mail, MessageSquare } from "lucide-react";
 
 import { GithubIcon, LinkedinIcon } from "@/shared/icons";
+import { GITHUB_URL, LINKEDIN_URL, SITE_EMAIL } from "@/shared/lib/site";
 
 import { ContactForm } from "./contact-form";
 
@@ -46,10 +47,10 @@ const ContactPageContent = () => {
                   <div>
                     <p className="mb-1 text-sm font-semibold text-slate-900">Email Support</p>
                     <a
-                      href="mailto:matiasdario75@gmail.com"
+                      href={`mailto:${SITE_EMAIL}`}
                       className="text-slate-600 transition-colors hover:text-[#00BCD4]"
                     >
-                      matiasdario75@gmail.com
+                      {SITE_EMAIL}
                     </a>
                   </div>
                 </div>
@@ -58,7 +59,7 @@ const ContactPageContent = () => {
 
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/dariomatias-dev"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"
@@ -67,7 +68,7 @@ const ContactPageContent = () => {
                     GitHub Profile
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/dariomatias-dev/"
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"

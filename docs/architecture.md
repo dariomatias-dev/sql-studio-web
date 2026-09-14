@@ -87,14 +87,14 @@ None right now. Every feature-to-feature import goes through a barrel.
 
 `/contact` and `/download` both submit through EmailJS
 (`@emailjs/browser`), directly from the browser — there is no backend of
-our own. `shared/lib/email.ts` wraps the `/contact` form's call
-(`sendEmail`); `/download`'s beta-access form calls the SDK directly, since
-its payload shape differs. Both read the same three
-`NEXT_PUBLIC_SERVICE_ID`/`NEXT_PUBLIC_TEMPLATE_ID`/`NEXT_PUBLIC_PUBLIC_KEY`
-environment variables, inlined at build time. No test, e2e spec, or `act`
-run ever lets a request reach `api.emailjs.com` for real — it's always
-intercepted or given fake credentials that only work against a mocked
-endpoint.
+our own. Both go through the same `shared/lib/email.ts` helper
+(`sendEmail`), which reads the three
+`NEXT_PUBLIC_EMAILJS_SERVICE_ID`/`NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`/`NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
+environment variables, inlined at build time, and throws a friendly error
+if any is missing instead of attempting the request. No test, e2e spec,
+or `act` run ever lets a request reach `api.emailjs.com` for real — it's
+always intercepted or given fake credentials that only work against a
+mocked endpoint.
 
 ## Decisions
 

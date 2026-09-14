@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { PingIndicator } from "@/shared/components/ping-indicator";
+import { GITHUB_URL } from "@/shared/lib/site";
 
 import { BackToTopButton } from "./back-to-top-button";
 import { CopyrightYear } from "./copyright-year";
@@ -138,7 +139,7 @@ export const Footer = () => {
               Built by
             </span>
             <a
-              href="https://github.com/dariomatias-dev"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold text-zinc-200 transition-colors hover:text-[#00BCD4]"

@@ -1,12 +1,14 @@
 import { Footer, Header } from "@/features/layout";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/shared/lib/site";
 
 import type { Metadata } from "next";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SQL Studio",
-  description: "Official SQL Studio website",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
 };
 
 interface RootLayoutProps {

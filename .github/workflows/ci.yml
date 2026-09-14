@@ -19,9 +19,9 @@ concurrency:
 # time, so they must be set for the build step, not just at runtime — keep
 # these in sync with playwright.config.ts's webServer.env.
 env:
-  NEXT_PUBLIC_SERVICE_ID: test-service-id
-  NEXT_PUBLIC_TEMPLATE_ID: test-template-id
-  NEXT_PUBLIC_PUBLIC_KEY: test-public-key
+  NEXT_PUBLIC_EMAILJS_SERVICE_ID: test-service-id
+  NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: test-template-id
+  NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: test-public-key
 
 jobs:
   commit-lint:

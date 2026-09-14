@@ -1,5 +1,7 @@
 import { Calendar, FileText } from "lucide-react";
 
+import { SITE_EMAIL } from "@/shared/lib/site";
+
 const TermsOfServiceContent = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
@@ -155,10 +157,10 @@ const TermsOfServiceContent = () => {
                 If you have any questions or suggestions about the Terms and Conditions, do not
                 hesitate to contact the Service Provider at{" "}
                 <a
-                  href="mailto:matiasdario75@gmail.com"
+                  href={`mailto:${SITE_EMAIL}`}
                   className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
-                  matiasdario75@gmail.com
+                  {SITE_EMAIL}
                 </a>
                 .
               </p>

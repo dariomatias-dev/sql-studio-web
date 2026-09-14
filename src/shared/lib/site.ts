@@ -1,0 +1,9 @@
+import { env } from "./env";
+
+export const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
+
+export const SITE_NAME = "SQL Studio";
+export const SITE_DESCRIPTION = "Official SQL Studio website";
+export const SITE_EMAIL = "matiasdario75@gmail.com";
+export const GITHUB_URL = "https://github.com/dariomatias-dev";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/dariomatias-dev/";

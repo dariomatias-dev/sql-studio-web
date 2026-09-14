@@ -38,9 +38,9 @@ export default defineConfig({
     // vars are inlined at build time, so they must be set here, not just at
     // runtime.
     env: {
-      NEXT_PUBLIC_SERVICE_ID: "test-service-id",
-      NEXT_PUBLIC_TEMPLATE_ID: "test-template-id",
-      NEXT_PUBLIC_PUBLIC_KEY: "test-public-key",
+      NEXT_PUBLIC_EMAILJS_SERVICE_ID: "test-service-id",
+      NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: "test-template-id",
+      NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: "test-public-key",
     },
   },
 });

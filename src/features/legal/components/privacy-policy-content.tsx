@@ -1,5 +1,7 @@
 import { Calendar, Shield } from "lucide-react";
 
+import { SITE_EMAIL } from "@/shared/lib/site";
+
 const PrivacyPolicyContent = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
@@ -128,10 +130,10 @@ const PrivacyPolicyContent = () => {
                 User Provided Data that you have provided via the Application, please contact them
                 at{" "}
                 <a
-                  href="mailto:matiasdario75@gmail.com"
+                  href={`mailto:${SITE_EMAIL}`}
                   className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
-                  matiasdario75@gmail.com
+                  {SITE_EMAIL}
                 </a>{" "}
                 and they will respond in a reasonable time.
               </p>
@@ -155,10 +157,10 @@ const PrivacyPolicyContent = () => {
                 Provider through the Application and/or Services, please contact the Service
                 Provider (
                 <a
-                  href="mailto:matiasdario75@gmail.com"
+                  href={`mailto:${SITE_EMAIL}`}
                   className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
-                  matiasdario75@gmail.com
+                  {SITE_EMAIL}
                 </a>
                 ) so that they will be able to take the necessary actions. You must also be at least
                 16 years of age to consent to the processing of your personally identifiable
@@ -200,10 +202,10 @@ const PrivacyPolicyContent = () => {
                 If you have any questions regarding privacy while using the Application, or have
                 questions about the practices, please contact the Service Provider via email at{" "}
                 <a
-                  href="mailto:matiasdario75@gmail.com"
+                  href={`mailto:${SITE_EMAIL}`}
                   className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
                 >
-                  matiasdario75@gmail.com
+                  {SITE_EMAIL}
                 </a>
                 .
               </p>

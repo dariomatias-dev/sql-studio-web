@@ -17,9 +17,9 @@ describe("sendEmail", () => {
   const originalEnv = { ...process.env };
 
   beforeEach(() => {
-    process.env.NEXT_PUBLIC_SERVICE_ID = "service-id";
-    process.env.NEXT_PUBLIC_TEMPLATE_ID = "template-id";
-    process.env.NEXT_PUBLIC_PUBLIC_KEY = "public-key";
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID = "service-id";
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = "template-id";
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = "public-key";
     vi.mocked(emailjs.send).mockReset();
   });
 
@@ -28,7 +28,7 @@ describe("sendEmail", () => {
   });
 
   it("throws without sending when any EmailJS env var is missing", async () => {
-    delete process.env.NEXT_PUBLIC_SERVICE_ID;
+    delete process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 
     await expect(sendEmail(data)).rejects.toThrow("Missing EmailJS environment variables");
     expect(emailjs.send).not.toHaveBeenCalled();

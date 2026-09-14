@@ -7,9 +7,9 @@ export interface EmailData {
 }
 
 export const sendEmail = async (data: EmailData): Promise<void> => {
-  const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID as string;
-  const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
-  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
+  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
+  const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
   if (!serviceID || !templateID || !publicKey) {
     throw new Error("Missing EmailJS environment variables");
