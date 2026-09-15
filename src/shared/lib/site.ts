@@ -8,3 +8,4 @@ export const SITE_DESCRIPTION =
 export const SITE_EMAIL = "matiasdario75@gmail.com";
 export const GITHUB_URL = "https://github.com/dariomatias-dev";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/dariomatias-dev/";
+export const APP_REPOSITORY_URL = "https://github.com/dariomatias-dev/sql_studio_app";

@@ -40,3 +40,30 @@ for (const { path, title } of routes) {
     );
   });
 }
+
+test("the homepage embeds a MobileApplication JSON-LD script with no price or Play Store link", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const raw = await page.locator('script[type="application/ld+json"]').textContent();
+  const data = JSON.parse(raw ?? "{}");
+
+  expect(data["@type"]).toBe("MobileApplication");
+  expect(data.operatingSystem).toBe("Android");
+  expect(data.offers).toBeUndefined();
+  expect(JSON.stringify(data)).not.toMatch(/play\.google\.com/);
+});
+
+test("the Open Graph image renders as a real 1200x630 PNG", async ({ page, request }) => {
+  await page.goto("/");
+
+  const ogImageUrl = await page.locator('meta[property="og:image"]').getAttribute("content");
+  expect(ogImageUrl).toBeTruthy();
+  // og:image is an absolute production URL (metadataBase); re-request path+query against the test server.
+  const { pathname, search } = new URL(ogImageUrl as string);
+
+  const response = await request.get(`${pathname}${search}`);
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toBe("image/png");
+});
