@@ -121,8 +121,8 @@ export const ScreenshotsCarousel = () => {
                           alt={screenshotDescriptions[index]}
                           fill
                           className="object-cover"
-                          sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1024px) 35vw, 25vw"
-                          priority={Math.abs(index - selectedIndex) < 4}
+                          sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1024px) 35vw, min(25vw, 450px)"
+                          priority={index === 0}
                         />
                         <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-50" />
                       </div>

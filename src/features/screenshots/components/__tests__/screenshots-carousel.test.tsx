@@ -54,6 +54,32 @@ describe("ScreenshotsCarousel", () => {
     expect(firstSlideImage.getAttribute("alt")).not.toMatch(/^Screen \d+$/);
   });
 
+  // next/image marks a `priority` image by preloading it via a
+  // `<link rel="preload">` in <head>, not an attribute on the <img> itself.
+  const preloadedImageUrls = () =>
+    Array.from(document.head.querySelectorAll('link[rel="preload"][as="image"]')).map((link) =>
+      link.getAttribute("imagesrcset"),
+    );
+
+  it("preloads only the first slide's image", () => {
+    render(<ScreenshotsCarousel />);
+
+    const preloads = preloadedImageUrls();
+    expect(preloads).toHaveLength(1);
+    expect(preloads[0]).toContain("screenshot_1.jpg");
+  });
+
+  it("keeps the same image preloaded after navigating to another slide", async () => {
+    const user = userEvent.setup();
+    render(<ScreenshotsCarousel />);
+
+    await user.click(screen.getByLabelText("Go to slide 5"));
+
+    const preloads = preloadedImageUrls();
+    expect(preloads).toHaveLength(1);
+    expect(preloads[0]).toContain("screenshot_1.jpg");
+  });
+
   it("advances to the next slide with the right arrow key", async () => {
     const user = userEvent.setup();
     render(<ScreenshotsCarousel />);
