@@ -128,14 +128,16 @@ Client Component, y por qué).
 
 ## Documentación
 
-| Doc                                                | Cubre                                                   |
-| -------------------------------------------------- | ------------------------------------------------------- |
-| [docs/architecture.es.md](docs/architecture.es.md) | Estructura feature-first, renderizado, formularios      |
-| [docs/testing.es.md](docs/testing.es.md)           | Qué merece una prueba, la regla de mock de EmailJS      |
-| [docs/ci.es.md](docs/ci.es.md)                     | Cada job del CI, gate vs. reporte, reproducir con `act` |
-| [docs/dependencies.es.md](docs/dependencies.es.md) | Paquetes con versión exacta, `pnpm.overrides`, Renovate |
-| [docs/performance.es.md](docs/performance.es.md)   | El presupuesto de bundle y Lighthouse CI                |
-| [docs/security.es.md](docs/security.es.md)         | Alcance de amenazas y cómo reportar una vulnerabilidad  |
+| Doc                                                      | Cubre                                                       |
+| -------------------------------------------------------- | ----------------------------------------------------------- |
+| [docs/architecture.es.md](docs/architecture.es.md)       | Estructura feature-first, renderizado, formularios          |
+| [docs/testing.es.md](docs/testing.es.md)                 | Qué merece una prueba, la regla de mock de EmailJS          |
+| [docs/ci.es.md](docs/ci.es.md)                           | Cada job del CI, gate vs. reporte, reproducir con `act`     |
+| [docs/dependencies.es.md](docs/dependencies.es.md)       | Paquetes con versión exacta, `pnpm.overrides`, Renovate     |
+| [docs/performance.es.md](docs/performance.es.md)         | El presupuesto de bundle y Lighthouse CI                    |
+| [docs/security.es.md](docs/security.es.md)               | Alcance de amenazas y cómo reportar una vulnerabilidad      |
+| [docs/contributing.es.md](docs/contributing.es.md)       | Configuración, el gate local, convenciones de commit y rama |
+| [docs/code_of_conduct.es.md](docs/code_of_conduct.es.md) | El Contributor Covenant que sigue este proyecto             |
 
 ## Cómo Contribuir
 
@@ -148,6 +150,10 @@ para aprender y crear. Cualquier contribución es bienvenida.
 4. Haz commit usando [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m 'feat(contact): add MiFuncionalidad'`.
 5. Sube la rama: `git push origin feature/MiFuncionalidad`.
 6. Abre un pull request.
+
+Ver [docs/contributing.es.md](docs/contributing.es.md) para los
+detalles completos de configuración y gate. Este proyecto sigue el
+[Contributor Covenant](docs/code_of_conduct.es.md).
 
 ## Seguridad
 

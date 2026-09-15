@@ -126,14 +126,16 @@ quê).
 
 ## Documentação
 
-| Doc                                                      | Cobre                                                    |
-| -------------------------------------------------------- | -------------------------------------------------------- |
-| [docs/architecture.pt-BR.md](docs/architecture.pt-BR.md) | Estrutura feature-first, renderização, formulários       |
-| [docs/testing.pt-BR.md](docs/testing.pt-BR.md)           | O que merece um teste, a regra de mock do EmailJS        |
-| [docs/ci.pt-BR.md](docs/ci.pt-BR.md)                     | Cada job do CI, gate vs. relatório, reproduzir com `act` |
-| [docs/dependencies.pt-BR.md](docs/dependencies.pt-BR.md) | Pacotes com versão exata, `pnpm.overrides`, Renovate     |
-| [docs/performance.pt-BR.md](docs/performance.pt-BR.md)   | O orçamento de bundle e o Lighthouse CI                  |
-| [docs/security.pt-BR.md](docs/security.pt-BR.md)         | Escopo de ameaças e como reportar uma vulnerabilidade    |
+| Doc                                                            | Cobre                                                     |
+| -------------------------------------------------------------- | --------------------------------------------------------- |
+| [docs/architecture.pt-BR.md](docs/architecture.pt-BR.md)       | Estrutura feature-first, renderização, formulários        |
+| [docs/testing.pt-BR.md](docs/testing.pt-BR.md)                 | O que merece um teste, a regra de mock do EmailJS         |
+| [docs/ci.pt-BR.md](docs/ci.pt-BR.md)                           | Cada job do CI, gate vs. relatório, reproduzir com `act`  |
+| [docs/dependencies.pt-BR.md](docs/dependencies.pt-BR.md)       | Pacotes com versão exata, `pnpm.overrides`, Renovate      |
+| [docs/performance.pt-BR.md](docs/performance.pt-BR.md)         | O orçamento de bundle e o Lighthouse CI                   |
+| [docs/security.pt-BR.md](docs/security.pt-BR.md)               | Escopo de ameaças e como reportar uma vulnerabilidade     |
+| [docs/contributing.pt-BR.md](docs/contributing.pt-BR.md)       | Configuração, o gate local, convenções de commit e branch |
+| [docs/code_of_conduct.pt-BR.md](docs/code_of_conduct.pt-BR.md) | O Contributor Covenant que este projeto segue             |
 
 ## Como contribuir
 
@@ -146,6 +148,10 @@ aprender e criar. Qualquer contribuição é bem-vinda.
 4. Commite usando [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m 'feat(contact): add MinhaFuncionalidade'`.
 5. Envie a branch: `git push origin feature/MinhaFuncionalidade`.
 6. Abra um pull request.
+
+Veja [docs/contributing.pt-BR.md](docs/contributing.pt-BR.md) pros
+detalhes completos de configuração e gate. Este projeto segue o
+[Contributor Covenant](docs/code_of_conduct.pt-BR.md).
 
 ## Segurança
 

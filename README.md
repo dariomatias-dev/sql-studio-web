@@ -124,14 +124,16 @@ the rendering strategy (what's a Server vs. a Client Component, and why).
 
 ## Documentation
 
-| Doc                                          | Covers                                                |
-| -------------------------------------------- | ----------------------------------------------------- |
-| [docs/architecture.md](docs/architecture.md) | Feature-first structure, rendering, forms             |
-| [docs/testing.md](docs/testing.md)           | What merits a test, the EmailJS mocking rule          |
-| [docs/ci.md](docs/ci.md)                     | Every CI job, gate vs. report, reproducing with `act` |
-| [docs/dependencies.md](docs/dependencies.md) | Exact-pinned packages, `pnpm.overrides`, Renovate     |
-| [docs/performance.md](docs/performance.md)   | The bundle-size budget and Lighthouse CI              |
-| [docs/security.md](docs/security.md)         | Threat scope and how to report a vulnerability        |
+| Doc                                                | Covers                                                |
+| -------------------------------------------------- | ----------------------------------------------------- |
+| [docs/architecture.md](docs/architecture.md)       | Feature-first structure, rendering, forms             |
+| [docs/testing.md](docs/testing.md)                 | What merits a test, the EmailJS mocking rule          |
+| [docs/ci.md](docs/ci.md)                           | Every CI job, gate vs. report, reproducing with `act` |
+| [docs/dependencies.md](docs/dependencies.md)       | Exact-pinned packages, `pnpm.overrides`, Renovate     |
+| [docs/performance.md](docs/performance.md)         | The bundle-size budget and Lighthouse CI              |
+| [docs/security.md](docs/security.md)               | Threat scope and how to report a vulnerability        |
+| [docs/contributing.md](docs/contributing.md)       | Setup, the local gate, commit and branch conventions  |
+| [docs/code_of_conduct.md](docs/code_of_conduct.md) | The Contributor Covenant this project follows         |
 
 ## Contributing
 
@@ -144,6 +146,10 @@ create. Any contribution is appreciated.
 4. Commit using [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m 'feat(contact): add AmazingFeature'`.
 5. Push to the branch: `git push origin feature/AmazingFeature`.
 6. Open a pull request.
+
+See [docs/contributing.md](docs/contributing.md) for the full setup and
+gate details. This project follows the
+[Contributor Covenant](docs/code_of_conduct.md).
 
 ## Security
 
