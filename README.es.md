@@ -116,7 +116,7 @@ enviar.
 
 El código está organizado feature-first en `src/features/*`, con solo lo
 genuinamente compartido en `src/shared/*`. Ver
-[docs/architecture.md](docs/architecture.md) para las reglas de
+[docs/architecture.es.md](docs/architecture.es.md) para las reglas de
 dependencia y la estrategia de renderizado (qué es un Server vs. un
 Client Component, y por qué).
 
@@ -124,20 +124,18 @@ Client Component, y por qué).
 
 - Pruebas unitarias y de componentes con Vitest y Testing Library (`pnpm run test:run`).
 - Pruebas end-to-end con Playwright, incluyendo escaneos de accesibilidad con axe (`pnpm run test:e2e`).
-- Los formularios nunca envían correo real en ninguna prueba — las solicitudes a EmailJS siempre se interceptan o simulan. Ver [docs/testing.md](docs/testing.md).
+- Los formularios nunca envían correo real en ninguna prueba — las solicitudes a EmailJS siempre se interceptan o simulan. Ver [docs/testing.es.md](docs/testing.es.md).
 
 ## Documentación
 
-> La documentación en `docs/` todavía está solo en inglés.
-
-| Doc                                          | Cubre                                                   |
-| -------------------------------------------- | ------------------------------------------------------- |
-| [docs/architecture.md](docs/architecture.md) | Estructura feature-first, renderizado, formularios      |
-| [docs/testing.md](docs/testing.md)           | Qué merece una prueba, la regla de mock de EmailJS      |
-| [docs/ci.md](docs/ci.md)                     | Cada job del CI, gate vs. reporte, reproducir con `act` |
-| [docs/dependencies.md](docs/dependencies.md) | Paquetes con versión exacta, `pnpm.overrides`, Renovate |
-| [docs/performance.md](docs/performance.md)   | El presupuesto de bundle y Lighthouse CI                |
-| [docs/security.md](docs/security.md)         | Alcance de amenazas y cómo reportar una vulnerabilidad  |
+| Doc                                                | Cubre                                                   |
+| -------------------------------------------------- | ------------------------------------------------------- |
+| [docs/architecture.es.md](docs/architecture.es.md) | Estructura feature-first, renderizado, formularios      |
+| [docs/testing.es.md](docs/testing.es.md)           | Qué merece una prueba, la regla de mock de EmailJS      |
+| [docs/ci.es.md](docs/ci.es.md)                     | Cada job del CI, gate vs. reporte, reproducir con `act` |
+| [docs/dependencies.es.md](docs/dependencies.es.md) | Paquetes con versión exacta, `pnpm.overrides`, Renovate |
+| [docs/performance.es.md](docs/performance.es.md)   | El presupuesto de bundle y Lighthouse CI                |
+| [docs/security.es.md](docs/security.es.md)         | Alcance de amenazas y cómo reportar una vulnerabilidad  |
 
 ## Cómo Contribuir
 
@@ -154,7 +152,7 @@ para aprender y crear. Cualquier contribución es bienvenida.
 ## Seguridad
 
 ¿Encontraste una vulnerabilidad? Por favor no abras un issue público. Ver
-[docs/security.md](docs/security.md) para cómo reportarla de forma
+[docs/security.es.md](docs/security.es.md) para cómo reportarla de forma
 privada.
 
 ## Changelog

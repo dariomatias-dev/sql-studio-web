@@ -8,15 +8,17 @@ Two principles run through every workflow here:
    gets blocked over a missing token.
 2. **The local gate mirrors CI.** `pnpm run verify` runs the same checks
    `ci.yml` runs, in the same order (`typecheck` → `lint` →
-   `format:check` → `test:coverage` → `build` → `test:e2e`; `--fast` skips
-   `build` and `test:e2e`). A green local run should mean a green CI run.
+   `format:check` → `check:docs-locales` → `test:coverage` → `build` →
+   `check:bundle-size` → `test:e2e`; `--fast` skips `build`,
+   `check:bundle-size`, and `test:e2e`). A green local run should mean a
+   green CI run.
 
 ## `.github/workflows/ci.yml`
 
 | Job               | Checks                                                                                | Gate or report?                          |
 | ----------------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `commit-lint`     | PR title against Conventional Commits (pull requests only)                            | Gate, blocks merge                       |
-| `quality`         | format, lint, types                                                                   | Gate, blocks merge                       |
+| `quality`         | format, lint, types, docs locale parity                                               | Gate, blocks merge                       |
 | `unit`            | Vitest with coverage thresholds, then a Codecov upload                                | Tests gate; the upload is report only    |
 | `build`           | `next build`                                                                          | Gate, blocks merge                       |
 | `e2e`             | Playwright (smoke, navigation, app integration, no-js; desktop and a mobile viewport) | Gate, blocks merge                       |

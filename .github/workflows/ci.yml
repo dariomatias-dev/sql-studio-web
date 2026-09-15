@@ -55,6 +55,9 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
+      - name: Check docs locale parity
+        run: pnpm run check:docs-locales
+
   vulnerabilities:
     name: Vulnerabilities (report only)
     runs-on: ubuntu-latest

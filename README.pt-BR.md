@@ -114,7 +114,7 @@ renderizando normalmente — só mostram um erro amigável em vez de enviar.
 
 O código é organizado feature-first em `src/features/*`, com apenas o
 genuinamente compartilhado em `src/shared/*`. Veja
-[docs/architecture.md](docs/architecture.md) pras regras de dependência e
+[docs/architecture.pt-BR.md](docs/architecture.pt-BR.md) pras regras de dependência e
 a estratégia de renderização (o que é Server vs. Client Component, e por
 quê).
 
@@ -122,20 +122,18 @@ quê).
 
 - Testes de unidade e componente com Vitest e Testing Library (`pnpm run test:run`).
 - Testes end-to-end com Playwright, incluindo varreduras de acessibilidade com axe (`pnpm run test:e2e`).
-- Formulários nunca enviam e-mail de verdade em nenhum teste — as requisições ao EmailJS são sempre interceptadas ou mockadas. Veja [docs/testing.md](docs/testing.md).
+- Formulários nunca enviam e-mail de verdade em nenhum teste — as requisições ao EmailJS são sempre interceptadas ou mockadas. Veja [docs/testing.pt-BR.md](docs/testing.pt-BR.md).
 
 ## Documentação
 
-> A documentação em `docs/` ainda está só em inglês.
-
-| Doc                                          | Cobre                                                    |
-| -------------------------------------------- | -------------------------------------------------------- |
-| [docs/architecture.md](docs/architecture.md) | Estrutura feature-first, renderização, formulários       |
-| [docs/testing.md](docs/testing.md)           | O que merece um teste, a regra de mock do EmailJS        |
-| [docs/ci.md](docs/ci.md)                     | Cada job do CI, gate vs. relatório, reproduzir com `act` |
-| [docs/dependencies.md](docs/dependencies.md) | Pacotes com versão exata, `pnpm.overrides`, Renovate     |
-| [docs/performance.md](docs/performance.md)   | O orçamento de bundle e o Lighthouse CI                  |
-| [docs/security.md](docs/security.md)         | Escopo de ameaças e como reportar uma vulnerabilidade    |
+| Doc                                                      | Cobre                                                    |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+| [docs/architecture.pt-BR.md](docs/architecture.pt-BR.md) | Estrutura feature-first, renderização, formulários       |
+| [docs/testing.pt-BR.md](docs/testing.pt-BR.md)           | O que merece um teste, a regra de mock do EmailJS        |
+| [docs/ci.pt-BR.md](docs/ci.pt-BR.md)                     | Cada job do CI, gate vs. relatório, reproduzir com `act` |
+| [docs/dependencies.pt-BR.md](docs/dependencies.pt-BR.md) | Pacotes com versão exata, `pnpm.overrides`, Renovate     |
+| [docs/performance.pt-BR.md](docs/performance.pt-BR.md)   | O orçamento de bundle e o Lighthouse CI                  |
+| [docs/security.pt-BR.md](docs/security.pt-BR.md)         | Escopo de ameaças e como reportar uma vulnerabilidade    |
 
 ## Como contribuir
 
@@ -152,7 +150,7 @@ aprender e criar. Qualquer contribuição é bem-vinda.
 ## Segurança
 
 Encontrou uma vulnerabilidade? Por favor não abra uma issue pública. Veja
-[docs/security.md](docs/security.md) para como relatar de forma privada.
+[docs/security.pt-BR.md](docs/security.pt-BR.md) para como relatar de forma privada.
 
 ## Changelog
 

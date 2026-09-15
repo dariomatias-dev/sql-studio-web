@@ -28,6 +28,9 @@ pnpm lint
 step "format:check"
 pnpm format:check
 
+step "check:docs-locales"
+pnpm check:docs-locales
+
 step "test:coverage"
 pnpm test:coverage
 
