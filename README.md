@@ -1,162 +1,173 @@
 <br>
 <div align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-  <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
 </div>
 <br>
 
-# <p align="center">SQL Studio – Official Website</p>
+<p align="center">
+<a href="https://github.com/dariomatias-dev/sql-studio-web/actions/workflows/ci.yml"><img src="https://github.com/dariomatias-dev/sql-studio-web/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+<a href="https://codecov.io/gh/dariomatias-dev/sql-studio-web"><img src="https://img.shields.io/codecov/c/github/dariomatias-dev/sql-studio-web" alt="Coverage"></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/dariomatias-dev/sql-studio-web" alt="License"></a>
+<img src="https://img.shields.io/badge/node-%3E%3D24-339933?logo=node.js&logoColor=white" alt="Node.js version">
+</p>
 
 <p align="center">
-Official website of the SQL Studio mobile application, built with Next.js, TypeScript, and Tailwind CSS.  
+<strong>Language:</strong> English | <a href="README.es.md">Español</a> | <a href="README.pt-BR.md">Português (Brasil)</a>
+</p>
+
+# <p align="center">SQL Studio — Official Website</p>
+
+<p align="center">
+Official website of the SQL Studio mobile app: a database client for practicing SQL on fully customizable local SQLite databases, offline-first.
 <br>
 <a href="#about-the-project"><strong>Explore the docs »</strong></a>
 <br><br>
-<a href="https://sql-studio.vercel.app/">View Live Version</a>
+<a href="https://sql-studio.vercel.app/">View Live Site</a>
 ·
-<a href="https://github.com/dariomatias-dev/sql_studio_web/issues">Report Bug</a>
+<a href="https://github.com/dariomatias-dev/sql-studio-web/issues">Report Bug</a>
 ·
-<a href="https://github.com/dariomatias-dev/sql_studio_web/issues">Request Feature</a>
+<a href="https://github.com/dariomatias-dev/sql-studio-web/issues">Request Feature</a>
 </p>
 
 ## Table of Contents
 
-- [About The Project](#about-the-project)
+- [About the Project](#about-the-project)
 - [Features](#features)
-- [Built With](#built-with)
+- [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-- [Screenshots](#screenshots)
+- [Scripts](#scripts)
+- [Architecture](#architecture)
+- [Testing](#testing)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
+- [Security](#security)
+- [Changelog](#changelog)
 - [License](#license)
 - [Author](#author)
 
-## About The Project
+## About the Project
 
-This is the repository for the official website of the SQL Studio mobile app.
-Its purpose is to showcase the application, present its main features, display screenshots, and provide a direct download link.
+This repository holds only the code for SQL Studio's official landing page —
+not the mobile app itself. It's a static (SSG) site built with Next.js,
+showcasing the app's features, screenshots, and a way to request access
+while the app is in closed beta.
 
-SQL Studio is a mobile application designed to allow users to practice SQL completely and interactively with fully customizable local databases. It uses SQLite (sqflite) as a storage engine, offering an environment for creating, editing, executing, and viewing SQL queries without the need for an internet connection.
-
-> **Note:** This repository contains only the code for the official landing page.
+SQL Studio itself is a mobile app for practicing SQL entirely offline, using
+SQLite as its storage engine — create, edit, run, and inspect queries
+against fully customizable local databases, no internet connection needed.
 
 ## Features
 
-- **Modern UI/UX:** A clean and responsive landing page to present the application.
-- **App Showcase:** Detailed breakdown of the mobile app's capabilities, including:
+- Feature showcase, screenshots carousel, workflow walkthrough, and FAQ on the home page.
+- A beta-access request form for `/download`, since the app is currently in closed beta on Google Play.
+- A contact form for support, bug reports, and feature requests.
+- Real privacy policy and terms of service pages, linked from the app itself.
+- Honeypot and minimum-fill-time spam guards on both forms.
+- Accessible by default: correct heading hierarchy, `aria-*` on forms and icons, keyboard-navigable carousel, `prefers-reduced-motion` respected, verified with axe.
+- SEO: per-page metadata, sitemap, robots, a generated Open Graph image, and `MobileApplication` JSON-LD.
+- Security headers and a Content Security Policy.
 
-  - Database Management — Create and manage multiple local SQLite databases.
-  - SQL Editor — Write and execute commands (`SELECT`, `INSERT`, `UPDATE`, `DELETE`) with syntax highlighting.
-  - Structured Visualization — View tables and records without writing raw SQL.
-  - Offline Persistence — All data is stored locally on the device.
+## Tech Stack
 
-- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
-
-## Built With
-
-This project was developed using the following core technologies:
-
-- **[React](https://reactjs.org/)** – A JavaScript library for building user interfaces.
-- **[Next.js](https://nextjs.org/)** – A React framework optimized for performance and SEO.
-- **[TypeScript](https://www.typescriptlang.org/)** – A typed superset of JavaScript that compiles to plain JavaScript.
-- **[Tailwind CSS](https://tailwindcss.com/)** – A utility-first CSS framework for rapid UI development.
-- **[Embla Carousel](https://www.embla-carousel.com/)** – Lightweight and performant carousel library.
+- Next.js (App Router), React, and TypeScript in strict mode.
+- Tailwind CSS v4.
+- `react-hook-form` with a `zod` resolver for the contact form.
+- `embla-carousel-react` for the screenshots carousel, Radix UI for the accordion and mobile menu dialog.
+- `@emailjs/browser` — forms submit directly from the browser, no backend of our own.
+- Vitest with Testing Library, and Playwright with axe.
+- ESLint, Prettier, Husky, commitlint, and GitHub Actions.
 
 ## Getting Started
 
-To get a local copy up and running, follow these steps.
-
-### Prerequisites
-
-Ensure you have:
-
-- **Node.js**
-- **pnpm**
-
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/dariomatias-dev/sql_studio_web.git
-```
-
-Navigate into the project directory:
-
-```bash
-cd sql_studio_web
-```
-
-Install the required packages:
-
 ```bash
 pnpm install
+cp .env.example .env.local   # set the EmailJS credentials to enable the forms
+pnpm run dev                  # http://localhost:3000
 ```
 
-### Running The Project
+Without the EmailJS environment variables, both forms still render — they
+just show a friendly error instead of sending.
 
-Start the development server:
+## Scripts
 
-```bash
-pnpm run dev
-```
+| Command                      | Description                      |
+| ---------------------------- | -------------------------------- |
+| `pnpm run dev`               | Development server               |
+| `pnpm run build`             | Production build (SSG)           |
+| `pnpm run start`             | Serve the production build       |
+| `pnpm run lint`              | ESLint                           |
+| `pnpm run typecheck`         | `tsc --noEmit`                   |
+| `pnpm run format`            | Prettier (write)                 |
+| `pnpm run test`              | Vitest (watch)                   |
+| `pnpm run test:run`          | Vitest (single run)              |
+| `pnpm run test:coverage`     | Vitest with coverage thresholds  |
+| `pnpm run test:e2e`          | Playwright (smoke, forms, a11y)  |
+| `pnpm run check:bundle-size` | Per-route JS budget check        |
+| `pnpm run verify`            | The full local gate, in CI order |
+| `pnpm run lighthouse`        | Lighthouse CI (report only)      |
 
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+## Architecture
 
-## Screenshots
+The codebase is organized feature-first under `src/features/*`, with only
+genuinely shared code in `src/shared/*`. See
+[docs/architecture.md](docs/architecture.md) for the dependency rules and
+the rendering strategy (what's a Server vs. a Client Component, and why).
 
-<div align="center">
-<img src="public/screenshots/screenshot_1.jpg" width="200" alt="Screenshot 1"/>
-<img src="public/screenshots/screenshot_2.jpg" width="200" alt="Screenshot 2"/>
-<img src="public/screenshots/screenshot_3.jpg" width="200" alt="Screenshot 3"/>
-<img src="public/screenshots/screenshot_4.jpg" width="200" alt="Screenshot 4"/>
-<img src="public/screenshots/screenshot_5.jpg" width="200" alt="Screenshot 5"/>
-<img src="public/screenshots/screenshot_6.jpg" width="200" alt="Screenshot 6"/>
-<img src="public/screenshots/screenshot_7.jpg" width="200" alt="Screenshot 7"/>
-<img src="public/screenshots/screenshot_8.jpg" width="200" alt="Screenshot 8"/>
-<img src="public/screenshots/screenshot_9.jpg" width="200" alt="Screenshot 9"/>
-<img src="public/screenshots/screenshot_10.jpg" width="200" alt="Screenshot 10"/>
-</div>
+## Testing
+
+- Unit and component tests with Vitest and Testing Library (`pnpm run test:run`).
+- End-to-end tests with Playwright, including axe accessibility scans (`pnpm run test:e2e`).
+- Forms never send real email in any test — EmailJS requests are always intercepted or mocked. See [docs/testing.md](docs/testing.md).
+
+## Documentation
+
+| Doc                                          | Covers                                                |
+| -------------------------------------------- | ----------------------------------------------------- |
+| [docs/architecture.md](docs/architecture.md) | Feature-first structure, rendering, forms             |
+| [docs/testing.md](docs/testing.md)           | What merits a test, the EmailJS mocking rule          |
+| [docs/ci.md](docs/ci.md)                     | Every CI job, gate vs. report, reproducing with `act` |
+| [docs/dependencies.md](docs/dependencies.md) | Exact-pinned packages, `pnpm.overrides`, Renovate     |
+| [docs/performance.md](docs/performance.md)   | The bundle-size budget and Lighthouse CI              |
+| [docs/security.md](docs/security.md)         | Threat scope and how to report a vulnerability        |
 
 ## Contributing
 
-Contributions make the open-source community an amazing place to learn and create.
-Any contributions you make are greatly appreciated.
+Contributions make the open-source community an amazing place to learn and
+create. Any contribution is appreciated.
 
-To get started:
+1. Fork the project.
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`.
+3. Run the local gate before committing: `pnpm run verify`.
+4. Commit using [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m 'feat(contact): add AmazingFeature'`.
+5. Push to the branch: `git push origin feature/AmazingFeature`.
+6. Open a pull request.
 
-1. **Fork the Project**
-2. **Create your Feature Branch**
+## Security
 
-   ```sh
-   git checkout -b feature/AmazingFeature
-   ```
+Found a vulnerability? Please don't open a public issue. See
+[docs/security.md](docs/security.md) for how to report it privately.
 
-3. **Commit your Changes**
+## Changelog
 
-   ```sh
-   git commit -m 'Add some AmazingFeature'
-   ```
-
-4. **Push to the Branch**
-
-   ```sh
-   git push origin feature/AmazingFeature
-   ```
-
-5. **Open a Pull Request**
+Releases are versioned automatically:
+[release-please](https://github.com/googleapis/release-please) keeps a
+standing pull request with `CHANGELOG.md` and the `package.json` version
+bump, cutting a tagged GitHub release when it's merged.
 
 ## License
 
-Distributed under the **MIT License**. See the [LICENSE](LICENSE) file for more information.
+Distributed under the **MIT License**. See the [LICENSE](LICENSE) file for
+details.
 
 ## Author
 
 Developed by **Dário Matias**:
 
-- **Portfolio**: [dariomatias-dev](https://dariomatias-dev.com)
-- **GitHub**: [dariomatias-dev](https://github.com/dariomatias-dev)
-- **Email**: [matiasdario75@gmail.com](mailto:matiasdario75@gmail.com)
-- **Instagram**: [@dariomatias_dev](https://instagram.com/dariomatias_dev)
-- **LinkedIn**: [linkedin.com/in/dariomatias-dev](https://linkedin.com/in/dariomatias-dev)
+- Portfolio: [https://dariomatias-dev.com](https://dariomatias-dev.com)
+- GitHub: [https://github.com/dariomatias-dev](https://github.com/dariomatias-dev)
+- Email: [matiasdario75@gmail.com](mailto:matiasdario75@gmail.com)
+- Instagram: [https://instagram.com/dariomatias_dev](https://instagram.com/dariomatias_dev)
+- LinkedIn: [https://linkedin.com/in/dariomatias-dev](https://linkedin.com/in/dariomatias-dev)
