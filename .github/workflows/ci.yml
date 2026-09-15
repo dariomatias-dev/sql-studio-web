@@ -109,6 +109,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Check bundle size
+        run: pnpm run check:bundle-size
+
       # include-hidden-files: needed for .next, a dot-prefixed directory.
       # Pinned to v4: act's local artifact server (nektos/act#6022).
       - name: Upload build output

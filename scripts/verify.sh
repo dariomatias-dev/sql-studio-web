@@ -42,6 +42,9 @@ fi
 step "build"
 pnpm build
 
+step "check:bundle-size"
+pnpm check:bundle-size
+
 step "test:e2e"
 pnpm test:e2e
 
