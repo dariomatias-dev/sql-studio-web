@@ -20,6 +20,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "check:bundle-size": "node scripts/check-bundle-size.mjs",
+    "check:docs-locales": "node scripts/check-docs-locales.mjs",
     "verify": "bash scripts/verify.sh",
     "lighthouse": "lhci autorun"
   },
