@@ -1,45 +1,6 @@
-import { Code, Database, LayoutDashboard, Lock, Palette, Play } from "lucide-react";
-
 import { PingIndicator } from "@/shared/components/ping-indicator";
 
-const features = [
-  {
-    icon: Code,
-    title: "Smart SQL Editor",
-    description:
-      "Advanced syntax highlighting, auto-completion, and real-time error checking designed for a seamless mobile coding experience.",
-  },
-  {
-    icon: Database,
-    title: "SQLite Native",
-    description:
-      "Built specifically for SQLite. Connect, manage, and modify your local databases with native performance and zero latency.",
-  },
-  {
-    icon: Play,
-    title: "Execute & Visualize",
-    description:
-      "Run complex queries instantly. View results in beautiful, scrollable tables and analyze data with formatted outputs.",
-  },
-  {
-    icon: Lock,
-    title: "Pre-filled Practice",
-    description:
-      "Start coding immediately. Access a library of pre-populated databases to sharpen your skills without the hassle of setup.",
-  },
-  {
-    icon: Palette,
-    title: "Customizable UI",
-    description:
-      "Your environment, your rules. Switch between professional themes, adjust font sizes, and toggle layouts to match your workflow.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Schema Explorer",
-    description:
-      "Navigate your database structure visually. Inspect tables, views, triggers, and indexes with an intuitive browser.",
-  },
-];
+import { features } from "../data/features";
 
 export const FeaturesSection = () => {
   return (
@@ -61,8 +22,7 @@ export const FeaturesSection = () => {
             </span>
           </h2>
           <p className="text-lg leading-relaxed font-light text-slate-500">
-            SQL Studio combines the raw power of a desktop client with the elegance of a mobile app.
-            Every pixel designed for efficiency.
+            Everything you need to practice SQL, built for touch and 100% offline.
           </p>
         </div>
 
