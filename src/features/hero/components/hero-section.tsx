@@ -9,9 +9,9 @@ export const HeroSection = () => {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-16">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[4rem_4rem] opacity-20" />
 
-      <div className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-full -translate-x-1/2">
-        <div className="animate-pulse-slow absolute top-[-100px] left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[#00BCD4]/20 mix-blend-screen blur-[120px]" />
-        <div className="absolute top-[-150px] left-1/2 h-[400px] w-[500px] translate-x-1/4 rounded-full bg-purple-500/10 mix-blend-screen blur-[100px]" />
+      <div className="pointer-events-none absolute top-0 left-1/2 h-125 w-full -translate-x-1/2">
+        <div className="animate-pulse-slow absolute -top-25 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full bg-[#00BCD4]/20 mix-blend-screen blur-[120px]" />
+        <div className="absolute -top-37.5 left-1/2 h-100 w-125 translate-x-1/4 rounded-full bg-purple-500/10 mix-blend-screen blur-[100px]" />
       </div>
 
       <div className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
@@ -42,9 +42,10 @@ export const HeroSection = () => {
         </h1>
 
         <p className="mb-14 max-w-3xl text-lg leading-relaxed font-light text-zinc-400 md:text-2xl">
-          The power of a desktop database client,{" "}
-          <span className="font-medium text-zinc-200">re-engineered for touch.</span>
-          <br className="hidden md:block" /> Fast, private, and 100% offline-first.
+          Practice SQL right on your phone —{" "}
+          <span className="font-medium text-zinc-200">no setup, no server, fully offline.</span>
+          <br className="hidden md:block" /> Every database comes ready to query. Currently in
+          closed beta on Android.
         </p>
 
         <div className="flex w-full flex-col items-center gap-6 sm:w-auto sm:flex-row">
