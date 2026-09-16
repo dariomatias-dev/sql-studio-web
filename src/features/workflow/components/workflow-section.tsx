@@ -1,27 +1,40 @@
-import { ArrowRight, CheckCircle2, Database, Download, Terminal } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Database,
+  LayoutDashboard,
+  RotateCcw,
+  Terminal,
+} from "lucide-react";
 import Image from "next/image";
 
 const steps = [
   {
-    icon: Download,
-    title: "Download & Install",
+    icon: Database,
+    title: "Choose a Database",
     description:
-      "Get SQL Studio directly from the Play Store. It's a lightweight package optimized for performance and battery efficiency.",
+      "Pick one from the built-in catalog of local databases, each with its own schema and seed data, ready to query immediately.",
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Database,
-    title: "Initialize Database",
+    icon: Terminal,
+    title: "Write & Run",
     description:
-      "Open an existing SQLite file or create a brand new database schema in seconds. No complex configuration required.",
+      "Write SQL in the editor and execute it, viewing the results and any errors in the console.",
     color: "from-cyan-500 to-teal-400",
   },
   {
-    icon: Terminal,
-    title: "Start Querying",
+    icon: LayoutDashboard,
+    title: "Inspect",
     description:
-      "Write SQL with our intelligent editor. Execute queries and view the results in a table with a single tap.",
+      "Explore the database's tables, columns, and structure visually, without writing SQL.",
     color: "from-teal-400 to-emerald-400",
+  },
+  {
+    icon: RotateCcw,
+    title: "Reset",
+    description: "Restore the database to its original schema and seed data at any time.",
+    color: "from-emerald-400 to-green-500",
   },
 ];
 
@@ -40,13 +53,13 @@ export const WorkflowSection = () => {
             <h2 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
               Master your data in <br />
               <span className="bg-linear-to-r from-[#00BCD4] to-cyan-600 bg-clip-text text-transparent">
-                three simple steps.
+                four simple steps.
               </span>
             </h2>
 
             <p className="mb-16 max-w-lg text-lg leading-relaxed font-light text-slate-500">
-              We stripped away the complexity of desktop clients. Get straight to querying with a
-              streamlined mobile experience designed for speed.
+              No setup, no server. Pick a database and get straight to querying with a streamlined
+              mobile experience designed for speed.
             </p>
 
             <div className="relative space-y-12">
@@ -87,10 +100,10 @@ export const WorkflowSection = () => {
                 <div className="absolute top-0 left-1/2 z-20 h-6 w-32 -translate-x-1/2 rounded-b-xl bg-slate-950" />
 
                 <Image
-                  src="/screenshots/screenshot_1.jpg"
-                  alt="SQL Studio Interface"
+                  src="/screenshots/workflow-editor.png"
+                  alt="SQL Studio's SQL editor, showing a query and its results"
                   width={320}
-                  height={690}
+                  height={712}
                   className="relative z-10 rounded-4xl"
                 />
 
