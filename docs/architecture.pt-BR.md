@@ -98,6 +98,20 @@ vez de tentar a requisição. Nenhum teste, spec de e2e, ou execução de
 sempre interceptada ou recebe credenciais falsas que só funcionam contra
 um endpoint mockado.
 
+## Screenshots
+
+As screenshots em `public/screenshots/` (`01_home.png` …
+`10_workspace_layout_settings.png`) e o texto `alt` delas em
+`screenshots-carousel.tsx` vêm direto de `sql_studio_app/screenshots/en/`
+e das legendas do `README.md` desse repositório. Pra atualizar depois de
+um release do app: copie os PNGs novos de
+`sql_studio_app/screenshots/en/` por cima dos arquivos em
+`public/screenshots/` (mesmos nomes), e atualize os valores de `alt` em
+`features/screenshots/components/screenshots-carousel.tsx` se as legendas
+do README do app mudaram. O mockup da seção de workflow
+(`features/workflow/components/workflow-section.tsx`) reaproveita o
+`03_editor.png` e não precisa de atualização separada.
+
 ## Decisões
 
 - **Por que SSG.** O site não tem contas de usuário, conteúdo por

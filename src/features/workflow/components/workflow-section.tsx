@@ -100,8 +100,8 @@ export const WorkflowSection = () => {
                 <div className="absolute top-0 left-1/2 z-20 h-6 w-32 -translate-x-1/2 rounded-b-xl bg-slate-950" />
 
                 <Image
-                  src="/screenshots/workflow-editor.png"
-                  alt="SQL Studio's SQL editor, showing a query and its results"
+                  src="/screenshots/03_editor.png"
+                  alt="SQL editor with an active database"
                   width={320}
                   height={712}
                   className="relative z-10 rounded-4xl"

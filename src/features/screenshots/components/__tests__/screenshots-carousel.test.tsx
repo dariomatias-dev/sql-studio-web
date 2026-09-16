@@ -66,7 +66,7 @@ describe("ScreenshotsCarousel", () => {
 
     const preloads = preloadedImageUrls();
     expect(preloads).toHaveLength(1);
-    expect(preloads[0]).toContain("screenshot_1.jpg");
+    expect(preloads[0]).toContain("01_home.png");
   });
 
   it("keeps the same image preloaded after navigating to another slide", async () => {
@@ -77,7 +77,7 @@ describe("ScreenshotsCarousel", () => {
 
     const preloads = preloadedImageUrls();
     expect(preloads).toHaveLength(1);
-    expect(preloads[0]).toContain("screenshot_1.jpg");
+    expect(preloads[0]).toContain("01_home.png");
   });
 
   it("advances to the next slide with the right arrow key", async () => {

@@ -96,6 +96,19 @@ or `act` run ever lets a request reach `api.emailjs.com` for real — it's
 always intercepted or given fake credentials that only work against a
 mocked endpoint.
 
+## Screenshots
+
+The screenshots in `public/screenshots/` (`01_home.png` … `10_workspace_layout_settings.png`)
+and their `alt` text in `screenshots-carousel.tsx` come straight from
+`sql_studio_app/screenshots/en/` and the captions in that repo's
+`README.md`. To update them after an app release: copy the new PNGs from
+`sql_studio_app/screenshots/en/` over the files in `public/screenshots/`
+(same names), and update the `alt` values in
+`features/screenshots/components/screenshots-carousel.tsx` if the
+captions in the app's README changed. The workflow section's mockup
+(`features/workflow/components/workflow-section.tsx`) reuses
+`03_editor.png` and needs no separate update.
+
 ## Decisions
 
 - **Why SSG.** The site has no user accounts, no per-visitor content, and

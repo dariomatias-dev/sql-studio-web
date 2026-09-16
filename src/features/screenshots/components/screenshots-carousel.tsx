@@ -7,20 +7,18 @@ import { useCallback, useEffect, useState } from "react";
 
 import type { UseEmblaCarouselType } from "embla-carousel-react";
 
-const screenshotDescriptions = [
-  "SQL editor with an empty query, quick-insert buttons for common statements, and an empty results console below",
-  'Database list showing a saved "shop" database, with a button to create a new one',
-  "SELECT * FROM users query results, showing two user rows with their names, emails, and creation dates",
-  "SELECT * FROM users query results scrolled down to a third user row",
-  "Visual schema diagram of an e-commerce database, showing tables like users, products, orders, and reviews connected by their relationships",
-  "List of pre-built practice databases, including To-Do List, Contacts, Library, Fitness Club, Car Rental, Restaurant, and HR Payroll",
-  "Settings screen with Language, SQL Suggestions, and Workspace Layout options, plus app version and legal links",
-  "Language selection sheet with English, Español, and Português options",
-  "Suggestion settings screen with toggles for Basic Suggestions, Advanced Suggestions, and Character Suggestions",
-  "Workspace layout settings comparing Split Layout and Tabs Layout, with a live preview of the editor and console",
+const screenshots = [
+  { src: "/screenshots/01_home.png", alt: "Home / SQL editor" },
+  { src: "/screenshots/02_databases.png", alt: "Databases" },
+  { src: "/screenshots/03_editor.png", alt: "SQL editor with an active database" },
+  { src: "/screenshots/04_drawer.png", alt: "Navigation drawer" },
+  { src: "/screenshots/05_visualizer.png", alt: "Database visualizer" },
+  { src: "/screenshots/06_settings.png", alt: "Settings" },
+  { src: "/screenshots/07_language_selector.png", alt: "Language selector" },
+  { src: "/screenshots/08_theme_selector.png", alt: "Theme selector" },
+  { src: "/screenshots/09_sql_suggestions_settings.png", alt: "SQL suggestions settings" },
+  { src: "/screenshots/10_workspace_layout_settings.png", alt: "Workspace layout settings" },
 ];
-
-const screenshots = Array.from({ length: 10 }, (_, i) => `/screenshots/screenshot_${i + 1}.jpg`);
 
 export const ScreenshotsCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -88,7 +86,7 @@ export const ScreenshotsCarousel = () => {
           aria-label="App screenshots"
         >
           <div className="flex touch-pan-y items-center">
-            {screenshots.map((src, index) => {
+            {screenshots.map(({ src, alt }, index) => {
               const isSelected = index === selectedIndex;
 
               return (
@@ -118,7 +116,7 @@ export const ScreenshotsCarousel = () => {
                       <div className="relative aspect-9/21 w-full bg-slate-50">
                         <Image
                           src={src}
-                          alt={screenshotDescriptions[index]}
+                          alt={alt}
                           fill
                           className="object-cover"
                           sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1024px) 35vw, min(25vw, 450px)"

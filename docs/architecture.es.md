@@ -100,6 +100,20 @@ de `act` deja que una solicitud llegue de verdad a `api.emailjs.com` —
 siempre se intercepta o recibe credenciales falsas que solo funcionan
 contra un endpoint simulado.
 
+## Capturas de pantalla
+
+Las capturas en `public/screenshots/` (`01_home.png` …
+`10_workspace_layout_settings.png`) y su texto `alt` en
+`screenshots-carousel.tsx` vienen directo de
+`sql_studio_app/screenshots/en/` y de los subtítulos del `README.md` de
+ese repositorio. Para actualizarlas después de un release del app: copia
+los PNG nuevos de `sql_studio_app/screenshots/en/` sobre los archivos en
+`public/screenshots/` (mismos nombres), y actualiza los valores de `alt`
+en `features/screenshots/components/screenshots-carousel.tsx` si los
+subtítulos del README del app cambiaron. El mockup de la sección de
+workflow (`features/workflow/components/workflow-section.tsx`) reutiliza
+`03_editor.png` y no necesita una actualización aparte.
+
 ## Decisiones
 
 - **Por qué SSG.** El sitio no tiene cuentas de usuario, contenido por
