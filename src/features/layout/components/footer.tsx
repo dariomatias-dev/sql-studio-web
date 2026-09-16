@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { PingIndicator } from "@/shared/components/ping-indicator";
+import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
 import { GITHUB_URL } from "@/shared/lib/site";
 
 import { BackToTopButton } from "./back-to-top-button";
@@ -32,10 +33,10 @@ export const Footer = () => {
             </p>
 
             <div className="inline-flex cursor-default items-center gap-3 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md transition-colors hover:border-[#00BCD4]/30">
-              <PingIndicator size={10} color="#10AF78" glow={false} />
+              <PingIndicator size={10} color="#EAB308" glow={false} />
 
               <span className="text-xs font-bold tracking-wider text-zinc-300">
-                <span className="uppercase">Stable Release</span> v0.1.x
+                <span className="uppercase">{APP_RELEASE_LABEL}</span> v{APP_VERSION}
               </span>
             </div>
           </div>

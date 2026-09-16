@@ -2,6 +2,7 @@ import { Check, ShieldCheck } from "lucide-react";
 
 import { DownloadButton } from "@/shared/components/download-button";
 import { PingIndicator } from "@/shared/components/ping-indicator";
+import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
 
 export const CtaSection = () => {
   return (
@@ -21,11 +22,11 @@ export const CtaSection = () => {
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <div className="mb-8 inline-flex cursor-default items-center gap-x-3 rounded-full border border-white/10 bg-zinc-900/40 p-1.5 pr-4 pl-2 shadow-lg ring-1 shadow-[#00BCD4]/5 ring-white/5 backdrop-blur-xl transition-all hover:border-white/20 hover:bg-zinc-900/60 hover:ring-white/10">
           <span className="flex items-center justify-center rounded-full bg-[#00BCD4]/10 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-[#00BCD4] uppercase ring-1 ring-[#00BCD4]/20 ring-inset">
-            Beta
+            {APP_RELEASE_LABEL}
           </span>
           <div className="h-4 w-px bg-white/10" />
           <span className="flex items-center gap-2 font-mono text-sm font-medium tracking-tight text-zinc-300">
-            v0.1.x
+            v{APP_VERSION}
             <PingIndicator />
           </span>
         </div>

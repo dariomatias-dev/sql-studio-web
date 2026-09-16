@@ -1,12 +1,10 @@
 "use client";
 
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { HoneypotField } from "@/shared/components/honeypot-field";
 import { NoJsWarning } from "@/shared/components/no-js-warning";
-import { GooglePlayIcon } from "@/shared/icons";
 import { sendEmail } from "@/shared/lib/email";
 import { useSpamGuard } from "@/shared/lib/spam-guard";
 
@@ -65,29 +63,11 @@ export const BetaAccessForm = () => {
 
             <h2 className="mb-3 text-2xl font-bold text-slate-900">Request Received</h2>
             <p className="mb-8 text-sm leading-relaxed text-slate-500">
-              You have been added to the waiting list. Please wait for an{" "}
-              <span className="font-bold text-slate-700">invitation email</span> within the next 24
-              hours.
+              You have been added to the waiting list. Once your email is approved as a tester,
+              you&apos;ll receive an{" "}
+              <span className="font-bold text-slate-700">invitation email</span> with the Play Store
+              link.
             </p>
-
-            <div className="mb-8 flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-left">
-              <div className="mt-0.5 h-4 min-w-1 rounded-full bg-[#00BCD4]"></div>
-              <p className="text-xs leading-relaxed text-slate-500">
-                <strong className="mb-1 block text-slate-700">Important:</strong>
-                The Play Store link below will show an error (&quot;App not available&quot;) until
-                your email is officially approved in our console. Please wait for the confirmation
-                email.
-              </p>
-            </div>
-
-            <Link
-              href="https://play.google.com/"
-              target="_blank"
-              className="group relative inline-flex w-full items-center justify-center gap-3 rounded-xl bg-slate-900 px-6 py-4 text-base font-bold text-white shadow-xl shadow-slate-200 transition-all duration-300 hover:scale-[1.02] hover:bg-slate-800"
-            >
-              <GooglePlayIcon className="text-xl text-[#00BCD4]" />
-              <span>Open in Play Store</span>
-            </Link>
           </div>
         ) : (
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
