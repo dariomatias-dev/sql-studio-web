@@ -22,7 +22,7 @@ export const HeroSection = () => {
 
       <div className="relative z-10 flex max-w-6xl flex-col items-center px-4 text-center md:px-6">
         <div className="group shadow-brand/5 hover:border-brand/30 relative mb-10 inline-flex cursor-default items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-zinc-900/50 px-5 py-2 shadow-lg backdrop-blur-xl transition-all hover:bg-zinc-900/80">
-          <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+          <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
           <PingIndicator />
 

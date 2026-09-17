@@ -1,5 +1,3 @@
-import { PingIndicator } from "@/shared/components/ping-indicator";
-
 import { features } from "../data/features";
 
 export const FeaturesSection = () => {
@@ -46,8 +44,6 @@ export const FeaturesSection = () => {
               <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-700 md:text-base">
                 {feature.description}
               </p>
-
-              <PingIndicator className="absolute top-4 right-4" />
             </div>
           ))}
         </div>
