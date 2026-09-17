@@ -1,4 +1,5 @@
 import { CtaSection } from "@/features/cta";
+import { DatabaseCatalogSection } from "@/features/database-catalog";
 import { FaqSection } from "@/features/faq";
 import { FeaturesSection } from "@/features/features-showcase";
 import { HeroSection } from "@/features/hero";
@@ -13,6 +14,8 @@ const Home = () => {
       <FeaturesSection />
 
       <WorkflowSection />
+
+      <DatabaseCatalogSection />
 
       <ScreenshotsSection />
 

@@ -50,7 +50,7 @@ export const Footer = () => {
               Product
             </h3>
             <ul className="space-y-3 text-sm">
-              {["Features", "Screenshots", "Workflow", "FAQ"].map((item) => (
+              {["Features", "Workflow", "Databases", "Screenshots", "FAQ"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`/#${item.toLowerCase()}`}
