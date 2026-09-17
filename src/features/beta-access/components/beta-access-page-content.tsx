@@ -6,7 +6,7 @@ const BetaAccessPageContent = () => {
   return (
     <section className="relative flex min-h-screen flex-col items-center overflow-hidden bg-white pt-32 pb-24">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[40px_40px]"></div>
-      <div className="pointer-events-none absolute top-0 left-1/2 h-125 w-250 -translate-x-1/2 rounded-full bg-[#00BCD4]/5 blur-[130px]"></div>
+      <div className="bg-brand/5 pointer-events-none absolute top-0 left-1/2 h-125 w-250 -translate-x-1/2 rounded-full blur-[130px]"></div>
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center px-6">
         <div className="mb-12 text-center">
@@ -20,7 +20,7 @@ const BetaAccessPageContent = () => {
 
           <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
             Join the <br />
-            <span className="bg-linear-to-r from-[#00BCD4] to-cyan-600 bg-clip-text text-transparent">
+            <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
               Development Program
             </span>
           </h1>
@@ -54,7 +54,7 @@ const BetaAccessPageContent = () => {
               },
             ].map((item, idx) => (
               <div key={idx} className="group flex flex-col items-center gap-2 text-center">
-                <span className="mb-1 rounded-md border border-[#00BCD4]/20 bg-[#00BCD4]/10 px-2 py-1 text-xs font-bold text-cyan-700">
+                <span className="border-brand/20 bg-brand/10 mb-1 rounded-md border px-2 py-1 text-xs font-bold text-cyan-700">
                   Step {item.step}
                 </span>
                 <span className="text-sm font-bold text-slate-700">{item.title}</span>

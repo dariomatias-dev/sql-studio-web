@@ -86,7 +86,7 @@ export const Header = () => {
                   solid ? "text-slate-900" : "text-white",
                 )}
               >
-                SQL Studio<span className="text-[#00BCD4]">.</span>
+                SQL Studio<span className="text-brand">.</span>
               </span>
             </Link>
 
@@ -96,12 +96,12 @@ export const Header = () => {
                   key={href}
                   href={href}
                   className={cn(
-                    "relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 hover:text-[#00BCD4]",
+                    "hover:text-brand relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
                     solid ? "text-slate-600" : "text-slate-300 hover:text-white",
                   )}
                 >
                   <span className="relative z-10">{label}</span>
-                  <span className="absolute inset-0 z-0 origin-center scale-0 rounded-full bg-[#00BCD4]/10 transition-transform duration-300 ease-out hover:scale-100" />
+                  <span className="bg-brand/10 absolute inset-0 z-0 origin-center scale-0 rounded-full transition-transform duration-300 ease-out hover:scale-100" />
                 </Link>
               ))}
             </div>
@@ -112,7 +112,7 @@ export const Header = () => {
                 className={cn(
                   "group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 hover:shadow-lg",
                   solid
-                    ? "bg-slate-900 text-white hover:bg-[#00BCD4]"
+                    ? "hover:bg-brand bg-slate-900 text-white"
                     : "bg-white text-slate-950 hover:bg-slate-100",
                 )}
               >
@@ -126,7 +126,7 @@ export const Header = () => {
                 aria-label="Open menu"
                 aria-controls={mobileMenuId}
                 className={cn(
-                  "relative z-50 rounded-md p-2 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[#00BCD4] focus-visible:outline-none md:hidden",
+                  "focus-visible:ring-brand relative z-50 rounded-md p-2 transition-colors duration-300 focus-visible:ring-2 focus-visible:outline-none md:hidden",
                   solid ? "text-slate-800" : "text-white",
                 )}
               >
@@ -153,7 +153,7 @@ export const Header = () => {
           <Dialog.Close asChild>
             <button
               aria-label="Close menu"
-              className="absolute top-6 right-4 p-2 text-slate-800 focus-visible:ring-2 focus-visible:ring-[#00BCD4] focus-visible:outline-none"
+              className="focus-visible:ring-brand absolute top-6 right-4 p-2 text-slate-800 focus-visible:ring-2 focus-visible:outline-none"
             >
               <X className="h-7 w-7" />
             </button>
@@ -164,7 +164,7 @@ export const Header = () => {
               <Dialog.Close key={href} asChild>
                 <Link
                   href={href}
-                  className="text-2xl font-bold text-slate-800 transition-colors hover:text-[#00BCD4]"
+                  className="hover:text-brand text-2xl font-bold text-slate-800 transition-colors"
                 >
                   {label}
                 </Link>
@@ -174,7 +174,7 @@ export const Header = () => {
             <Dialog.Close asChild>
               <Link
                 href="/download"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#00BCD4] px-8 py-3 text-lg font-bold text-white shadow-lg shadow-[#00BCD4]/30"
+                className="bg-brand shadow-brand/30 mt-4 inline-flex items-center gap-2 rounded-full px-8 py-3 text-lg font-bold text-white shadow-lg"
               >
                 <GooglePlayIcon className="h-5 w-5" />
                 Download App

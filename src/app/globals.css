@@ -37,6 +37,13 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-brand: #00bcd4;
+  --shadow-glow-xs: 0 0 15px rgba(0, 188, 212, 0.5);
+  --shadow-glow-sm: 0 0 20px -5px rgba(0, 188, 212, 0.2);
+  --shadow-glow-md: 0 0 30px -5px rgba(0, 188, 212, 0.3);
+  --shadow-glow-lg: 0 0 30px -10px rgba(0, 188, 212, 0.15);
+  --shadow-glow-xl: 0 10px 40px -10px rgba(0, 188, 212, 0.15);
+  --drop-shadow-glow-xs: 0 0 15px rgba(0, 188, 212, 0.5);
   --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 

@@ -9,11 +9,11 @@ const ContactPageContent = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
+      <div className="bg-brand/5 pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center md:mb-20">
-          <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00BCD4]/5 text-[#00BCD4] ring-1 ring-[#00BCD4]/20">
+          <div className="bg-brand/5 text-brand ring-brand/20 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1">
             <MessageSquare className="h-6 w-6" />
           </div>
 
@@ -41,14 +41,14 @@ const ContactPageContent = () => {
 
               <div className="flex flex-col gap-6 rounded-2xl border border-slate-100 bg-slate-50 p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-[#00BCD4] shadow-sm">
+                  <div className="text-brand flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="mb-1 text-sm font-semibold text-slate-900">Email Support</p>
                     <a
                       href={`mailto:${SITE_EMAIL}`}
-                      className="text-slate-600 transition-colors hover:text-[#00BCD4]"
+                      className="hover:text-brand text-slate-600 transition-colors"
                     >
                       {SITE_EMAIL}
                     </a>
@@ -62,7 +62,7 @@ const ContactPageContent = () => {
                     href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"
+                    className="hover:text-brand flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors"
                   >
                     <GithubIcon className="h-5 w-5" />
                     GitHub Profile
@@ -71,7 +71,7 @@ const ContactPageContent = () => {
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-[#00BCD4]"
+                    className="hover:text-brand flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors"
                   >
                     <LinkedinIcon className="h-5 w-5" />
                     LinkedIn
@@ -80,7 +80,7 @@ const ContactPageContent = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#00BCD4]/10 bg-[#00BCD4]/5 p-6">
+            <div className="border-brand/10 bg-brand/5 rounded-2xl border p-6">
               <h3 className="mb-2 font-semibold text-slate-900">Reporting a Bug?</h3>
               <p className="text-sm leading-relaxed text-slate-600">
                 Please include your device model and Android version to help us resolve the issue

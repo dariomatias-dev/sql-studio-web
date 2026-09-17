@@ -53,7 +53,7 @@ export const BetaAccessForm = () => {
   return (
     <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-1 shadow-2xl shadow-slate-200/50 backdrop-blur-xl">
       <div className="relative overflow-hidden rounded-[1.4rem] border border-slate-100 bg-white p-8 md:p-10">
-        <div className="absolute top-0 left-1/2 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent via-[#00BCD4]/30 to-transparent"></div>
+        <div className="via-brand/30 absolute top-0 left-1/2 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent to-transparent"></div>
 
         {status == Status.Success ? (
           <div role="status" className="animate-in fade-in zoom-in text-center duration-500">
@@ -79,7 +79,7 @@ export const BetaAccessForm = () => {
                 Google Play Email Address
               </label>
               <div className="group relative">
-                <div className="absolute -inset-0.5 rounded-xl bg-linear-to-r from-[#00BCD4] to-cyan-400 opacity-0 blur-sm transition duration-500 group-focus-within:opacity-100"></div>
+                <div className="from-brand absolute -inset-0.5 rounded-xl bg-linear-to-r to-cyan-400 opacity-0 blur-sm transition duration-500 group-focus-within:opacity-100"></div>
                 <div className="relative flex items-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-all focus-within:border-white focus-within:bg-white">
                   <div className="pr-3 pl-4 text-slate-400">
                     <Mail className="h-5 w-5" />
@@ -97,7 +97,7 @@ export const BetaAccessForm = () => {
                 </div>
               </div>
               <p className="ml-1 flex items-center gap-1.5 text-[11px] text-slate-500">
-                <span className="h-1 w-1 rounded-full bg-[#00BCD4]"></span>
+                <span className="bg-brand h-1 w-1 rounded-full"></span>
                 Must match the account logged in on your Android device.
               </p>
             </div>

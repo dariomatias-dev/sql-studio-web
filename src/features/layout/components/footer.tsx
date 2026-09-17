@@ -14,17 +14,17 @@ export const Footer = () => {
     <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-12">
       <div className="absolute inset-0 mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
 
-      <div className="absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent via-[#00BCD4]/40 to-transparent shadow-[0_0_15px_rgba(0,188,212,0.5)]" />
+      <div className="via-brand/40 shadow-glow-xs absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent to-transparent" />
 
-      <div className="pointer-events-none absolute -top-75 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full bg-[#00BCD4]/10 blur-[120px]" />
+      <div className="bg-brand/10 pointer-events-none absolute -top-75 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-20 flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="lg:max-w-md">
             <Link href="/" className="group mb-6 inline-block">
-              <span className="text-3xl font-extrabold tracking-tight text-white transition-all duration-300 group-hover:text-[#00BCD4]">
+              <span className="group-hover:text-brand text-3xl font-extrabold tracking-tight text-white transition-all duration-300">
                 SQL Studio
-                <span className="text-[#00BCD4] drop-shadow-[0_0_15px_rgba(0,188,212,0.5)]">.</span>
+                <span className="text-brand drop-shadow-glow-xs">.</span>
               </span>
             </Link>
             <p className="mb-8 max-w-sm text-sm leading-7 font-light text-zinc-400">
@@ -32,7 +32,7 @@ export const Footer = () => {
               databases with speed, efficiency, and style directly from your mobile device.
             </p>
 
-            <div className="inline-flex cursor-default items-center gap-3 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md transition-colors hover:border-[#00BCD4]/30">
+            <div className="hover:border-brand/30 inline-flex cursor-default items-center gap-3 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md transition-colors">
               <PingIndicator size={10} color="#EAB308" glow={false} />
 
               <span className="text-xs font-bold tracking-wider text-zinc-300">
@@ -54,9 +54,9 @@ export const Footer = () => {
                 <li key={item}>
                   <Link
                     href={`/#${item.toLowerCase()}`}
-                    className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                    className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                   >
-                    <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                    <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {item}
                     </span>
@@ -71,9 +71,9 @@ export const Footer = () => {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                 >
-                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Privacy Policy
                   </span>
@@ -82,9 +82,9 @@ export const Footer = () => {
               <li>
                 <Link
                   href="/terms-of-service"
-                  className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                 >
-                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Terms of Service
                   </span>
@@ -93,9 +93,9 @@ export const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                 >
-                  <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Contact Support
                   </span>
@@ -121,9 +121,9 @@ export const Footer = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                    className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                   >
-                    <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                    <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {label}
                     </span>
@@ -147,9 +147,9 @@ export const Footer = () => {
                   aria-label={label}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="group relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-zinc-900 text-zinc-400 transition-all duration-300 hover:border-[#00BCD4]/30 hover:bg-[#00BCD4]/10 hover:text-[#00BCD4] hover:shadow-[0_0_20px_-5px_rgba(0,188,212,0.2)]"
+                  className="group hover:border-brand/30 hover:bg-brand/10 hover:text-brand hover:shadow-glow-sm relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-zinc-900 text-zinc-400 transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-linear-to-tr from-[#00BCD4]/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="from-brand/10 absolute inset-0 bg-linear-to-tr to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <Icon
                     size={20}
                     className="relative z-10 transition-transform group-hover:scale-110"
@@ -172,7 +172,7 @@ export const Footer = () => {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-zinc-200 transition-colors hover:text-[#00BCD4]"
+              className="hover:text-brand font-bold text-zinc-200 transition-colors"
             >
               Dário Matias
             </a>

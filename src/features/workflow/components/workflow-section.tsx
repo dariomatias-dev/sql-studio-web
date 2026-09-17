@@ -46,13 +46,13 @@ export const WorkflowSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="lg:w-1/2">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#00BCD4]/10 px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
+            <div className="bg-brand/10 mb-8 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
               Seamless Workflow
             </div>
 
             <h2 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
               Master your data in <br />
-              <span className="bg-linear-to-r from-[#00BCD4] to-cyan-600 bg-clip-text text-transparent">
+              <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
                 four simple steps.
               </span>
             </h2>
@@ -74,14 +74,14 @@ export const WorkflowSection = () => {
                       <div
                         className={`absolute inset-0 bg-linear-to-br ${step.color} rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
                       />
-                      <step.icon className="h-6 w-6 text-slate-600 transition-colors duration-300 group-hover:text-[#00BCD4]" />
+                      <step.icon className="group-hover:text-brand h-6 w-6 text-slate-600 transition-colors duration-300" />
                     </div>
                   </div>
 
                   <div className="pt-2">
-                    <h3 className="mb-3 flex items-center gap-2 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-[#00BCD4]">
+                    <h3 className="group-hover:text-brand mb-3 flex items-center gap-2 text-xl font-bold text-slate-900 transition-colors duration-300">
                       {step.title}
-                      <ArrowRight className="h-4 w-4 -translate-x-2 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                      <ArrowRight className="text-brand h-4 w-4 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
                     </h3>
                     <p className="max-w-md text-base leading-relaxed text-slate-500">
                       {step.description}

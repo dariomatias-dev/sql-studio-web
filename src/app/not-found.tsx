@@ -21,8 +21,8 @@ const NotFoundPage = () => {
           </div>
 
           <div className="relative mt-12 flex h-32 w-32 items-center justify-center rounded-3xl border border-slate-100 bg-white shadow-xl md:mt-20 md:h-40 md:w-40">
-            <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-[#00BCD4]/10 to-transparent" />
-            <FileQuestion className="h-12 w-12 text-[#00BCD4] md:h-16 md:w-16" />
+            <div className="from-brand/10 absolute inset-0 rounded-3xl bg-linear-to-br to-transparent" />
+            <FileQuestion className="text-brand h-12 w-12 md:h-16 md:w-16" />
           </div>
         </div>
 

@@ -55,7 +55,7 @@ export const faqs: Faq[] = [
         SQL Studio is currently in closed beta on Google Play. Request access on our{" "}
         <Link
           href="/download"
-          className="font-semibold text-slate-900 transition-colors duration-300 hover:text-[#00BCD4]"
+          className="hover:text-brand font-semibold text-slate-900 transition-colors duration-300"
         >
           download page
         </Link>
@@ -72,7 +72,7 @@ export const faqs: Faq[] = [
           href={APP_REPOSITORY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-slate-900 transition-colors duration-300 hover:text-[#00BCD4]"
+          className="hover:text-brand font-semibold text-slate-900 transition-colors duration-300"
         >
           GitHub
         </a>{" "}
@@ -98,14 +98,14 @@ export const faqs: Faq[] = [
           href={`${APP_REPOSITORY_URL}/issues`}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-slate-900 transition-colors duration-300 hover:text-[#00BCD4]"
+          className="hover:text-brand font-semibold text-slate-900 transition-colors duration-300"
         >
           GitHub repository
         </a>
         , use the &quot;Contact&quot; item in the app&apos;s Settings, or reach us through our{" "}
         <Link
           href="/contact"
-          className="font-semibold text-slate-900 transition-colors duration-300 hover:text-[#00BCD4]"
+          className="hover:text-brand font-semibold text-slate-900 transition-colors duration-300"
         >
           contact page
         </Link>

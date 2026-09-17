@@ -41,7 +41,7 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
-      <body className="bg-background text-foreground selection:text-primary-foreground antialiased selection:bg-[#00BCD4]">
+      <body className="bg-background text-foreground selection:text-primary-foreground selection:bg-brand antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -9,7 +9,7 @@ interface PingIndicatorProps {
 
 export const PingIndicator = ({
   size = 8,
-  color = "#00BCD4",
+  color = "var(--color-brand)",
   className,
   glow = true,
 }: PingIndicatorProps) => {

@@ -13,7 +13,7 @@ export const FaqSection = () => {
   return (
     <section id="faq" className="relative overflow-hidden bg-white px-4 py-24 md:py-32">
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 opacity-60 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
+      <div className="bg-brand/5 pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl">
         <div className="mb-16 text-center md:mb-20">
@@ -37,13 +37,13 @@ export const FaqSection = () => {
               className="border-b border-slate-100 py-2 last:border-0"
             >
               <AccordionTrigger className="group flex w-full items-center justify-between py-6 text-left hover:no-underline [&>svg]:hidden">
-                <span className="pr-8 text-lg font-medium text-slate-700 transition-colors duration-300 group-hover:text-[#00BCD4] md:text-xl">
+                <span className="group-hover:text-brand pr-8 text-lg font-medium text-slate-700 transition-colors duration-300 md:text-xl">
                   {item.question}
                 </span>
 
                 <div className="relative flex h-6 w-6 shrink-0 items-center justify-center">
-                  <Plus className="absolute h-5 w-5 text-slate-400 transition-all duration-300 group-hover:text-[#00BCD4] group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0" />
-                  <Minus className="absolute h-5 w-5 -rotate-90 text-[#00BCD4] opacity-0 transition-all duration-300 group-data-[state=open]:rotate-0 group-data-[state=open]:opacity-100" />
+                  <Plus className="group-hover:text-brand absolute h-5 w-5 text-slate-400 transition-all duration-300 group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0" />
+                  <Minus className="text-brand absolute h-5 w-5 -rotate-90 opacity-0 transition-all duration-300 group-data-[state=open]:rotate-0 group-data-[state=open]:opacity-100" />
                 </div>
               </AccordionTrigger>
               <AccordionContent className="animate-in slide-in-from-top-2 fade-in pr-12 pb-8 text-base leading-relaxed text-slate-500 duration-300">

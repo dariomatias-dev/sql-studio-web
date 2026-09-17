@@ -99,7 +99,7 @@ export const ContactForm = () => {
                 id="name"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? "name-error" : undefined}
-                className={`w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:border-[#00BCD4] focus:ring-2 focus:ring-[#00BCD4]/50 focus:outline-none ${
+                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
                   errors.name
                     ? "border-red-300 focus:border-red-500 focus:ring-red-200"
                     : "border-slate-200"
@@ -126,7 +126,7 @@ export const ContactForm = () => {
                 id="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className={`w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:border-[#00BCD4] focus:ring-2 focus:ring-[#00BCD4]/50 focus:outline-none ${
+                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
                   errors.email
                     ? "border-red-300 focus:border-red-500 focus:ring-red-200"
                     : "border-slate-200"
@@ -151,7 +151,7 @@ export const ContactForm = () => {
             id="subject"
             aria-invalid={!!errors.subject}
             aria-describedby={errors.subject ? "subject-error" : undefined}
-            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 transition-all focus:border-[#00BCD4] focus:ring-2 focus:ring-[#00BCD4]/50 focus:outline-none"
+            className="focus:border-brand focus:ring-brand/50 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 transition-all focus:ring-2 focus:outline-none"
           >
             <option value="General Inquiry">General Inquiry</option>
             <option value="Bug Report">Bug Report</option>
@@ -175,7 +175,7 @@ export const ContactForm = () => {
             rows={5}
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className={`w-full resize-none rounded-xl border bg-slate-50 px-4 py-3 text-slate-900 transition-all placeholder:text-slate-400 focus:border-[#00BCD4] focus:ring-2 focus:ring-[#00BCD4]/50 focus:outline-none ${
+            className={`focus:border-brand focus:ring-brand/50 w-full resize-none rounded-xl border bg-slate-50 px-4 py-3 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
               errors.message
                 ? "border-red-300 focus:border-red-500 focus:ring-red-200"
                 : "border-slate-200"
@@ -193,7 +193,7 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-4 font-bold text-white transition-all duration-300 hover:bg-[#00BCD4] disabled:cursor-not-allowed disabled:opacity-70"
+            className="group hover:bg-brand inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-4 font-bold text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? (
               <>

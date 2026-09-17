@@ -6,11 +6,11 @@ const TermsOfServiceContent = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full bg-[#00BCD4]/5 blur-[100px]" />
+      <div className="bg-brand/5 pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <div className="mb-16 border-b border-slate-100 pb-12 text-center">
-          <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00BCD4]/5 text-[#00BCD4] ring-1 ring-[#00BCD4]/20">
+          <div className="bg-brand/5 text-brand ring-brand/20 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl ring-1">
             <FileText className="h-6 w-6" />
           </div>
 
@@ -87,15 +87,15 @@ const TermsOfServiceContent = () => {
               <p className="mb-4 leading-relaxed">You are solely responsible for:</p>
               <ul className="my-6 space-y-3 pl-2">
                 <li className="flex items-start gap-3">
-                  <div className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00BCD4]" />
+                  <div className="bg-brand mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <span>Backing up your database files regularly.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00BCD4]" />
+                  <div className="bg-brand mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <span>Managing the integrity of your data.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00BCD4]" />
+                  <div className="bg-brand mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <span>Ensuring the physical and digital security of your device.</span>
                 </li>
               </ul>
@@ -122,7 +122,7 @@ const TermsOfServiceContent = () => {
               </p>
               <ul className="my-6 space-y-3 pl-2">
                 <li className="flex items-start gap-3">
-                  <div className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00BCD4]" />
+                  <div className="bg-brand mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                   <a
                     href="https://policies.google.com/terms"
                     target="_blank"
