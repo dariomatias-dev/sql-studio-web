@@ -64,9 +64,18 @@ const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
           }}
         />
 
+        <a
+          href="#main-content"
+          className="bg-brand focus:ring-brand fixed top-4 left-4 z-100 -translate-y-24 rounded-lg px-4 py-2 font-semibold text-black transition-transform focus:translate-y-0 focus:ring-4 focus:outline-none"
+        >
+          Skip to content
+        </a>
+
         <Header />
 
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1} className="focus:outline-none">
+          {children}
+        </main>
 
         <Footer />
       </body>

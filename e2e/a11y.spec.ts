@@ -46,3 +46,32 @@ test.describe("decorative elements are hidden from assistive tech", () => {
     await expect(page.locator('span[aria-hidden="true"]').first()).toBeVisible();
   });
 });
+
+test.describe("skip link", () => {
+  test("first Tab focuses it, and activating it moves focus into main content", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const skipLink = page.getByRole("link", { name: "Skip to content" });
+    await page.keyboard.press("Tab");
+    await expect(skipLink).toBeFocused();
+
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#main-content")).toBeFocused();
+  });
+});
+
+test.describe("touch targets", () => {
+  test("screenshots carousel dots are at least 24px", async ({ page }) => {
+    // Dots only render at "sm" and up; below that a counter replaces them.
+    await page.setViewportSize({ width: 1024, height: 800 });
+    await page.goto("/#screenshots");
+
+    const dot = page.getByRole("button", { name: "Go to slide 1", exact: true });
+    const box = await dot.boundingBox();
+
+    expect(box?.width).toBeGreaterThanOrEqual(24);
+    expect(box?.height).toBeGreaterThanOrEqual(24);
+  });
+});

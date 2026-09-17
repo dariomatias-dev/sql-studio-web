@@ -152,7 +152,7 @@ export const ScreenshotsCarousel = () => {
           {screenshots.map((_, i) => (
             <button
               key={i}
-              className="relative flex h-3 w-3 cursor-pointer items-center justify-center py-2"
+              className="relative flex h-6 w-6 cursor-pointer items-center justify-center"
               onClick={() => scrollTo(i)}
               aria-label={`Go to slide ${i + 1}`}
             >
