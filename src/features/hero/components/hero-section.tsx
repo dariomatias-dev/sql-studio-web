@@ -31,7 +31,7 @@ export const HeroSection = () => {
           </span>
         </div>
 
-        <h1 className="mb-8 text-6xl leading-[0.9] font-black tracking-tighter text-white drop-shadow-2xl md:text-8xl lg:text-9xl">
+        <h1 className="mb-8 text-6xl leading-[0.9] font-black tracking-tighter text-white drop-shadow-2xl md:text-7xl lg:text-8xl">
           SQL Studio <br />
           <span className="relative inline-block pb-2">
             <span className="bg-brand pointer-events-none absolute inset-0 opacity-20 blur-[60px]" />

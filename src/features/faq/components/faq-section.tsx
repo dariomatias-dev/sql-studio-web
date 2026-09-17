@@ -20,7 +20,7 @@ export const FaqSection = () => {
           <span className="mb-3 block text-xs font-bold tracking-wider text-cyan-700 uppercase">
             Common Questions
           </span>
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
             We&apos;ve got answers.
           </h2>
           <p className="mx-auto max-w-xl text-lg font-light text-slate-500">

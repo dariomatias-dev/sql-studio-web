@@ -8,7 +8,7 @@ export const CtaSection = () => {
   return (
     <section
       id="cta"
-      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-black py-20 md:py-32"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-black py-24 md:py-32"
     >
       <div className="pointer-events-none absolute inset-0 h-full w-full">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[40px_40px] opacity-20" />
@@ -31,7 +31,7 @@ export const CtaSection = () => {
           </span>
         </div>
 
-        <h2 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+        <h2 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
           SQL power in your <br />
           <span className="bg-linear-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
             pocket.

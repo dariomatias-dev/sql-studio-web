@@ -4,7 +4,10 @@ import { features } from "../data/features";
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="relative overflow-hidden bg-white px-4 py-24 md:px-8">
+    <section
+      id="features"
+      className="relative overflow-hidden bg-white px-4 py-24 md:px-8 md:py-32"
+    >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[40px_40px]" />
 
       <div className="bg-brand/5 pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
