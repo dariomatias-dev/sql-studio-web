@@ -5,6 +5,7 @@ import { FeaturesSection } from "@/features/features-showcase";
 import { HeroSection } from "@/features/hero";
 import { LanguagesSection } from "@/features/languages";
 import { ScreenshotsSection } from "@/features/screenshots";
+import { WhatsNewSection } from "@/features/whats-new";
 import { WorkflowSection } from "@/features/workflow";
 
 const Home = () => {
@@ -23,6 +24,8 @@ const Home = () => {
       <ScreenshotsSection />
 
       <FaqSection />
+
+      <WhatsNewSection />
 
       <CtaSection />
     </>

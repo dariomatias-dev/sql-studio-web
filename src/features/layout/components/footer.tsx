@@ -7,6 +7,7 @@ import { APP_REPOSITORY_URL, GITHUB_URL } from "@/shared/lib/site";
 
 import { BackToTopButton } from "./back-to-top-button";
 import { CopyrightYear } from "./copyright-year";
+import { navLinks } from "../data/nav-links";
 import { socialLinks } from "../data/social-links";
 
 export const Footer = () => {
@@ -50,21 +51,19 @@ export const Footer = () => {
               Product
             </h3>
             <ul className="space-y-3 text-sm">
-              {["Features", "Workflow", "Databases", "Languages", "Screenshots", "FAQ"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/#${item.toLowerCase()}`}
-                      className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
-                    >
-                      <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        {item}
-                      </span>
-                    </Link>
-                  </li>
-                ),
-              )}
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
+                  >
+                    <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      {label}
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
