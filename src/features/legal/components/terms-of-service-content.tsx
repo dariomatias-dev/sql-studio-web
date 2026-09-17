@@ -1,6 +1,6 @@
 import { Calendar, FileText } from "lucide-react";
 
-import { SITE_EMAIL } from "@/shared/lib/site";
+import { APP_REPOSITORY_URL, SITE_EMAIL } from "@/shared/lib/site";
 
 const TermsOfServiceContent = () => {
   return (
@@ -20,7 +20,7 @@ const TermsOfServiceContent = () => {
 
           <div className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-50 px-4 py-2 text-sm font-medium text-slate-500">
             <Calendar className="h-4 w-4" />
-            <span>Last Updated: November 30, 2025</span>
+            <span>Last Updated: September 16, 2026</span>
           </div>
         </div>
 
@@ -36,19 +36,42 @@ const TermsOfServiceContent = () => {
           <div className="space-y-12">
             <section>
               <h2 className="mb-4 flex items-center gap-3 text-2xl font-bold text-slate-900">
-                License & Restrictions
+                Open Source License
               </h2>
               <p className="mb-4 leading-relaxed">
-                You are granted a non-exclusive, non-transferable, revocable license to use the
-                Application for your personal, non-commercial purposes.
+                SQL Studio&apos;s source code is open source and available on{" "}
+                <a
+                  href={APP_REPOSITORY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
+                >
+                  GitHub
+                </a>{" "}
+                under the{" "}
+                <a
+                  href={`${APP_REPOSITORY_URL}/blob/main/LICENSE`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-cyan-700 decoration-2 underline-offset-4 hover:text-cyan-800 hover:underline"
+                >
+                  MIT License
+                </a>
+                . You&apos;re free to view, use, modify, and redistribute the code under that
+                license&apos;s terms. The SQL Studio name and app icon remain the property of{" "}
+                <strong className="text-slate-900">Dário Matias</strong> and aren&apos;t covered by
+                it.
               </p>
+            </section>
+
+            <section>
+              <h2 className="mb-4 flex items-center gap-3 text-2xl font-bold text-slate-900">
+                The App &quot;As Is&quot;
+              </h2>
               <p className="leading-relaxed">
-                You are not allowed to copy or modify the app, any part of the app, or our
-                trademarks in any way. You are not allowed to attempt to extract the source code of
-                the app, and you also shouldn&apos;t try to translate the app into other languages
-                or make derivative versions. The app itself, and all the trademarks, copyright,
-                database rights, and other intellectual property rights related to it, still belong
-                to <strong className="text-slate-900">Dário Matias</strong>.
+                SQL Studio is provided &quot;as is&quot;, without warranties of any kind, express or
+                implied. Dário Matias makes no guarantee that the app will be error-free or
+                uninterrupted, and isn&apos;t liable for damages arising from its use.
               </p>
             </section>
 
@@ -113,32 +136,11 @@ const TermsOfServiceContent = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 flex items-center gap-3 text-2xl font-bold text-slate-900">
-                Offline Functionality
-              </h2>
-              <p className="mb-4 leading-relaxed">
-                The Application allows you to create and edit SQL databases without an internet
-                connection. However, you acknowledge that you are responsible for any data charges
-                incurred if you choose to download updates for the app via your mobile network.
-              </p>
+              <h2 className="mb-4 text-2xl font-bold text-slate-900">Beta Status</h2>
               <p className="leading-relaxed">
-                Dário Matias cannot take responsibility for the app not working at full
-                functionality if you don&apos;t have access to the internet solely for the purpose
-                of downloading initial assets or critical updates.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="mb-4 text-2xl font-bold text-slate-900">Updates & Termination</h2>
-              <p className="mb-4 leading-relaxed">
-                Dário Matias is committed to ensuring that the app is as useful and efficient as
-                possible. We reserve the right to make changes to the app at any time.
-              </p>
-              <p className="leading-relaxed">
-                We may wish to stop providing the app, and may terminate use of it at any time
-                without giving notice of termination to you. Upon termination, (a) the rights and
-                licenses granted to you in these terms will end; (b) you must stop using the app,
-                and (if needed) delete it from your device.
+                SQL Studio is currently in closed beta. Features, screens, and behavior may change,
+                break, or be removed without notice while the app is in this stage. We may also stop
+                providing the app or terminate your access to it at any time.
               </p>
             </section>
 
