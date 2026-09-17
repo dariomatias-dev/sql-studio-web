@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { PingIndicator } from "@/shared/components/ping-indicator";
 import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
-import { GITHUB_URL } from "@/shared/lib/site";
+import { APP_REPOSITORY_URL, GITHUB_URL } from "@/shared/lib/site";
 
 import { BackToTopButton } from "./back-to-top-button";
 import { CopyrightYear } from "./copyright-year";
@@ -103,7 +103,36 @@ export const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="col-span-2 md:col-span-1 lg:col-span-2">
+          <div>
+            <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
+              Open Source
+            </h3>
+            <ul className="space-y-3 text-sm">
+              {[
+                { href: APP_REPOSITORY_URL, label: "Source Code" },
+                { href: `${APP_REPOSITORY_URL}/issues`, label: "Issues" },
+                {
+                  href: `${APP_REPOSITORY_URL}/blob/main/docs/contributing.md`,
+                  label: "Contributing Guide",
+                },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center text-zinc-400 transition-colors duration-200 hover:text-[#00BCD4]"
+                  >
+                    <ChevronRight className="mr-0 h-2.5 w-0 text-[#00BCD4] opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      {label}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
               Connect
             </h3>
