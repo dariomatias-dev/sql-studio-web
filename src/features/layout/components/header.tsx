@@ -91,19 +91,21 @@ export const Header = () => {
             </Link>
 
             <div className="hidden items-center justify-center space-x-1 md:flex">
-              {navLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    "hover:text-brand relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
-                    solid ? "text-slate-600" : "text-slate-300 hover:text-white",
-                  )}
-                >
-                  <span className="relative z-10">{label}</span>
-                  <span className="bg-brand/10 absolute inset-0 z-0 origin-center scale-0 rounded-full transition-transform duration-300 ease-out hover:scale-100" />
-                </Link>
-              ))}
+              {navLinks
+                .filter((link) => link.primary)
+                .map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={cn(
+                      "hover:text-brand relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
+                      solid ? "text-slate-600" : "text-slate-300 hover:text-white",
+                    )}
+                  >
+                    <span className="relative z-10">{label}</span>
+                    <span className="bg-brand/10 absolute inset-0 z-0 origin-center scale-0 rounded-full transition-transform duration-300 ease-out hover:scale-100" />
+                  </Link>
+                ))}
             </div>
 
             <div className="hidden items-center gap-4 md:flex">
