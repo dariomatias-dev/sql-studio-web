@@ -1,6 +1,13 @@
-import { features } from "../data/features";
+import { useTranslations } from "next-intl";
+
+import { featureIcons } from "../data/features";
+
+import type { FeatureMessage } from "../data/feature.types";
 
 export const FeaturesSection = () => {
+  const t = useTranslations("Features");
+  const items = t.raw("items") as FeatureMessage[];
+
   return (
     <section
       id="features"
@@ -14,38 +21,42 @@ export const FeaturesSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            Powerful Capabilities
+            {t("badge")}
           </div>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            Engineered for <br />
+            {t("titleLine1")} <br />
             <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              Modern Performance.
+              {t("titleLine2")}
             </span>
           </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">
-            Everything you need to practice SQL, built for touch and 100% offline.
-          </p>
+          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group hover:border-brand/30 hover:shadow-glow-xl relative rounded-3xl border border-slate-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="border-brand/20 bg-brand/5 text-brand group-hover:border-brand group-hover:bg-brand relative mb-6 inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <feature.icon className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-white" />
+          {items.map((feature, index) => {
+            const Icon = featureIcons[index];
+
+            return (
+              <div
+                key={feature.title}
+                className="group hover:border-brand/30 hover:shadow-glow-xl relative rounded-3xl border border-slate-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="border-brand/20 bg-brand/5 text-brand group-hover:border-brand group-hover:bg-brand relative mb-6 inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  {Icon && (
+                    <Icon className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-white" />
+                  )}
+                </div>
+
+                <h3 className="group-hover:text-brand mb-3 text-xl font-bold text-slate-900 transition-colors duration-200">
+                  {feature.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-700 md:text-base">
+                  {feature.description}
+                </p>
               </div>
-
-              <h3 className="group-hover:text-brand mb-3 text-xl font-bold text-slate-900 transition-colors duration-200">
-                {feature.title}
-              </h3>
-
-              <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-700 md:text-base">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

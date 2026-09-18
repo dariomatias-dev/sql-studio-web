@@ -4,6 +4,18 @@ import { describe, expect, it, vi } from "vitest";
 
 import { Footer } from "../footer";
 
+vi.mock("@/i18n/navigation", () => ({
+  Link: ({
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+}));
+
 describe("Footer", () => {
   it("links to the legal pages and contact", () => {
     render(<Footer />);

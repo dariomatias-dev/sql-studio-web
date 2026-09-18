@@ -1,12 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { usePathname } from "next/navigation";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+
+import { usePathname } from "@/i18n/navigation";
 
 import { Header } from "../header";
 
-vi.mock("next/navigation", () => ({
+vi.mock("@/i18n/navigation", () => ({
   usePathname: vi.fn(),
+  Link: ({
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
 }));
 
 describe("Header", () => {

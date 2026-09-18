@@ -18,13 +18,19 @@ to depend on.
 
 ### Current budgets
 
-| Route               | Budget | Measured at last review |
-| ------------------- | ------ | ----------------------- |
-| `/`                 | 720 KB | ~690.7 KB               |
-| `/contact`          | 820 KB | ~798.2 KB               |
-| `/download`         | 690 KB | ~663.5 KB               |
-| `/privacy-policy`   | 680 KB | ~652.9 KB               |
-| `/terms-of-service` | 680 KB | ~652.9 KB               |
+| Route               | Budget   | Measured at last review |
+| ------------------- | -------- | ----------------------- |
+| `/contact`          | 1,200 KB | ~1,167.2 KB             |
+| `/download`         | 1,170 KB | ~1,132.9 KB             |
+| `/privacy-policy`   | 1,160 KB | ~1,123.5 KB             |
+| `/terms-of-service` | 1,160 KB | ~1,123.5 KB             |
+
+`/` has no budget: since [E89](../plan.md) it's server-rendered on demand
+rather than prerendered to static HTML (see the E89 notes for why), so
+there's no `<script src>`-bearing HTML file for this script to measure —
+`next-intl`'s locale detection couldn't be made to fully statically
+render the home page in this Next.js version, and that's tracked as a
+follow-up rather than solved here.
 
 These are a **floor against regressing past the measured baseline**, not a
 target: same philosophy as the Vitest coverage thresholds in
@@ -33,14 +39,18 @@ measurement to back it, same as raising one.
 
 ### What's actually in that weight
 
-`/contact` is the heaviest route: it ships `react-hook-form` and its zod
-resolver for the contact form, on top of the shared framework baseline
-(React, React DOM, the Next.js runtime, `embla-carousel-react` used by the
-home page's screenshots carousel). `/download` is lighter since its form
-uses plain `useState`, no form library. The legal pages
-(`/privacy-policy`, `/terms-of-service`) ship no form code at all — their
-weight is close to pure framework baseline, since neither page has a
-client-side island of its own beyond the shared `Header`/`Footer`.
+Every route's baseline jumped by roughly 370 KB at E89: `next-intl`'s
+client runtime (locale/message context, ICU message formatting) is now
+part of the shared framework chunk, since `Header`/`Footer` — rendered on
+every route — read their labels through it. `/contact` is the heaviest
+route: it ships `react-hook-form` and its zod resolver for the contact
+form, on top of that shared baseline (React, React DOM, the Next.js
+runtime, `next-intl`, `embla-carousel-react` used by the home page's
+screenshots carousel). `/download` is lighter since its form uses plain
+`useState`, no form library. The legal pages (`/privacy-policy`,
+`/terms-of-service`) ship no form code at all — their weight is close to
+that shared baseline, since neither page has a client-side island of its
+own beyond `Header`/`Footer`.
 
 ## Lighthouse CI
 

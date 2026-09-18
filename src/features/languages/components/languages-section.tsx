@@ -1,9 +1,12 @@
 import { Languages as LanguagesIcon } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import { languages } from "../data/languages";
 
 export const LanguagesSection = () => {
+  const t = useTranslations("Languages");
+
   return (
     <section
       id="languages"
@@ -14,18 +17,15 @@ export const LanguagesSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            Your Language
+            {t("badge")}
           </div>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            Speak your <br />
+            {t("titleLine1")} <br />
             <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              own language.
+              {t("titleLine2")}
             </span>
           </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">
-            SQL Studio&apos;s full interface is available in English, Portuguese (Brazil), and
-            Spanish. Switch anytime from Settings.
-          </p>
+          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -34,7 +34,7 @@ export const LanguagesSection = () => {
               <div className="relative w-full max-w-56 overflow-hidden rounded-[2rem] border-4 border-slate-200 bg-white shadow-xl">
                 <Image
                   src={language.screenshot}
-                  alt={`SQL Studio's home screen in ${language.name}`}
+                  alt={t("screenshotAlt", { language: language.name })}
                   width={280}
                   height={623}
                   className="w-full"

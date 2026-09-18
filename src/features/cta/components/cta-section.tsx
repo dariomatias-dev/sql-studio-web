@@ -1,10 +1,13 @@
 import { Check, ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { DownloadButton } from "@/shared/components/download-button";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
 
 export const CtaSection = () => {
+  const t = useTranslations("Cta");
+
   return (
     <section
       id="cta"
@@ -32,15 +35,14 @@ export const CtaSection = () => {
         </div>
 
         <h2 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-          SQL power in your <br />
+          {t("titleLine1")} <br />
           <span className="bg-linear-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent">
-            pocket.
+            {t("titleLine2")}
           </span>
         </h2>
 
         <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">
-          The database client designed for touch. Query, edit, and visualize your data with the
-          speed of a desktop app, entirely for free.
+          {t("description")}
         </p>
 
         <div className="flex flex-col items-center justify-center gap-8">
@@ -49,12 +51,12 @@ export const CtaSection = () => {
           <div className="flex flex-col items-center gap-4 text-sm font-medium text-zinc-500 sm:flex-row sm:gap-6">
             <span className="flex items-center gap-2">
               <ShieldCheck className="text-brand h-4 w-4" />
-              No account required
+              {t("noAccountRequired")}
             </span>
             <span className="hidden h-1 w-1 rounded-full bg-zinc-800 sm:block" />
             <span className="flex items-center gap-2">
               <Check className="text-brand h-4 w-4" />
-              100% Free & Private
+              {t("freeAndPrivate")}
             </span>
           </div>
         </div>

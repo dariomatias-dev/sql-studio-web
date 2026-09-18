@@ -71,27 +71,30 @@ if (isMain) {
   const buildDir = path.join(process.cwd(), ".next");
   // Budgets are a floor against regressing past the measured baseline (see
   // docs/performance.md), not a target.
+  // "/" has no entry: since E89, the home page is server-rendered on demand
+  // (see plan.md's E89 notes), so there's no prerendered HTML file to measure
+  // its initial JS from. "/download" is measured through its default-locale
+  // (English, unprefixed) output, the one most visitors actually get.
   const routes = [
-    { name: "/", htmlPath: path.join(buildDir, "server", "app", "index.html"), budgetKB: 720 },
     {
       name: "/contact",
       htmlPath: path.join(buildDir, "server", "app", "contact.html"),
-      budgetKB: 820,
+      budgetKB: 1200,
     },
     {
       name: "/download",
-      htmlPath: path.join(buildDir, "server", "app", "download.html"),
-      budgetKB: 690,
+      htmlPath: path.join(buildDir, "server", "app", "en", "download.html"),
+      budgetKB: 1170,
     },
     {
       name: "/privacy-policy",
       htmlPath: path.join(buildDir, "server", "app", "privacy-policy.html"),
-      budgetKB: 680,
+      budgetKB: 1160,
     },
     {
       name: "/terms-of-service",
       htmlPath: path.join(buildDir, "server", "app", "terms-of-service.html"),
-      budgetKB: 680,
+      budgetKB: 1160,
     },
   ];
 

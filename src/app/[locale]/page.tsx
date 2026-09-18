@@ -8,6 +8,18 @@ import { OpenSourceSection } from "@/features/open-source";
 import { ScreenshotsSection } from "@/features/screenshots";
 import { WhatsNewSection } from "@/features/whats-new";
 import { WorkflowSection } from "@/features/workflow";
+import { localeAlternates } from "@/shared/lib/page-metadata";
+
+import type { Metadata } from "next";
+
+interface HomeProps {
+  params: Promise<{ locale: string }>;
+}
+
+export const generateMetadata = async ({ params }: HomeProps): Promise<Metadata> => {
+  const { locale } = await params;
+  return { alternates: localeAlternates("/", locale) };
+};
 
 const Home = () => {
   return (

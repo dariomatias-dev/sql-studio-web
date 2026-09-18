@@ -1,10 +1,19 @@
 import { ArrowRight, Database, Sparkles, WifiOff, Zap } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import { DownloadButton } from "@/shared/components/download-button";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 
 export const HeroSection = () => {
+  const t = useTranslations("Hero");
+
+  const stats = [
+    { icon: Database, label: t("sqliteNative") },
+    { icon: Zap, label: t("instantQuery") },
+    { icon: WifiOff, label: t("offlineReady") },
+  ];
+
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-16">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[4rem_4rem] opacity-20" />
@@ -27,25 +36,24 @@ export const HeroSection = () => {
           <PingIndicator />
 
           <span className="pl-0.5 text-xs font-bold tracking-wider text-zinc-300 uppercase transition-colors group-hover:text-white md:text-sm">
-            Native SQLite Client
+            {t("badge")}
           </span>
         </div>
 
         <h1 className="mb-8 text-6xl leading-[0.9] font-black tracking-tighter text-white drop-shadow-2xl md:text-7xl lg:text-8xl">
-          SQL Studio <br />
+          {t("titleLine1")} <br />
           <span className="relative inline-block pb-2">
             <span className="bg-brand pointer-events-none absolute inset-0 opacity-20 blur-[60px]" />
             <span className="relative bg-linear-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-              Anywhere.
+              {t("titleLine2")}
             </span>
           </span>
         </h1>
 
         <p className="mb-14 max-w-3xl text-lg leading-relaxed font-light text-zinc-400 md:text-2xl">
           Practice SQL right on your phone —{" "}
-          <span className="font-medium text-zinc-200">no setup, no server, fully offline.</span>
-          <br className="hidden md:block" /> Every database comes ready to query. Currently in
-          closed beta on Android.
+          <span className="font-medium text-zinc-200">{t("descriptionStrong")}</span>
+          <br className="hidden md:block" /> {t("descriptionRest")}
         </p>
 
         <div className="flex w-full flex-col items-center gap-6 sm:w-auto sm:flex-row">
@@ -56,24 +64,20 @@ export const HeroSection = () => {
             className="group hover:border-brand/50 inline-flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-black/50 px-10 py-5 text-lg font-medium text-zinc-300 backdrop-blur-md transition-all duration-300 hover:bg-zinc-900 hover:text-white"
           >
             <Sparkles className="group-hover:text-brand h-5 w-5 text-zinc-500 transition-colors" />
-            <span>Explore Features</span>
+            <span>{t("exploreFeatures")}</span>
             <ArrowRight className="group-hover:text-brand h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
         <div className="mt-24 hidden w-full grid-cols-3 gap-6 border-t border-white/5 pt-10 md:grid md:gap-12">
-          {[
-            { icon: Database, label: "SQLite Native" },
-            { icon: Zap, label: "Instant Query" },
-            { icon: WifiOff, label: "Offline Ready" },
-          ].map((feature, idx) => (
+          {stats.map((stat, idx) => (
             <div key={idx} className="group flex cursor-default flex-col items-center gap-4">
               <div className="group-hover:border-brand/30 group-hover:bg-brand/5 relative rounded-2xl border border-white/5 bg-zinc-900/50 p-3.5 transition-all duration-300">
                 <div className="bg-brand absolute inset-0 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
-                <feature.icon className="group-hover:text-brand relative z-10 h-6 w-6 text-zinc-500 transition-colors" />
+                <stat.icon className="group-hover:text-brand relative z-10 h-6 w-6 text-zinc-500 transition-colors" />
               </div>
               <span className="text-sm font-semibold tracking-wide text-zinc-500 uppercase transition-colors group-hover:text-zinc-200">
-                {feature.label}
+                {stat.label}
               </span>
             </div>
           ))}

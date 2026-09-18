@@ -1,8 +1,11 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { GooglePlayIcon } from "@/shared/icons";
 
 export const DownloadButton = () => {
+  const t = useTranslations("DownloadButton");
+
   return (
     <Link
       href="/download"
@@ -12,7 +15,7 @@ export const DownloadButton = () => {
 
       <div className="flex flex-col items-start gap-0.5 leading-none">
         <span className="text-[10px] font-bold tracking-wider text-zinc-500 uppercase transition-colors group-hover:text-zinc-700">
-          Download on
+          {t("downloadOn")}
         </span>
         <span className="text-lg font-bold tracking-tight text-slate-900 md:text-xl">
           Google Play

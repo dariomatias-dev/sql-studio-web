@@ -3,16 +3,18 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useState } from "react";
 
+import { Link, usePathname } from "@/i18n/navigation";
 import { GooglePlayIcon } from "@/shared/icons";
 import { cn } from "@/shared/lib/cn";
 
 import { navLinks } from "../data/nav-links";
 
 export const Header = () => {
+  const t = useTranslations("Nav");
+  const tHeader = useTranslations("Header");
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
@@ -93,7 +95,7 @@ export const Header = () => {
             <div className="hidden items-center justify-center space-x-1 md:flex">
               {navLinks
                 .filter((link) => link.primary)
-                .map(({ href, label }) => (
+                .map(({ href, labelKey }) => (
                   <Link
                     key={href}
                     href={href}
@@ -102,7 +104,7 @@ export const Header = () => {
                       solid ? "text-slate-600" : "text-slate-300 hover:text-white",
                     )}
                   >
-                    <span className="relative z-10">{label}</span>
+                    <span className="relative z-10">{t(labelKey)}</span>
                     <span className="bg-brand/10 absolute inset-0 z-0 origin-center scale-0 rounded-full transition-transform duration-300 ease-out hover:scale-100" />
                   </Link>
                 ))}
@@ -119,7 +121,7 @@ export const Header = () => {
                 )}
               >
                 <GooglePlayIcon className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-15deg]" />
-                <span>Download App</span>
+                <span>{tHeader("downloadApp")}</span>
               </Link>
             </div>
 
@@ -162,13 +164,13 @@ export const Header = () => {
           </Dialog.Close>
 
           <div className="flex flex-col items-center space-y-6">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, labelKey }) => (
               <Dialog.Close key={href} asChild>
                 <Link
                   href={href}
                   className="hover:text-brand text-2xl font-bold text-slate-800 transition-colors"
                 >
-                  {label}
+                  {t(labelKey)}
                 </Link>
               </Dialog.Close>
             ))}
@@ -179,7 +181,7 @@ export const Header = () => {
                 className="bg-brand shadow-brand/30 mt-4 inline-flex items-center gap-2 rounded-full px-8 py-3 text-lg font-bold text-white shadow-lg"
               >
                 <GooglePlayIcon className="h-5 w-5" />
-                Download App
+                {tHeader("downloadApp")}
               </Link>
             </Dialog.Close>
           </div>

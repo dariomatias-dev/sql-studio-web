@@ -14,12 +14,16 @@ const FEATURES = [
   "beta-access",
   "contact",
   "cta",
+  "database-catalog",
   "faq",
   "features-showcase",
   "hero",
+  "languages",
   "layout",
   "legal",
+  "open-source",
   "screenshots",
+  "whats-new",
   "workflow",
 ];
 

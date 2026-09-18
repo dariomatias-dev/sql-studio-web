@@ -1,0 +1,375 @@
+{
+  "Nav": {
+    "features": "Features",
+    "workflow": "Workflow",
+    "databases": "Databases",
+    "languages": "Languages",
+    "screenshots": "Screenshots",
+    "faq": "FAQ",
+    "openSource": "Open Source",
+    "whatsNew": "What's New"
+  },
+  "Header": {
+    "downloadApp": "Download App"
+  },
+  "Footer": {
+    "tagline": "The professional database client designed for modern developers. Manage your SQLite databases with speed, efficiency, and style directly from your mobile device.",
+    "productHeading": "Product",
+    "legalHeading": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contactSupport": "Contact Support",
+    "openSourceHeading": "Open Source",
+    "sourceCode": "Source Code",
+    "issues": "Issues",
+    "contributingGuide": "Contributing Guide",
+    "connectHeading": "Connect",
+    "connectTagline": "Built with passion for the SQL community.",
+    "builtBy": "Built by"
+  },
+  "Hero": {
+    "badge": "Native SQLite Client",
+    "titleLine1": "SQL Studio",
+    "titleLine2": "Anywhere.",
+    "descriptionStrong": "no setup, no server, fully offline.",
+    "descriptionRest": "Every database comes ready to query. Currently in closed beta on Android.",
+    "exploreFeatures": "Explore Features",
+    "sqliteNative": "SQLite Native",
+    "instantQuery": "Instant Query",
+    "offlineReady": "Offline Ready"
+  },
+  "Features": {
+    "badge": "Powerful Capabilities",
+    "titleLine1": "Engineered for",
+    "titleLine2": "Modern Performance.",
+    "description": "Everything you need to practice SQL, built for touch and 100% offline.",
+    "items": [
+      {
+        "title": "Offline SQLite Databases",
+        "description": "A catalog of local databases, each with its own schema and seed data, ready to query immediately."
+      },
+      {
+        "title": "SQL Editor",
+        "description": "Write and run SQL with syntax highlighting, a fullscreen mode, and a console showing query results and errors."
+      },
+      {
+        "title": "Database Visualizer",
+        "description": "Inspect a database's tables, columns, and structure visually, without writing SQL."
+      },
+      {
+        "title": "Reset Database",
+        "description": "Restore any database to its original schema and seed data at any time."
+      },
+      {
+        "title": "Copy Schema & Seed",
+        "description": "Copy a database's schema, seed data, or both to the clipboard."
+      },
+      {
+        "title": "SQL Suggestions",
+        "description": "Basic and advanced SQL snippets to speed up writing common queries, toggled from Settings."
+      },
+      {
+        "title": "Configurable Workspace Layout",
+        "description": "Choose how the editor, console, and visualizer are arranged on screen."
+      },
+      {
+        "title": "Multiple Languages",
+        "description": "Full app UI in English, Portuguese (Brazil), and Spanish."
+      },
+      {
+        "title": "Theme Selection",
+        "description": "Light, dark, or system theme."
+      },
+      {
+        "title": "Database Search",
+        "description": "Filter the databases list by name."
+      }
+    ]
+  },
+  "Workflow": {
+    "badge": "Seamless Workflow",
+    "titleLine1": "Master your data in",
+    "titleLine2": "four simple steps.",
+    "description": "No setup, no server. Pick a database and get straight to querying with a streamlined mobile experience designed for speed.",
+    "steps": [
+      {
+        "title": "Choose a Database",
+        "description": "Pick one from the built-in catalog of local databases, each with its own schema and seed data, ready to query immediately."
+      },
+      {
+        "title": "Write & Run",
+        "description": "Write SQL in the editor and execute it, viewing the results and any errors in the console."
+      },
+      {
+        "title": "Inspect",
+        "description": "Explore the database's tables, columns, and structure visually, without writing SQL."
+      },
+      {
+        "title": "Reset",
+        "description": "Restore the database to its original schema and seed data at any time."
+      }
+    ],
+    "mockupAlt": "SQL editor with an active database",
+    "statusLabel": "Status",
+    "queryExecuted": "Query Executed"
+  },
+  "Databases": {
+    "badge": "Ready to Query",
+    "titleLine1": "14 databases,",
+    "titleLine2": "zero setup.",
+    "description": "Every database ships pre-loaded with a real schema and seed data, ready to query the moment you open it.",
+    "table": "table",
+    "tables": "tables",
+    "items": [
+      { "name": "To-Do List", "description": "Simple task management database", "tableCount": 1 },
+      { "name": "Contacts", "description": "Contacts and groups database", "tableCount": 2 },
+      {
+        "name": "Library",
+        "description": "Library with books, members, and loans",
+        "tableCount": 3
+      },
+      {
+        "name": "Fitness Club",
+        "description": "Gym members and subscriptions database",
+        "tableCount": 3
+      },
+      { "name": "Car Rental", "description": "Car rental management database", "tableCount": 4 },
+      {
+        "name": "Restaurant",
+        "description": "Restaurant orders and menu items database",
+        "tableCount": 4
+      },
+      {
+        "name": "HR Payroll",
+        "description": "Company departments, job positions, employees, and salary history",
+        "tableCount": 4
+      },
+      {
+        "name": "Logistics",
+        "description": "Packages, drivers, deliveries, and status history database",
+        "tableCount": 5
+      },
+      {
+        "name": "Pharmacy",
+        "description": "Pharmacy inventory, suppliers, customers, and sales database",
+        "tableCount": 5
+      },
+      {
+        "name": "School",
+        "description": "School management with students, teachers, classes, enrollments, and grades",
+        "tableCount": 5
+      },
+      {
+        "name": "Social Network",
+        "description": "Social media with users, posts, likes, comments, and followers",
+        "tableCount": 5
+      },
+      {
+        "name": "Hotel",
+        "description": "Hotel reservations, rooms, payments, employees, and services database",
+        "tableCount": 6
+      },
+      {
+        "name": "Banking",
+        "description": "Banking system with accounts, transactions, loans, and employees",
+        "tableCount": 6
+      },
+      {
+        "name": "E-Commerce",
+        "description": "Online store with products, orders, carts, and reviews",
+        "tableCount": 8
+      }
+    ]
+  },
+  "Languages": {
+    "badge": "Your Language",
+    "titleLine1": "Speak your",
+    "titleLine2": "own language.",
+    "description": "SQL Studio's full interface is available in English, Portuguese (Brazil), and Spanish. Switch anytime from Settings.",
+    "screenshotAlt": "SQL Studio's home screen in {language}"
+  },
+  "Screenshots": {
+    "badge": "Interface Design",
+    "titleLine1": "Built for",
+    "titleLine2": "Speed & Precision.",
+    "description": "A powerful interface that feels native. Clean layout, intuitive navigation, and optimized for one-handed use.",
+    "items": [
+      { "alt": "Home / SQL editor" },
+      { "alt": "Databases" },
+      { "alt": "SQL editor with an active database" },
+      { "alt": "Navigation drawer" },
+      { "alt": "Database visualizer" },
+      { "alt": "Settings" },
+      { "alt": "Language selector" },
+      { "alt": "Theme selector" },
+      { "alt": "SQL suggestions settings" },
+      { "alt": "Workspace layout settings" }
+    ]
+  },
+  "Faq": {
+    "badge": "Common Questions",
+    "title": "We've got answers.",
+    "description": "Everything you need to know about the app. Didn't find the answer you were looking for? Contact our support team.",
+    "items": [
+      {
+        "question": "What databases does SQL Studio support?",
+        "answer": "Currently, SQL Studio provides full support for <strong>SQLite</strong> databases. We are continuously evaluating support for other database systems based on user feedback and roadmap priorities."
+      },
+      {
+        "question": "What practice databases are included?",
+        "answer": "SQL Studio comes with a catalog of pre-built databases covering common domains — e-commerce, banking, logistics, and more — each with its own schema and seed data, ready to query immediately. You can reset any of them back to their original state at any time."
+      },
+      {
+        "question": "Does SQL Studio need an internet connection?",
+        "answer": "No. SQL Studio is offline-first: every database lives locally on your device, and the app doesn't need a network connection to work."
+      },
+      {
+        "question": "What languages does SQL Studio support?",
+        "answer": "The app's interface is fully available in English, Portuguese (Brazil), and Spanish. You can switch between them from Settings."
+      },
+      {
+        "question": "Is SQL Studio available for iOS?",
+        "answer": "Not yet. SQL Studio is currently available for Android only."
+      },
+      {
+        "question": "How do I get access to SQL Studio right now?",
+        "answer": "SQL Studio is currently in closed beta on Google Play. Request access on our <downloadLink>download page</downloadLink>, and you'll get an invitation email once your account is approved as a tester."
+      },
+      {
+        "question": "Is SQL Studio open source?",
+        "answer": "Yes. The app's source code is available on <githubLink>GitHub</githubLink> under the MIT license."
+      },
+      {
+        "question": "Is SQL Studio free?",
+        "answer": "SQL Studio is completely free and offers all essential features at no additional cost. We believe in accessible tools for developers everywhere."
+      },
+      {
+        "question": "How do I report a bug or request a feature?",
+        "answer": "You can open an issue on the app's <issuesLink>GitHub repository</issuesLink>, use the \"Contact\" item in the app's Settings, or reach us through our <contactLink>contact page</contactLink>."
+      }
+    ]
+  },
+  "OpenSource": {
+    "badge": "Open Source",
+    "titleLine1": "Built in the",
+    "titleLine2": "open, on purpose.",
+    "description": "The app's full source code, feature-first architecture, and test suite are public on GitHub, under the MIT license.",
+    "stats": [
+      { "label": "Test Files", "value": "106" },
+      { "label": "Integration Suites", "value": "9" },
+      { "label": "Min. Line Coverage", "value": "91%" }
+    ],
+    "modules": [
+      { "name": "database", "description": "Catalog, creation, deletion, favoriting, and search." },
+      {
+        "name": "database-visualizer",
+        "description": "Visual schema view of a database's tables, columns, and relationships."
+      },
+      { "name": "sql-editor", "description": "The code editor, its console, and running queries." },
+      {
+        "name": "sql-suggestions",
+        "description": "Basic and advanced SQL snippets shown while writing a query."
+      },
+      {
+        "name": "workspace-layout",
+        "description": "How the editor, console, and visualizer are arranged on screen."
+      },
+      { "name": "app-version", "description": "The app's own version info shown in Settings." }
+    ],
+    "viewSource": "View Source on GitHub"
+  },
+  "WhatsNew": {
+    "badge": "Changelog",
+    "titleLine1": "What's",
+    "titleLine2": "New.",
+    "description": "SQL Studio ships often. Here's what changed in each release.",
+    "current": "Current",
+    "releases": [
+      {
+        "version": "0.3.0",
+        "date": "July 31, 2026",
+        "highlights": [
+          "Light, dark, and system theme support.",
+          "Search filter on the databases list.",
+          "Navigate straight to a table from the database visualizer's schema diagram.",
+          "Toast confirmation for database actions."
+        ]
+      },
+      {
+        "version": "0.2.0",
+        "date": "July 26, 2026",
+        "highlights": [
+          "Redesigned UI with a unified black-and-white minimal visual identity.",
+          "About screen with app info and a licenses viewer.",
+          "SQL editor download/export, load-last-query, and copy schema/seed to clipboard.",
+          "Database visualizer relation tracing and automatic diagram fit-to-view.",
+          "Transitions and micro-animations across screens and components."
+        ]
+      },
+      {
+        "version": "0.1.1",
+        "date": "December 3, 2025",
+        "highlights": [
+          "Full internationalization: English, Portuguese (Brazil), and Spanish.",
+          "Language switching support and a language selector.",
+          "Advanced SQL suggestions.",
+          "Contact option in Settings."
+        ]
+      },
+      {
+        "version": "0.1.0",
+        "date": "October 26, 2025",
+        "highlights": [
+          "Initial release: database creation, listing, favoriting, and deletion.",
+          "SQL editor and console workspace.",
+          "Basic SQL suggestions."
+        ]
+      }
+    ]
+  },
+  "Cta": {
+    "titleLine1": "SQL power in your",
+    "titleLine2": "pocket.",
+    "description": "The database client designed for touch. Query, edit, and visualize your data with the speed of a desktop app, entirely for free.",
+    "noAccountRequired": "No account required",
+    "freeAndPrivate": "100% Free & Private"
+  },
+  "Download": {
+    "badge": "Closed Beta Access",
+    "titleLine1": "Join the",
+    "titleLine2": "Development Program",
+    "description": "SQL Studio is currently invite-only. To access the app on the Play Store, your email needs to be whitelisted in our testers database.",
+    "howItWorksTitle": "How it works",
+    "stepLabel": "Step",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Submit Email",
+        "description": "Enter your Google Play email above to join the list."
+      },
+      {
+        "step": "02",
+        "title": "Wait for Invite",
+        "description": "We'll enable access and notify you via email."
+      },
+      {
+        "step": "03",
+        "title": "Download",
+        "description": "Access the Play Store link to install the app."
+      }
+    ]
+  },
+  "DownloadButton": {
+    "downloadOn": "Download on"
+  },
+  "BetaAccessForm": {
+    "emailLabel": "Google Play Email Address",
+    "emailPlaceholder": "your-account@gmail.com",
+    "emailHint": "Must match the account logged in on your Android device.",
+    "submit": "Join Beta Waitlist",
+    "submitting": "Processing...",
+    "successTitle": "Request Received",
+    "successMessage": "You have been added to the waiting list. Once your email is approved as a tester, you'll receive an <strong>invitation email</strong> with the Play Store link.",
+    "error": "Failed to send request. Please try again."
+  }
+}

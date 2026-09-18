@@ -1,8 +1,16 @@
 import { Database as DatabaseIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-import { databases } from "../data/databases";
+interface DatabaseMessage {
+  name: string;
+  description: string;
+  tableCount: number;
+}
 
 export const DatabaseCatalogSection = () => {
+  const t = useTranslations("Databases");
+  const items = t.raw("items") as DatabaseMessage[];
+
   return (
     <section
       id="databases"
@@ -13,22 +21,19 @@ export const DatabaseCatalogSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            Ready to Query
+            {t("badge")}
           </div>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            {databases.length} databases, <br />
+            {t("titleLine1")} <br />
             <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              zero setup.
+              {t("titleLine2")}
             </span>
           </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">
-            Every database ships pre-loaded with a real schema and seed data, ready to query the
-            moment you open it.
-          </p>
+          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {databases.map((database) => (
+          {items.map((database) => (
             <div
               key={database.name}
               className="group hover:border-brand/30 relative rounded-2xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
@@ -38,7 +43,7 @@ export const DatabaseCatalogSection = () => {
                   <DatabaseIcon className="h-5 w-5" />
                 </div>
                 <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
-                  {database.tableCount} {database.tableCount === 1 ? "table" : "tables"}
+                  {database.tableCount} {database.tableCount === 1 ? t("table") : t("tables")}
                 </span>
               </div>
 

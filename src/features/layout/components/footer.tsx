@@ -1,6 +1,10 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
+import { Link as LocaleLink } from "@/i18n/navigation";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
 import { APP_REPOSITORY_URL, GITHUB_URL } from "@/shared/lib/site";
@@ -11,6 +15,18 @@ import { navLinks } from "../data/nav-links";
 import { socialLinks } from "../data/social-links";
 
 export const Footer = () => {
+  const t = useTranslations("Nav");
+  const tFooter = useTranslations("Footer");
+
+  const openSourceLinks = [
+    { href: APP_REPOSITORY_URL, label: tFooter("sourceCode") },
+    { href: `${APP_REPOSITORY_URL}/issues`, label: tFooter("issues") },
+    {
+      href: `${APP_REPOSITORY_URL}/blob/main/docs/contributing.md`,
+      label: tFooter("contributingGuide"),
+    },
+  ];
+
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-12">
       <div className="absolute inset-0 mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
@@ -22,15 +38,14 @@ export const Footer = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-20 flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="lg:max-w-md">
-            <Link href="/" className="group mb-6 inline-block">
+            <LocaleLink href="/" className="group mb-6 inline-block">
               <span className="group-hover:text-brand text-3xl font-extrabold tracking-tight text-white transition-all duration-300">
                 SQL Studio
                 <span className="text-brand drop-shadow-glow-xs">.</span>
               </span>
-            </Link>
+            </LocaleLink>
             <p className="mb-8 max-w-sm text-sm leading-7 font-light text-zinc-400">
-              The professional database client designed for modern developers. Manage your SQLite
-              databases with speed, efficiency, and style directly from your mobile device.
+              {tFooter("tagline")}
             </p>
 
             <div className="hover:border-brand/30 inline-flex cursor-default items-center gap-3 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md transition-colors">
@@ -48,26 +63,28 @@ export const Footer = () => {
         <div className="mb-20 grid grid-cols-2 gap-12 border-t border-white/5 pt-16 md:grid-cols-3 lg:grid-cols-4">
           <div>
             <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
-              Product
+              {tFooter("productHeading")}
             </h3>
             <ul className="space-y-3 text-sm">
-              {navLinks.map(({ href, label }) => (
+              {navLinks.map(({ href, labelKey }) => (
                 <li key={href}>
-                  <Link
+                  <LocaleLink
                     href={href}
                     className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                   >
                     <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      {label}
+                      {t(labelKey)}
                     </span>
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">Legal</h3>
+            <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
+              {tFooter("legalHeading")}
+            </h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
@@ -76,7 +93,7 @@ export const Footer = () => {
                 >
                   <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    Privacy Policy
+                    {tFooter("privacyPolicy")}
                   </span>
                 </Link>
               </li>
@@ -87,7 +104,7 @@ export const Footer = () => {
                 >
                   <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    Terms of Service
+                    {tFooter("termsOfService")}
                   </span>
                 </Link>
               </li>
@@ -98,7 +115,7 @@ export const Footer = () => {
                 >
                   <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    Contact Support
+                    {tFooter("contactSupport")}
                   </span>
                 </Link>
               </li>
@@ -106,17 +123,10 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
-              Open Source
+              {tFooter("openSourceHeading")}
             </h3>
             <ul className="space-y-3 text-sm">
-              {[
-                { href: APP_REPOSITORY_URL, label: "Source Code" },
-                { href: `${APP_REPOSITORY_URL}/issues`, label: "Issues" },
-                {
-                  href: `${APP_REPOSITORY_URL}/blob/main/docs/contributing.md`,
-                  label: "Contributing Guide",
-                },
-              ].map(({ href, label }) => (
+              {openSourceLinks.map(({ href, label }) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -135,10 +145,10 @@ export const Footer = () => {
           </div>
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <h3 className="mb-6 text-xs font-bold tracking-[0.2em] text-white uppercase">
-              Connect
+              {tFooter("connectHeading")}
             </h3>
             <p className="mb-6 text-sm leading-relaxed text-zinc-400">
-              Built with passion for the SQL community.
+              {tFooter("connectTagline")}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ href, icon: Icon, label }) => (
@@ -167,7 +177,7 @@ export const Footer = () => {
           </p>
           <div className="flex items-center gap-2.5 rounded-full border border-white/5 bg-zinc-900/30 px-5 py-2.5 backdrop-blur-sm transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-800/50">
             <span className="text-xs font-bold tracking-wider text-zinc-400 uppercase">
-              Built by
+              {tFooter("builtBy")}
             </span>
             <a
               href={GITHUB_URL}

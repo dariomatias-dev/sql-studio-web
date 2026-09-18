@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import { HoneypotField } from "@/shared/components/honeypot-field";
@@ -16,6 +17,7 @@ enum Status {
 }
 
 export const BetaAccessForm = () => {
+  const t = useTranslations("BetaAccessForm");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>(Status.Idle);
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -61,12 +63,11 @@ export const BetaAccessForm = () => {
               <CheckCircle2 className="h-10 w-10 text-emerald-500" />
             </div>
 
-            <h2 className="mb-3 text-2xl font-bold text-slate-900">Request Received</h2>
+            <h2 className="mb-3 text-2xl font-bold text-slate-900">{t("successTitle")}</h2>
             <p className="mb-8 text-sm leading-relaxed text-slate-500">
-              You have been added to the waiting list. Once your email is approved as a tester,
-              you&apos;ll receive an{" "}
-              <span className="font-bold text-slate-700">invitation email</span> with the Play Store
-              link.
+              {t.rich("successMessage", {
+                strong: (chunks) => <span className="font-bold text-slate-700">{chunks}</span>,
+              })}
             </p>
           </div>
         ) : (
@@ -76,7 +77,7 @@ export const BetaAccessForm = () => {
 
             <div className="space-y-3">
               <label htmlFor="email" className="ml-1 block text-sm font-semibold text-slate-700">
-                Google Play Email Address
+                {t("emailLabel")}
               </label>
               <div className="group relative">
                 <div className="from-brand absolute -inset-0.5 rounded-xl bg-linear-to-r to-cyan-400 opacity-0 blur-sm transition duration-500 group-focus-within:opacity-100"></div>
@@ -91,14 +92,14 @@ export const BetaAccessForm = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your-account@gmail.com"
+                    placeholder={t("emailPlaceholder")}
                     className="w-full bg-transparent px-4 py-4 font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
                   />
                 </div>
               </div>
               <p className="ml-1 flex items-center gap-1.5 text-[11px] text-slate-500">
                 <span className="bg-brand h-1 w-1 rounded-full"></span>
-                Must match the account logged in on your Android device.
+                {t("emailHint")}
               </p>
             </div>
 
@@ -113,11 +114,11 @@ export const BetaAccessForm = () => {
                 {status == Status.Submitting ? (
                   <>
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Processing...</span>
+                    <span>{t("submitting")}</span>
                   </>
                 ) : (
                   <>
-                    <span>Join Beta Waitlist</span>
+                    <span>{t("submit")}</span>
                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </>
                 )}
@@ -129,9 +130,7 @@ export const BetaAccessForm = () => {
                   className="animate-in fade-in slide-in-from-top-2 flex items-center justify-center gap-2 rounded-xl border border-red-100 bg-red-50 p-3 text-red-600"
                 >
                   <AlertCircle className="h-5 w-5" />
-                  <span className="text-sm font-medium">
-                    Failed to send request. Please try again.
-                  </span>
+                  <span className="text-sm font-medium">{t("error")}</span>
                 </div>
               )}
             </div>

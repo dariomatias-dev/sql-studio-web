@@ -3,24 +3,29 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 
 import type { UseEmblaCarouselType } from "embla-carousel-react";
 
-const screenshots = [
-  { src: "/screenshots/01_home.png", alt: "Home / SQL editor" },
-  { src: "/screenshots/02_databases.png", alt: "Databases" },
-  { src: "/screenshots/03_editor.png", alt: "SQL editor with an active database" },
-  { src: "/screenshots/04_drawer.png", alt: "Navigation drawer" },
-  { src: "/screenshots/05_visualizer.png", alt: "Database visualizer" },
-  { src: "/screenshots/06_settings.png", alt: "Settings" },
-  { src: "/screenshots/07_language_selector.png", alt: "Language selector" },
-  { src: "/screenshots/08_theme_selector.png", alt: "Theme selector" },
-  { src: "/screenshots/09_sql_suggestions_settings.png", alt: "SQL suggestions settings" },
-  { src: "/screenshots/10_workspace_layout_settings.png", alt: "Workspace layout settings" },
+const screenshotSrcs = [
+  "/screenshots/01_home.png",
+  "/screenshots/02_databases.png",
+  "/screenshots/03_editor.png",
+  "/screenshots/04_drawer.png",
+  "/screenshots/05_visualizer.png",
+  "/screenshots/06_settings.png",
+  "/screenshots/07_language_selector.png",
+  "/screenshots/08_theme_selector.png",
+  "/screenshots/09_sql_suggestions_settings.png",
+  "/screenshots/10_workspace_layout_settings.png",
 ];
 
 export const ScreenshotsCarousel = () => {
+  const t = useTranslations("Screenshots");
+  const alts = (t.raw("items") as { alt: string }[]).map((item) => item.alt);
+  const screenshots = screenshotSrcs.map((src, index) => ({ src, alt: alts[index] }));
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",

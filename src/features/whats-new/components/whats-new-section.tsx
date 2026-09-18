@@ -1,10 +1,18 @@
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { APP_VERSION } from "@/shared/lib/app-release";
 
-import { releases } from "../data/releases";
+interface ReleaseMessage {
+  version: string;
+  date: string;
+  highlights: string[];
+}
 
 export const WhatsNewSection = () => {
+  const t = useTranslations("WhatsNew");
+  const releases = t.raw("releases") as ReleaseMessage[];
+
   return (
     <section
       id="whats-new"
@@ -15,17 +23,15 @@ export const WhatsNewSection = () => {
       <div className="relative z-10 mx-auto max-w-4xl">
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            Changelog
+            {t("badge")}
           </div>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            What&apos;s <br />
+            {t("titleLine1")} <br />
             <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              New.
+              {t("titleLine2")}
             </span>
           </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">
-            SQL Studio ships often. Here&apos;s what changed in each release.
-          </p>
+          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
         </div>
 
         <div className="relative space-y-12">
@@ -44,7 +50,7 @@ export const WhatsNewSection = () => {
                   <h3 className="text-xl font-bold text-slate-900">{release.date}</h3>
                   {release.version === APP_VERSION && (
                     <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">
-                      Current
+                      {t("current")}
                     </span>
                   )}
                 </div>
