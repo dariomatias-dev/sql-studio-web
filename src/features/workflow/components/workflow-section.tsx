@@ -71,7 +71,7 @@ export const WorkflowSection = () => {
           </div>
 
           <div className="relative flex w-full justify-center lg:w-1/2 lg:justify-end">
-            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/20 blur-[120px]" />
+            <div className="pointer-events-none absolute top-1/2 left-1/2 h-3/2 w-3/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/20 blur-[120px]" />
 
             <div className="relative z-10">
               <div className="relative rounded-[2.5rem] border-8 border-slate-950 bg-slate-950 shadow-2xl">

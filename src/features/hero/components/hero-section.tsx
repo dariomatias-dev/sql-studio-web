@@ -24,9 +24,9 @@ export const HeroSection = () => {
       </div>
 
       <div className="pointer-events-none absolute inset-0 h-full w-full opacity-40">
-        <div className="absolute top-1/4 left-1/4 h-1 w-1 animate-ping rounded-full bg-white duration-[3s]" />
-        <div className="bg-brand absolute top-1/3 right-1/3 h-1 w-1 animate-pulse rounded-full duration-[4s]" />
-        <div className="absolute bottom-1/3 left-1/5 h-0.5 w-0.5 animate-ping rounded-full bg-white duration-[5s]" />
+        <div className="absolute top-1/4 left-1/4 h-1 w-1 animate-ping rounded-full bg-white duration-3000" />
+        <div className="bg-brand absolute top-1/3 right-1/3 h-1 w-1 animate-pulse rounded-full duration-4000" />
+        <div className="absolute bottom-1/3 left-1/5 h-0.5 w-0.5 animate-ping rounded-full bg-white duration-5000" />
       </div>
 
       <div className="relative z-10 flex max-w-6xl flex-col items-center px-4 text-center md:px-6">

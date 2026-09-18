@@ -31,7 +31,7 @@ export const LanguagesSection = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           {languages.map((language) => (
             <div key={language.code} className="flex flex-col items-center">
-              <div className="relative w-full max-w-56 overflow-hidden rounded-[2rem] border-4 border-slate-200 bg-white shadow-xl">
+              <div className="relative w-full max-w-56 overflow-hidden rounded-4xl border-4 border-slate-200 bg-white shadow-xl">
                 <Image
                   src={language.screenshot}
                   alt={t("screenshotAlt", { language: language.name })}

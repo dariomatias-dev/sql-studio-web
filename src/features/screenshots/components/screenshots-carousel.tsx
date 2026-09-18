@@ -82,7 +82,7 @@ export const ScreenshotsCarousel = () => {
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-8 md:py-12">
-      <div className="z-10 w-full max-w-[1800px] perspective-[1000px]">
+      <div className="z-10 w-full max-w-450 perspective-[1000px]">
         <div
           className="overflow-visible"
           ref={emblaRef}
@@ -117,7 +117,7 @@ export const ScreenshotsCarousel = () => {
                       filter: isSelected ? "grayscale(0%)" : "grayscale(100%)",
                     }}
                   >
-                    <div className="relative overflow-hidden rounded-4xl border-[3px] border-slate-200 bg-white shadow-xl transition-all duration-300 sm:rounded-4xl sm:border-4 sm:shadow-2xl">
+                    <div className="relative overflow-hidden rounded-4xl border-3 border-slate-200 bg-white shadow-xl transition-all duration-300 sm:rounded-4xl sm:border-4 sm:shadow-2xl">
                       <div className="relative aspect-9/21 w-full bg-slate-50">
                         <Image
                           src={src}

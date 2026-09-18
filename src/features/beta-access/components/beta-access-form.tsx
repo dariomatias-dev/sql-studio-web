@@ -109,7 +109,7 @@ export const BetaAccessForm = () => {
                 disabled={status == Status.Submitting}
                 className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-slate-900 py-4 font-bold text-white shadow-lg shadow-slate-200 transition-all duration-300 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                <div className="absolute top-0 -left-full h-full w-full skew-x-[-25deg] animate-[shine_2s_infinite] bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
+                <div className="animate-shine absolute top-0 -left-full h-full w-full -skew-x-25 bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
 
                 {status == Status.Submitting ? (
                   <>

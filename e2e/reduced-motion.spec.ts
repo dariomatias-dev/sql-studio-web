@@ -33,7 +33,7 @@ test.describe("prefers-reduced-motion: reduce", () => {
     await page.goto("/download");
 
     const animationName = await page
-      .locator('[class*="animate-[shine"]')
+      .locator(".animate-shine")
       .first()
       .evaluate((el) => getComputedStyle(el).animationName);
     expect(animationName).toBe("none");

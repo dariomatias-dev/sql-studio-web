@@ -120,7 +120,7 @@ export const Header = () => {
                     : "bg-white text-slate-950 hover:bg-slate-100",
                 )}
               >
-                <GooglePlayIcon className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-15deg]" />
+                <GooglePlayIcon className="h-4 w-4 transition-transform duration-300 group-hover:-rotate-15" />
                 <span>{tHeader("downloadApp")}</span>
               </Link>
             </div>

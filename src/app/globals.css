@@ -45,6 +45,7 @@
   --shadow-glow-xl: 0 10px 40px -10px rgba(0, 188, 212, 0.15);
   --drop-shadow-glow-xs: 0 0 15px rgba(0, 188, 212, 0.5);
   --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shine: shine 2s infinite;
 }
 
 @keyframes pulse-slow {
@@ -120,7 +121,7 @@ html {
   .animate-bounce,
   .animate-pulse,
   .animate-pulse-slow,
-  .animate-\[shine_2s_infinite\] {
+  .animate-shine {
     animation: none;
   }
 }
