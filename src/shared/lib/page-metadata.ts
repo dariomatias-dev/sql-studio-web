@@ -34,10 +34,10 @@ const OG_LOCALES: Record<string, string> = {
   es: "es_ES",
 };
 
-const localizedPath = (path: string, locale: string) => {
-  if (locale === routing.defaultLocale) return path;
-  return path === "/" ? `/${locale}` : `/${locale}${path}`;
-};
+// localePrefix: "always" (routing.ts) means every locale, including the
+// default, is always prefixed.
+const localizedPath = (path: string, locale: string) =>
+  path === "/" ? `/${locale}` : `/${locale}${path}`;
 
 // Only locale-aware pages (under `[locale]`) pass `locale`; /contact,
 // /privacy-policy, and /terms-of-service never do — they're single-language

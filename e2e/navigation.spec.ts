@@ -10,10 +10,10 @@ test.describe("header", () => {
     await page.goto("/");
 
     await page.getByRole("navigation").getByText("Features").click();
-    await expect(page).toHaveURL("/#features");
+    await expect(page).toHaveURL("/en#features");
 
     await page.getByRole("navigation").getByText("FAQ").click();
-    await expect(page).toHaveURL("/#faq");
+    await expect(page).toHaveURL("/en#faq");
   });
 
   test("mobile menu opens as a dialog, locks scroll, and closes on link click", async ({
@@ -39,7 +39,7 @@ test.describe("header", () => {
     expect(await page.evaluate(() => window.scrollY)).toBe(scrollYBeforeWheel);
 
     await mobileFaqLink.click();
-    await expect(page).toHaveURL("/#faq");
+    await expect(page).toHaveURL("/en#faq");
     await expect(dialog).not.toBeVisible();
   });
 
@@ -81,7 +81,7 @@ test.describe("footer", () => {
     await page.goto("/");
 
     await page.locator("footer").getByRole("link", { name: "Screenshots", exact: true }).click();
-    await expect(page).toHaveURL("/#screenshots");
+    await expect(page).toHaveURL("/en#screenshots");
   });
 
   test("social links point to the right destinations", async ({ page }) => {

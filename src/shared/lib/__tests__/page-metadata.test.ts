@@ -12,9 +12,9 @@ describe("baseMetadata", () => {
 });
 
 describe("localeAlternates", () => {
-  it("keeps the default locale's canonical unprefixed", () => {
-    expect(localeAlternates("/", "en")).toMatchObject({ canonical: "/" });
-    expect(localeAlternates("/download", "en")).toMatchObject({ canonical: "/download" });
+  it('prefixes the default locale too (localePrefix: "always")', () => {
+    expect(localeAlternates("/", "en")).toMatchObject({ canonical: "/en" });
+    expect(localeAlternates("/download", "en")).toMatchObject({ canonical: "/en/download" });
   });
 
   it("prefixes non-default locales", () => {
@@ -26,10 +26,10 @@ describe("localeAlternates", () => {
     const alternates = localeAlternates("/download", "en");
 
     expect(alternates?.languages).toEqual({
-      en: "/download",
+      en: "/en/download",
       "pt-BR": "/pt-BR/download",
       es: "/es/download",
-      "x-default": "/download",
+      "x-default": "/en/download",
     });
   });
 
@@ -37,8 +37,8 @@ describe("localeAlternates", () => {
     const fromEs = localeAlternates("/download", "es");
     const fromPtBr = localeAlternates("/download", "pt-BR");
 
-    expect((fromEs?.languages as Record<string, string>)["x-default"]).toBe("/download");
-    expect((fromPtBr?.languages as Record<string, string>)["x-default"]).toBe("/download");
+    expect((fromEs?.languages as Record<string, string>)["x-default"]).toBe("/en/download");
+    expect((fromPtBr?.languages as Record<string, string>)["x-default"]).toBe("/en/download");
   });
 });
 

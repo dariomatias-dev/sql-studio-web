@@ -3,10 +3,10 @@ import { SITE_URL } from "@/shared/lib/site";
 
 import type { MetadataRoute } from "next";
 
-const localizedPath = (path: string, locale: string) => {
-  if (locale === routing.defaultLocale) return path;
-  return path === "/" ? `/${locale}` : `/${locale}${path}`;
-};
+// localePrefix: "always" (routing.ts) means every locale, including the
+// default, is always prefixed.
+const localizedPath = (path: string, locale: string) =>
+  path === "/" ? `/${locale}` : `/${locale}${path}`;
 
 const languageAlternates = (path: string) =>
   Object.fromEntries(
