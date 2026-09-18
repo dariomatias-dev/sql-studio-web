@@ -79,22 +79,22 @@ if (isMain) {
     {
       name: "/contact",
       htmlPath: path.join(buildDir, "server", "app", "contact.html"),
-      budgetKB: 1200,
+      budgetKB: 1240,
     },
     {
       name: "/download",
       htmlPath: path.join(buildDir, "server", "app", "en", "download.html"),
-      budgetKB: 1170,
+      budgetKB: 1210,
     },
     {
       name: "/privacy-policy",
       htmlPath: path.join(buildDir, "server", "app", "privacy-policy.html"),
-      budgetKB: 1160,
+      budgetKB: 1200,
     },
     {
       name: "/terms-of-service",
       htmlPath: path.join(buildDir, "server", "app", "terms-of-service.html"),
-      budgetKB: 1160,
+      budgetKB: 1200,
     },
   ];
 

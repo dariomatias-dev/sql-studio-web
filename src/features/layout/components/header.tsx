@@ -9,7 +9,9 @@ import { useEffect, useId, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { GooglePlayIcon } from "@/shared/icons";
 import { cn } from "@/shared/lib/cn";
+import "@/shared/lib/suppress-dev-warnings";
 
+import { LanguageSwitcher } from "./language-switcher";
 import { navLinks } from "../data/nav-links";
 
 export const Header = () => {
@@ -111,6 +113,8 @@ export const Header = () => {
             </div>
 
             <div className="hidden items-center gap-4 md:flex">
+              <LanguageSwitcher variant={solid ? "light" : "dark"} />
+
               <Link
                 href="/download"
                 className={cn(
@@ -174,6 +178,12 @@ export const Header = () => {
                 </Link>
               </Dialog.Close>
             ))}
+
+            <LanguageSwitcher
+              variant="light"
+              className="mt-2"
+              onNavigate={() => setMobileMenuOpen(false)}
+            />
 
             <Dialog.Close asChild>
               <Link

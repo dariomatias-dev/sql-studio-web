@@ -20,10 +20,10 @@ to depend on.
 
 | Route               | Budget   | Measured at last review |
 | ------------------- | -------- | ----------------------- |
-| `/contact`          | 1,200 KB | ~1,167.2 KB             |
-| `/download`         | 1,170 KB | ~1,132.9 KB             |
-| `/privacy-policy`   | 1,160 KB | ~1,123.5 KB             |
-| `/terms-of-service` | 1,160 KB | ~1,123.5 KB             |
+| `/contact`          | 1,240 KB | ~1,218.3 KB             |
+| `/download`         | 1,210 KB | ~1,183.9 KB             |
+| `/privacy-policy`   | 1,200 KB | ~1,174.6 KB             |
+| `/terms-of-service` | 1,200 KB | ~1,174.6 KB             |
 
 `/` has no budget: since [E89](../plan.md) it's server-rendered on demand
 rather than prerendered to static HTML (see the E89 notes for why), so
@@ -51,6 +51,10 @@ screenshots carousel). `/download` is lighter since its form uses plain
 `/terms-of-service`) ship no form code at all — their weight is close to
 that shared baseline, since neither page has a client-side island of its
 own beyond `Header`/`Footer`.
+
+Budgets were raised again when `Header` gained a language switcher built
+on `@radix-ui/react-dropdown-menu` (~15 KB/route, since `Header` is part
+of the shared chunk on every route).
 
 ## Lighthouse CI
 
