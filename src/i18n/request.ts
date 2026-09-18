@@ -6,15 +6,19 @@ import enMessages from "../../messages/en.json";
 import esMessages from "../../messages/es.json";
 import ptBrMessages from "../../messages/pt-BR.json";
 
-const MESSAGES_BY_LOCALE: Record<string, Record<string, unknown>> = {
+export const MESSAGES_BY_LOCALE: Record<string, Record<string, unknown>> = {
   en: enMessages,
   "pt-BR": ptBrMessages,
   es: esMessages,
 };
 
+// Extracted so it can be unit-tested without importing next-intl/server,
+// which refuses to load outside a server (React Server Component) context.
+export const resolveLocale = (requested: string | undefined): string =>
+  hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
+
 export default getRequestConfig(async ({ requestLocale }) => {
-  const requested = await requestLocale;
-  const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
+  const locale = resolveLocale(await requestLocale);
 
   return {
     locale,

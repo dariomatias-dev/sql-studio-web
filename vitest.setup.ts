@@ -18,13 +18,32 @@ vi.mock("next-intl", () => ({
       return typeof value === "string" ? interpolate(value, values) : key;
     };
     t.raw = (key: string) => getByPath(base, key);
-    t.rich = (key: string) => {
+    // Mirrors next-intl's real t.rich: replaces <tag>chunk</tag> with the
+    // matching renderer's output, so components exercise their own link
+    // renderers instead of the tags being silently stripped.
+    t.rich = (key: string, tags?: Record<string, (chunks: React.ReactNode) => React.ReactNode>) => {
       const value = getByPath(base, key);
-      return typeof value === "string" ? value.replace(/<[^>]+>/g, "") : key;
+      if (typeof value !== "string") return key;
+      if (!tags) return value.replace(/<[^>]+>/g, "");
+
+      const parts: React.ReactNode[] = [];
+      const tagPattern = /<(\w+)>(.*?)<\/\1>/g;
+      let lastIndex = 0;
+      let match: RegExpExecArray | null;
+      while ((match = tagPattern.exec(value))) {
+        if (match.index > lastIndex) parts.push(value.slice(lastIndex, match.index));
+        const [, tagName, inner] = match;
+        parts.push(tags[tagName] ? tags[tagName](inner) : inner);
+        lastIndex = tagPattern.lastIndex;
+      }
+      if (lastIndex < value.length) parts.push(value.slice(lastIndex));
+      return parts;
     };
     return t;
   },
   NextIntlClientProvider: ({ children }: { children: React.ReactNode }) => children,
+  hasLocale: (locales: readonly string[], candidate: unknown) =>
+    typeof candidate === "string" && locales.includes(candidate),
 }));
 
 // jsdom has no IntersectionObserver. Reports every target as intersecting.

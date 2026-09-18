@@ -19,25 +19,25 @@ export default defineConfig({
       include: ["src/**/*.{ts,tsx}"],
       exclude: [
         "**/__tests__/**",
-        "src/app/**/{layout,page,not-found}.tsx",
+        "src/app/**/{layout,page,not-found,opengraph-image}.tsx",
         "**/*.types.ts",
         "**/index.ts",
+        // Thin next-intl re-export with no logic of our own; exercised
+        // end-to-end by every /pt-BR and /es e2e assertion.
+        "src/i18n/navigation.ts",
         // shadcn/Radix primitives: styling only, no logic of our own.
         "src/shared/components/ui/**",
       ],
       // Floor, not a target: measured minus a small margin (actual was
-      // 81.64/94.04/70.68/82.31 on 2026-09-13, right after the E29 component
-      // tests). Known gaps — most section components with no interaction of
-      // their own (cta, features-showcase, hero, workflow), the page-content
-      // wrappers now that their forms are tested separately, and the icon
-      // components — are a backlog, not a reason to lower this further.
-      // Raise it whenever a change measurably improves the aggregate;
-      // lowering it needs a reason in the commit message.
+      // 97.23/94.69/94.49/98.67 on 2026-09-18, after adding tests for every
+      // previously-untested section component, page-metadata.ts, and
+      // i18n/request.ts). Raise it whenever a change measurably improves
+      // the aggregate; lowering it needs a reason in the commit message.
       thresholds: {
-        statements: 78,
-        branches: 90,
-        functions: 65,
-        lines: 78,
+        statements: 96,
+        branches: 93,
+        functions: 92,
+        lines: 97,
       },
     },
   },
