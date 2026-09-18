@@ -32,28 +32,25 @@ export const FeaturesSection = () => {
           <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2">
           {items.map((feature, index) => {
             const Icon = featureIcons[index];
 
             return (
-              <div
-                key={feature.title}
-                className="group hover:border-brand/30 hover:shadow-glow-xl relative rounded-3xl border border-slate-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="border-brand/20 bg-brand/5 text-brand group-hover:border-brand group-hover:bg-brand relative mb-6 inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <div key={feature.title} className="group flex gap-4 border-b border-slate-100 pb-8">
+                <div className="border-brand/20 bg-brand/5 text-brand group-hover:border-brand group-hover:bg-brand flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:text-white">
                   {Icon && (
-                    <Icon className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-white" />
+                    <Icon className="h-5 w-5 transition-colors duration-300 group-hover:text-white" />
                   )}
                 </div>
 
-                <h3 className="group-hover:text-brand mb-3 text-xl font-bold text-slate-900 transition-colors duration-200">
-                  {feature.title}
-                </h3>
+                <div>
+                  <h3 className="group-hover:text-brand mb-1 text-lg font-bold text-slate-900 transition-colors duration-200">
+                    {feature.title}
+                  </h3>
 
-                <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-700 md:text-base">
-                  {feature.description}
-                </p>
+                  <p className="text-sm leading-relaxed text-slate-600">{feature.description}</p>
+                </div>
               </div>
             );
           })}

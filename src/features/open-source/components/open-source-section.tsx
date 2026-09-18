@@ -23,22 +23,23 @@ export const OpenSourceSection = () => {
   return (
     <section
       id="open-source"
-      className="relative overflow-hidden bg-white px-4 py-24 md:px-8 md:py-32"
+      className="relative overflow-hidden bg-black px-4 py-24 md:px-8 md:py-32"
     >
-      <div className="pointer-events-none absolute top-0 left-1/2 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full bg-slate-50 blur-[120px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[4rem_4rem] opacity-20" />
+      <div className="bg-brand/10 pointer-events-none absolute top-0 left-1/2 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full mix-blend-screen blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-3 py-1 text-xs font-bold tracking-wider text-zinc-300 uppercase">
             {t("badge")}
           </div>
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
             {t("titleLine1")} <br />
-            <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
+            <span className="from-brand bg-linear-to-r to-cyan-400 bg-clip-text text-transparent">
               {t("titleLine2")}
             </span>
           </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
+          <p className="text-lg leading-relaxed font-light text-zinc-400">{t("description")}</p>
         </div>
 
         <div className="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -48,11 +49,11 @@ export const OpenSourceSection = () => {
             return (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-slate-100 bg-white p-6 text-center"
+                className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6 text-center"
               >
                 {Icon && <Icon className="text-brand mx-auto mb-3 h-6 w-6" />}
-                <div className="mb-1 text-3xl font-extrabold text-slate-900">{stat.value}</div>
-                <div className="text-sm text-slate-500">{stat.label}</div>
+                <div className="mb-1 text-3xl font-extrabold text-white">{stat.value}</div>
+                <div className="text-sm text-zinc-400">{stat.label}</div>
               </div>
             );
           })}
@@ -60,9 +61,12 @@ export const OpenSourceSection = () => {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {modules.map((module) => (
-            <div key={module.name} className="rounded-2xl border border-slate-100 bg-white p-6">
-              <h3 className="mb-2 font-mono text-sm font-bold text-cyan-700">{module.name}</h3>
-              <p className="text-sm leading-relaxed text-slate-600">{module.description}</p>
+            <div
+              key={module.name}
+              className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6"
+            >
+              <h3 className="text-brand mb-2 font-mono text-sm font-bold">{module.name}</h3>
+              <p className="text-sm leading-relaxed text-zinc-400">{module.description}</p>
             </div>
           ))}
         </div>
@@ -72,7 +76,7 @@ export const OpenSourceSection = () => {
             href={APP_REPOSITORY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group hover:border-brand/50 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-900 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-slate-800"
+            className="group inline-flex items-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-black transition-colors duration-300 hover:bg-zinc-100"
           >
             <span>{t("viewSource")}</span>
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
