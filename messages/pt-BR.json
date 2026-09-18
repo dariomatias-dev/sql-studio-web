@@ -1,375 +1,389 @@
 {
   "Nav": {
-    "features": "Features",
-    "workflow": "Workflow",
-    "databases": "Databases",
-    "languages": "Languages",
-    "screenshots": "Screenshots",
-    "faq": "FAQ",
-    "openSource": "Open Source",
-    "whatsNew": "What's New"
+    "features": "Recursos",
+    "workflow": "Fluxo de Trabalho",
+    "databases": "Bancos de Dados",
+    "languages": "Idiomas",
+    "screenshots": "Capturas de Tela",
+    "faq": "Perguntas Frequentes",
+    "openSource": "Código Aberto",
+    "whatsNew": "Novidades"
   },
   "Header": {
-    "downloadApp": "Download App"
+    "downloadApp": "Baixar App"
   },
   "Footer": {
-    "tagline": "The professional database client designed for modern developers. Manage your SQLite databases with speed, efficiency, and style directly from your mobile device.",
-    "productHeading": "Product",
+    "tagline": "O cliente de banco de dados profissional criado para desenvolvedores modernos. Gerencie seus bancos SQLite com velocidade, eficiência e estilo direto do seu celular.",
+    "productHeading": "Produto",
     "legalHeading": "Legal",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service",
-    "contactSupport": "Contact Support",
-    "openSourceHeading": "Open Source",
-    "sourceCode": "Source Code",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "contactSupport": "Contatar Suporte",
+    "openSourceHeading": "Código Aberto",
+    "sourceCode": "Código-Fonte",
     "issues": "Issues",
-    "contributingGuide": "Contributing Guide",
-    "connectHeading": "Connect",
-    "connectTagline": "Built with passion for the SQL community.",
-    "builtBy": "Built by"
+    "contributingGuide": "Guia de Contribuição",
+    "connectHeading": "Conecte-se",
+    "connectTagline": "Feito com paixão para a comunidade SQL.",
+    "builtBy": "Criado por"
   },
   "Hero": {
-    "badge": "Native SQLite Client",
+    "badge": "Cliente SQLite Nativo",
     "titleLine1": "SQL Studio",
-    "titleLine2": "Anywhere.",
-    "descriptionStrong": "no setup, no server, fully offline.",
-    "descriptionRest": "Every database comes ready to query. Currently in closed beta on Android.",
-    "exploreFeatures": "Explore Features",
-    "sqliteNative": "SQLite Native",
-    "instantQuery": "Instant Query",
-    "offlineReady": "Offline Ready"
+    "titleLine2": "Em Qualquer Lugar.",
+    "descriptionStrong": "sem instalação, sem servidor, totalmente offline.",
+    "descriptionRest": "Todo banco de dados já vem pronto para consultar. Atualmente em beta fechado no Android.",
+    "exploreFeatures": "Explorar Recursos",
+    "sqliteNative": "SQLite Nativo",
+    "instantQuery": "Consulta Instantânea",
+    "offlineReady": "Pronto para Offline"
   },
   "Features": {
-    "badge": "Powerful Capabilities",
-    "titleLine1": "Engineered for",
-    "titleLine2": "Modern Performance.",
-    "description": "Everything you need to practice SQL, built for touch and 100% offline.",
+    "badge": "Recursos Poderosos",
+    "titleLine1": "Projetado para",
+    "titleLine2": "Performance Moderna.",
+    "description": "Tudo que você precisa para praticar SQL, feito para toque e 100% offline.",
     "items": [
       {
-        "title": "Offline SQLite Databases",
-        "description": "A catalog of local databases, each with its own schema and seed data, ready to query immediately."
+        "title": "Bancos de Dados SQLite Offline",
+        "description": "Um catálogo de bancos de dados locais, cada um com seu próprio esquema e dados de exemplo, prontos para consultar imediatamente."
       },
       {
-        "title": "SQL Editor",
-        "description": "Write and run SQL with syntax highlighting, a fullscreen mode, and a console showing query results and errors."
+        "title": "Editor SQL",
+        "description": "Escreva e execute SQL com realce de sintaxe, modo de tela cheia e um console mostrando resultados e erros das consultas."
       },
       {
-        "title": "Database Visualizer",
-        "description": "Inspect a database's tables, columns, and structure visually, without writing SQL."
+        "title": "Visualizador de Banco de Dados",
+        "description": "Inspecione as tabelas, colunas e estrutura de um banco de dados visualmente, sem escrever SQL."
       },
       {
-        "title": "Reset Database",
-        "description": "Restore any database to its original schema and seed data at any time."
+        "title": "Resetar Banco de Dados",
+        "description": "Restaure qualquer banco de dados ao seu esquema e dados de exemplo originais a qualquer momento."
       },
       {
-        "title": "Copy Schema & Seed",
-        "description": "Copy a database's schema, seed data, or both to the clipboard."
+        "title": "Copiar Esquema e Dados",
+        "description": "Copie o esquema, os dados de exemplo, ou ambos, de um banco de dados para a área de transferência."
       },
       {
-        "title": "SQL Suggestions",
-        "description": "Basic and advanced SQL snippets to speed up writing common queries, toggled from Settings."
+        "title": "Sugestões de SQL",
+        "description": "Trechos de SQL básicos e avançados para agilizar consultas comuns, ativáveis nas Configurações."
       },
       {
-        "title": "Configurable Workspace Layout",
-        "description": "Choose how the editor, console, and visualizer are arranged on screen."
+        "title": "Layout de Workspace Configurável",
+        "description": "Escolha como o editor, o console e o visualizador são organizados na tela."
       },
       {
-        "title": "Multiple Languages",
-        "description": "Full app UI in English, Portuguese (Brazil), and Spanish."
+        "title": "Múltiplos Idiomas",
+        "description": "Interface completa do app em inglês, português (Brasil) e espanhol."
       },
       {
-        "title": "Theme Selection",
-        "description": "Light, dark, or system theme."
+        "title": "Seleção de Tema",
+        "description": "Tema claro, escuro ou do sistema."
       },
       {
-        "title": "Database Search",
-        "description": "Filter the databases list by name."
+        "title": "Busca de Bancos de Dados",
+        "description": "Filtre a lista de bancos de dados por nome."
       }
     ]
   },
   "Workflow": {
-    "badge": "Seamless Workflow",
-    "titleLine1": "Master your data in",
-    "titleLine2": "four simple steps.",
-    "description": "No setup, no server. Pick a database and get straight to querying with a streamlined mobile experience designed for speed.",
+    "badge": "Fluxo de Trabalho Fluido",
+    "titleLine1": "Domine seus dados em",
+    "titleLine2": "quatro passos simples.",
+    "description": "Sem instalação, sem servidor. Escolha um banco de dados e vá direto para as consultas, com uma experiência mobile simplificada, feita para velocidade.",
     "steps": [
       {
-        "title": "Choose a Database",
-        "description": "Pick one from the built-in catalog of local databases, each with its own schema and seed data, ready to query immediately."
+        "title": "Escolha um Banco de Dados",
+        "description": "Escolha um do catálogo integrado de bancos de dados locais, cada um com seu próprio esquema e dados de exemplo, prontos para consultar imediatamente."
       },
       {
-        "title": "Write & Run",
-        "description": "Write SQL in the editor and execute it, viewing the results and any errors in the console."
+        "title": "Escreva e Execute",
+        "description": "Escreva SQL no editor e execute, visualizando os resultados e eventuais erros no console."
       },
       {
-        "title": "Inspect",
-        "description": "Explore the database's tables, columns, and structure visually, without writing SQL."
+        "title": "Inspecione",
+        "description": "Explore as tabelas, colunas e estrutura do banco de dados visualmente, sem escrever SQL."
       },
       {
-        "title": "Reset",
-        "description": "Restore the database to its original schema and seed data at any time."
+        "title": "Resete",
+        "description": "Restaure o banco de dados ao seu esquema e dados de exemplo originais a qualquer momento."
       }
     ],
-    "mockupAlt": "SQL editor with an active database",
+    "mockupAlt": "Editor SQL com um banco de dados ativo",
     "statusLabel": "Status",
-    "queryExecuted": "Query Executed"
+    "queryExecuted": "Consulta Executada"
   },
   "Databases": {
-    "badge": "Ready to Query",
-    "titleLine1": "14 databases,",
-    "titleLine2": "zero setup.",
-    "description": "Every database ships pre-loaded with a real schema and seed data, ready to query the moment you open it.",
-    "table": "table",
-    "tables": "tables",
+    "badge": "Prontos para Consultar",
+    "titleLine1": "14 bancos de dados,",
+    "titleLine2": "zero configuração.",
+    "description": "Todo banco de dados já vem pré-carregado com um esquema real e dados de exemplo, prontos para consultar assim que você o abre.",
+    "table": "tabela",
+    "tables": "tabelas",
     "items": [
-      { "name": "To-Do List", "description": "Simple task management database", "tableCount": 1 },
-      { "name": "Contacts", "description": "Contacts and groups database", "tableCount": 2 },
       {
-        "name": "Library",
-        "description": "Library with books, members, and loans",
+        "name": "Lista de Tarefas",
+        "description": "Banco de dados simples para gerenciamento de tarefas",
+        "tableCount": 1
+      },
+      { "name": "Contatos", "description": "Banco de dados de contatos e grupos", "tableCount": 2 },
+      {
+        "name": "Biblioteca",
+        "description": "Biblioteca com livros, membros e empréstimos",
         "tableCount": 3
       },
       {
-        "name": "Fitness Club",
-        "description": "Gym members and subscriptions database",
+        "name": "Academia",
+        "description": "Banco de dados de membros e assinaturas de academia",
         "tableCount": 3
       },
-      { "name": "Car Rental", "description": "Car rental management database", "tableCount": 4 },
       {
-        "name": "Restaurant",
-        "description": "Restaurant orders and menu items database",
+        "name": "Aluguel de Carros",
+        "description": "Banco de dados de gerenciamento de aluguel de carros",
         "tableCount": 4
       },
       {
-        "name": "HR Payroll",
-        "description": "Company departments, job positions, employees, and salary history",
+        "name": "Restaurante",
+        "description": "Banco de dados de pedidos e itens de cardápio de restaurante",
         "tableCount": 4
       },
       {
-        "name": "Logistics",
-        "description": "Packages, drivers, deliveries, and status history database",
+        "name": "Folha de Pagamento",
+        "description": "Departamentos, cargos, funcionários e histórico salarial da empresa",
+        "tableCount": 4
+      },
+      {
+        "name": "Logística",
+        "description": "Banco de dados de pacotes, motoristas, entregas e histórico de status",
         "tableCount": 5
       },
       {
-        "name": "Pharmacy",
-        "description": "Pharmacy inventory, suppliers, customers, and sales database",
+        "name": "Farmácia",
+        "description": "Banco de dados de estoque, fornecedores, clientes e vendas de farmácia",
         "tableCount": 5
       },
       {
-        "name": "School",
-        "description": "School management with students, teachers, classes, enrollments, and grades",
+        "name": "Escola",
+        "description": "Gerenciamento escolar com alunos, professores, turmas, matrículas e notas",
         "tableCount": 5
       },
       {
-        "name": "Social Network",
-        "description": "Social media with users, posts, likes, comments, and followers",
+        "name": "Rede Social",
+        "description": "Rede social com usuários, publicações, curtidas, comentários e seguidores",
         "tableCount": 5
       },
       {
         "name": "Hotel",
-        "description": "Hotel reservations, rooms, payments, employees, and services database",
+        "description": "Banco de dados de reservas, quartos, pagamentos, funcionários e serviços de hotel",
         "tableCount": 6
       },
       {
-        "name": "Banking",
-        "description": "Banking system with accounts, transactions, loans, and employees",
+        "name": "Banco",
+        "description": "Sistema bancário com contas, transações, empréstimos e funcionários",
         "tableCount": 6
       },
       {
         "name": "E-Commerce",
-        "description": "Online store with products, orders, carts, and reviews",
+        "description": "Loja online com produtos, pedidos, carrinhos e avaliações",
         "tableCount": 8
       }
     ]
   },
   "Languages": {
-    "badge": "Your Language",
-    "titleLine1": "Speak your",
-    "titleLine2": "own language.",
-    "description": "SQL Studio's full interface is available in English, Portuguese (Brazil), and Spanish. Switch anytime from Settings.",
-    "screenshotAlt": "SQL Studio's home screen in {language}"
+    "badge": "Seu Idioma",
+    "titleLine1": "Fale no seu",
+    "titleLine2": "próprio idioma.",
+    "description": "A interface completa do SQL Studio está disponível em inglês, português (Brasil) e espanhol. Troque a qualquer momento nas Configurações.",
+    "screenshotAlt": "Tela inicial do SQL Studio em {language}"
   },
   "Screenshots": {
-    "badge": "Interface Design",
-    "titleLine1": "Built for",
-    "titleLine2": "Speed & Precision.",
-    "description": "A powerful interface that feels native. Clean layout, intuitive navigation, and optimized for one-handed use.",
+    "badge": "Design de Interface",
+    "titleLine1": "Feito para",
+    "titleLine2": "Velocidade e Precisão.",
+    "description": "Uma interface poderosa que parece nativa. Layout limpo, navegação intuitiva e otimizada para uso com uma mão.",
     "items": [
-      { "alt": "Home / SQL editor" },
-      { "alt": "Databases" },
-      { "alt": "SQL editor with an active database" },
-      { "alt": "Navigation drawer" },
-      { "alt": "Database visualizer" },
-      { "alt": "Settings" },
-      { "alt": "Language selector" },
-      { "alt": "Theme selector" },
-      { "alt": "SQL suggestions settings" },
-      { "alt": "Workspace layout settings" }
+      { "alt": "Tela inicial / editor SQL" },
+      { "alt": "Bancos de dados" },
+      { "alt": "Editor SQL com um banco de dados ativo" },
+      { "alt": "Menu de navegação" },
+      { "alt": "Visualizador de banco de dados" },
+      { "alt": "Configurações" },
+      { "alt": "Seletor de idioma" },
+      { "alt": "Seletor de tema" },
+      { "alt": "Configurações de sugestões de SQL" },
+      { "alt": "Configurações de layout de workspace" }
     ]
   },
   "Faq": {
-    "badge": "Common Questions",
-    "title": "We've got answers.",
-    "description": "Everything you need to know about the app. Didn't find the answer you were looking for? Contact our support team.",
+    "badge": "Perguntas Comuns",
+    "title": "Temos as respostas.",
+    "description": "Tudo que você precisa saber sobre o app. Não encontrou a resposta que procurava? Contate nossa equipe de suporte.",
     "items": [
       {
-        "question": "What databases does SQL Studio support?",
-        "answer": "Currently, SQL Studio provides full support for <strong>SQLite</strong> databases. We are continuously evaluating support for other database systems based on user feedback and roadmap priorities."
+        "question": "Quais bancos de dados o SQL Studio suporta?",
+        "answer": "Atualmente, o SQL Studio oferece suporte completo a bancos de dados <strong>SQLite</strong>. Estamos avaliando continuamente o suporte a outros sistemas de banco de dados com base no feedback dos usuários e nas prioridades do roadmap."
       },
       {
-        "question": "What practice databases are included?",
-        "answer": "SQL Studio comes with a catalog of pre-built databases covering common domains — e-commerce, banking, logistics, and more — each with its own schema and seed data, ready to query immediately. You can reset any of them back to their original state at any time."
+        "question": "Quais bancos de dados de prática estão incluídos?",
+        "answer": "O SQL Studio vem com um catálogo de bancos de dados prontos, cobrindo domínios comuns — e-commerce, banco, logística e mais — cada um com seu próprio esquema e dados de exemplo, prontos para consultar imediatamente. Você pode resetar qualquer um deles ao estado original a qualquer momento."
       },
       {
-        "question": "Does SQL Studio need an internet connection?",
-        "answer": "No. SQL Studio is offline-first: every database lives locally on your device, and the app doesn't need a network connection to work."
+        "question": "O SQL Studio precisa de conexão com a internet?",
+        "answer": "Não. O SQL Studio é offline-first: todo banco de dados fica armazenado localmente no seu dispositivo, e o app não precisa de conexão de rede para funcionar."
       },
       {
-        "question": "What languages does SQL Studio support?",
-        "answer": "The app's interface is fully available in English, Portuguese (Brazil), and Spanish. You can switch between them from Settings."
+        "question": "Quais idiomas o SQL Studio suporta?",
+        "answer": "A interface do app está totalmente disponível em inglês, português (Brasil) e espanhol. Você pode alternar entre eles nas Configurações."
       },
       {
-        "question": "Is SQL Studio available for iOS?",
-        "answer": "Not yet. SQL Studio is currently available for Android only."
+        "question": "O SQL Studio está disponível para iOS?",
+        "answer": "Ainda não. O SQL Studio está atualmente disponível apenas para Android."
       },
       {
-        "question": "How do I get access to SQL Studio right now?",
-        "answer": "SQL Studio is currently in closed beta on Google Play. Request access on our <downloadLink>download page</downloadLink>, and you'll get an invitation email once your account is approved as a tester."
+        "question": "Como faço para ter acesso ao SQL Studio agora?",
+        "answer": "O SQL Studio está atualmente em beta fechado no Google Play. Solicite acesso na nossa <downloadLink>página de download</downloadLink>, e você receberá um e-mail de convite assim que sua conta for aprovada como testador."
       },
       {
-        "question": "Is SQL Studio open source?",
-        "answer": "Yes. The app's source code is available on <githubLink>GitHub</githubLink> under the MIT license."
+        "question": "O SQL Studio é de código aberto?",
+        "answer": "Sim. O código-fonte do app está disponível no <githubLink>GitHub</githubLink> sob a licença MIT."
       },
       {
-        "question": "Is SQL Studio free?",
-        "answer": "SQL Studio is completely free and offers all essential features at no additional cost. We believe in accessible tools for developers everywhere."
+        "question": "O SQL Studio é gratuito?",
+        "answer": "O SQL Studio é totalmente gratuito e oferece todos os recursos essenciais sem custo adicional. Acreditamos em ferramentas acessíveis para desenvolvedores em todo lugar."
       },
       {
-        "question": "How do I report a bug or request a feature?",
-        "answer": "You can open an issue on the app's <issuesLink>GitHub repository</issuesLink>, use the \"Contact\" item in the app's Settings, or reach us through our <contactLink>contact page</contactLink>."
+        "question": "Como faço para reportar um bug ou solicitar um recurso?",
+        "answer": "Você pode abrir uma issue no <issuesLink>repositório do app no GitHub</issuesLink>, usar o item \"Contato\" nas Configurações do app, ou nos contatar através da nossa <contactLink>página de contato</contactLink>."
       }
     ]
   },
   "OpenSource": {
-    "badge": "Open Source",
-    "titleLine1": "Built in the",
-    "titleLine2": "open, on purpose.",
-    "description": "The app's full source code, feature-first architecture, and test suite are public on GitHub, under the MIT license.",
+    "badge": "Código Aberto",
+    "titleLine1": "Construído em",
+    "titleLine2": "código aberto, de propósito.",
+    "description": "O código-fonte completo do app, sua arquitetura feature-first e sua suíte de testes são públicos no GitHub, sob a licença MIT.",
     "stats": [
-      { "label": "Test Files", "value": "106" },
-      { "label": "Integration Suites", "value": "9" },
-      { "label": "Min. Line Coverage", "value": "91%" }
+      { "label": "Arquivos de Teste", "value": "106" },
+      { "label": "Suítes de Integração", "value": "9" },
+      { "label": "Cobertura Mín. de Linhas", "value": "91%" }
     ],
     "modules": [
-      { "name": "database", "description": "Catalog, creation, deletion, favoriting, and search." },
+      { "name": "database", "description": "Catálogo, criação, exclusão, favoritos e busca." },
       {
         "name": "database-visualizer",
-        "description": "Visual schema view of a database's tables, columns, and relationships."
+        "description": "Visualização do esquema de tabelas, colunas e relações de um banco de dados."
       },
-      { "name": "sql-editor", "description": "The code editor, its console, and running queries." },
+      {
+        "name": "sql-editor",
+        "description": "O editor de código, seu console e a execução de consultas."
+      },
       {
         "name": "sql-suggestions",
-        "description": "Basic and advanced SQL snippets shown while writing a query."
+        "description": "Trechos de SQL básicos e avançados exibidos ao escrever uma consulta."
       },
       {
         "name": "workspace-layout",
-        "description": "How the editor, console, and visualizer are arranged on screen."
+        "description": "Como o editor, o console e o visualizador são organizados na tela."
       },
-      { "name": "app-version", "description": "The app's own version info shown in Settings." }
+      {
+        "name": "app-version",
+        "description": "As informações de versão do próprio app, exibidas nas Configurações."
+      }
     ],
-    "viewSource": "View Source on GitHub"
+    "viewSource": "Ver Código-Fonte no GitHub"
   },
   "WhatsNew": {
     "badge": "Changelog",
-    "titleLine1": "What's",
-    "titleLine2": "New.",
-    "description": "SQL Studio ships often. Here's what changed in each release.",
-    "current": "Current",
+    "titleLine1": "O que há de",
+    "titleLine2": "Novo.",
+    "description": "O SQL Studio lança atualizações com frequência. Veja o que mudou em cada versão.",
+    "current": "Atual",
     "releases": [
       {
         "version": "0.3.0",
-        "date": "July 31, 2026",
+        "date": "31 de julho de 2026",
         "highlights": [
-          "Light, dark, and system theme support.",
-          "Search filter on the databases list.",
-          "Navigate straight to a table from the database visualizer's schema diagram.",
-          "Toast confirmation for database actions."
+          "Suporte a tema claro, escuro e do sistema.",
+          "Filtro de busca na lista de bancos de dados.",
+          "Navegue direto para uma tabela a partir do diagrama de esquema do visualizador de banco de dados.",
+          "Confirmação por toast para ações em bancos de dados."
         ]
       },
       {
         "version": "0.2.0",
-        "date": "July 26, 2026",
+        "date": "26 de julho de 2026",
         "highlights": [
-          "Redesigned UI with a unified black-and-white minimal visual identity.",
-          "About screen with app info and a licenses viewer.",
-          "SQL editor download/export, load-last-query, and copy schema/seed to clipboard.",
-          "Database visualizer relation tracing and automatic diagram fit-to-view.",
-          "Transitions and micro-animations across screens and components."
+          "Interface redesenhada com uma identidade visual minimalista unificada em preto e branco.",
+          "Tela Sobre com informações do app e um visualizador de licenças.",
+          "Download/exportação no editor SQL, carregar última consulta e copiar esquema/dados de exemplo para a área de transferência.",
+          "Rastreamento de relações e ajuste automático de visualização no diagrama do visualizador de banco de dados.",
+          "Transições e microanimações em telas e componentes."
         ]
       },
       {
         "version": "0.1.1",
-        "date": "December 3, 2025",
+        "date": "3 de dezembro de 2025",
         "highlights": [
-          "Full internationalization: English, Portuguese (Brazil), and Spanish.",
-          "Language switching support and a language selector.",
-          "Advanced SQL suggestions.",
-          "Contact option in Settings."
+          "Internacionalização completa: inglês, português (Brasil) e espanhol.",
+          "Suporte à troca de idioma e um seletor de idioma.",
+          "Sugestões avançadas de SQL.",
+          "Opção de contato nas Configurações."
         ]
       },
       {
         "version": "0.1.0",
-        "date": "October 26, 2025",
+        "date": "26 de outubro de 2025",
         "highlights": [
-          "Initial release: database creation, listing, favoriting, and deletion.",
-          "SQL editor and console workspace.",
-          "Basic SQL suggestions."
+          "Lançamento inicial: criação, listagem, favoritos e exclusão de bancos de dados.",
+          "Workspace de editor SQL e console.",
+          "Sugestões básicas de SQL."
         ]
       }
     ]
   },
   "Cta": {
-    "titleLine1": "SQL power in your",
-    "titleLine2": "pocket.",
-    "description": "The database client designed for touch. Query, edit, and visualize your data with the speed of a desktop app, entirely for free.",
-    "noAccountRequired": "No account required",
-    "freeAndPrivate": "100% Free & Private"
+    "titleLine1": "O poder do SQL no seu",
+    "titleLine2": "bolso.",
+    "description": "O cliente de banco de dados projetado para toque. Consulte, edite e visualize seus dados com a velocidade de um app de desktop, totalmente de graça.",
+    "noAccountRequired": "Nenhuma conta necessária",
+    "freeAndPrivate": "100% Gratuito e Privado"
   },
   "Download": {
-    "badge": "Closed Beta Access",
-    "titleLine1": "Join the",
-    "titleLine2": "Development Program",
-    "description": "SQL Studio is currently invite-only. To access the app on the Play Store, your email needs to be whitelisted in our testers database.",
-    "howItWorksTitle": "How it works",
-    "stepLabel": "Step",
+    "badge": "Acesso ao Beta Fechado",
+    "titleLine1": "Participe do",
+    "titleLine2": "Programa de Desenvolvimento",
+    "description": "O SQL Studio está atualmente disponível apenas por convite. Para acessar o app na Play Store, seu e-mail precisa estar na lista de liberação do nosso banco de testadores.",
+    "howItWorksTitle": "Como funciona",
+    "stepLabel": "Passo",
     "steps": [
       {
         "step": "01",
-        "title": "Submit Email",
-        "description": "Enter your Google Play email above to join the list."
+        "title": "Envie seu E-mail",
+        "description": "Digite acima o e-mail da sua conta Google Play para entrar na lista."
       },
       {
         "step": "02",
-        "title": "Wait for Invite",
-        "description": "We'll enable access and notify you via email."
+        "title": "Aguarde o Convite",
+        "description": "Vamos liberar o acesso e te avisar por e-mail."
       },
       {
         "step": "03",
-        "title": "Download",
-        "description": "Access the Play Store link to install the app."
+        "title": "Baixe",
+        "description": "Acesse o link da Play Store para instalar o app."
       }
     ]
   },
   "DownloadButton": {
-    "downloadOn": "Download on"
+    "downloadOn": "Baixar na"
   },
   "BetaAccessForm": {
-    "emailLabel": "Google Play Email Address",
-    "emailPlaceholder": "your-account@gmail.com",
-    "emailHint": "Must match the account logged in on your Android device.",
-    "submit": "Join Beta Waitlist",
-    "submitting": "Processing...",
-    "successTitle": "Request Received",
-    "successMessage": "You have been added to the waiting list. Once your email is approved as a tester, you'll receive an <strong>invitation email</strong> with the Play Store link.",
-    "error": "Failed to send request. Please try again."
+    "emailLabel": "E-mail da Conta Google Play",
+    "emailPlaceholder": "sua-conta@gmail.com",
+    "emailHint": "Deve corresponder à conta conectada no seu dispositivo Android.",
+    "submit": "Entrar na Lista de Espera do Beta",
+    "submitting": "Processando...",
+    "successTitle": "Solicitação Recebida",
+    "successMessage": "Você foi adicionado à lista de espera. Assim que seu e-mail for aprovado como testador, você receberá um <strong>e-mail de convite</strong> com o link da Play Store.",
+    "error": "Falha ao enviar a solicitação. Tente novamente."
   }
 }
