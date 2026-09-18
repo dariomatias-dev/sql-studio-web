@@ -40,7 +40,7 @@ export const WhatsNewSection = () => {
           {releases.map((release) => (
             <div key={release.version} className="relative flex gap-8">
               <div className="relative shrink-0">
-                <div className="border-brand/30 bg-brand/5 relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border font-mono text-sm font-bold text-cyan-700">
+                <div className="border-brand/30 relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border bg-cyan-50 font-mono text-xs font-bold text-cyan-700">
                   v{release.version}
                 </div>
               </div>
