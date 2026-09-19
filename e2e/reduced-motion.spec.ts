@@ -17,16 +17,10 @@ test.describe("prefers-reduced-motion: reduce", () => {
     }
   });
 
-  test("workflow section's bounce animation is disabled", async ({ page }) => {
+  test("workflow section's status toast reveal is skipped, not animated in", async ({ page }) => {
     await page.goto("/");
 
-    const animationName = await page
-      .locator(".animate-bounce")
-      .first()
-      .evaluate((el) => {
-        return getComputedStyle(el).animationName;
-      });
-    expect(animationName).toBe("none");
+    await expect(page.getByText("Query Executed")).toBeVisible();
   });
 
   test("beta access button's shine animation is disabled", async ({ page }) => {

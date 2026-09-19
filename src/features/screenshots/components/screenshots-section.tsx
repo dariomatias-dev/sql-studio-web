@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/shared/components/reveal";
+
 import { ScreenshotsCarousel } from "./screenshots-carousel";
 
 export const ScreenshotsSection = () => {
@@ -10,7 +12,7 @@ export const ScreenshotsSection = () => {
       <div className="bg-brand/5 pointer-events-none absolute top-0 left-1/2 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="mx-auto mb-6 max-w-3xl text-center">
+        <Reveal className="mx-auto mb-6 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
             {t("badge")}
           </div>
@@ -23,7 +25,7 @@ export const ScreenshotsSection = () => {
           </h2>
 
           <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
-        </div>
+        </Reveal>
 
         <ScreenshotsCarousel />
       </div>

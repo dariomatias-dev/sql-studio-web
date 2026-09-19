@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/shared/components/reveal";
+
 import { featureIcons } from "../data/features";
 
 import type { FeatureMessage } from "../data/feature.types";
@@ -19,7 +21,7 @@ export const FeaturesSection = () => {
       <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/2 translate-y-1/2 rounded-full bg-slate-100 blur-[80px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-20 max-w-3xl text-center">
+        <Reveal className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
             {t("badge")}
           </div>
@@ -30,7 +32,7 @@ export const FeaturesSection = () => {
             </span>
           </h2>
           <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2">
           {items.map((feature, index) => {

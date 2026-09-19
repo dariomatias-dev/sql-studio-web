@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/shared/components/reveal";
 import { APP_VERSION } from "@/shared/lib/app-release";
 
 interface ReleaseMessage {
@@ -21,7 +22,7 @@ export const WhatsNewSection = () => {
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl">
-        <div className="mx-auto mb-20 max-w-3xl text-center">
+        <Reveal className="mx-auto mb-20 max-w-3xl text-center">
           <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
             {t("badge")}
           </div>
@@ -32,13 +33,13 @@ export const WhatsNewSection = () => {
             </span>
           </h2>
           <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
-        </div>
+        </Reveal>
 
         <div className="relative space-y-12">
           <div className="absolute top-4 bottom-4 left-6.75 w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />
 
-          {releases.map((release) => (
-            <div key={release.version} className="relative flex gap-8">
+          {releases.map((release, index) => (
+            <Reveal key={release.version} delay={index * 80} className="relative flex gap-8">
               <div className="relative shrink-0">
                 <div className="border-brand/30 relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border bg-cyan-50 font-mono text-xs font-bold text-cyan-700">
                   v{release.version}
@@ -63,7 +64,7 @@ export const WhatsNewSection = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

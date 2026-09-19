@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { Link as LocaleLink } from "@/i18n/navigation";
+import { Reveal } from "@/shared/components/reveal";
 import {
   Accordion,
   AccordionContent,
@@ -60,15 +61,15 @@ export const FaqSection = () => {
       <div className="bg-brand/5 pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl">
-        <div className="mb-16 text-center md:mb-20">
-          <span className="mb-3 block text-xs font-bold tracking-wider text-cyan-700 uppercase">
+        <Reveal className="mb-16 text-center md:mb-20">
+          <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
             {t("badge")}
-          </span>
+          </div>
           <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
             {t("title")}
           </h2>
           <p className="mx-auto max-w-xl text-lg font-light text-slate-500">{t("description")}</p>
-        </div>
+        </Reveal>
 
         <Accordion type="single" collapsible className="w-full">
           {items.map((item, index) => (

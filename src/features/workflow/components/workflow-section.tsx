@@ -2,6 +2,8 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/shared/components/reveal";
+
 import { stepColors, stepIcons } from "../data/workflow-icons";
 
 interface StepMessage {
@@ -20,20 +22,22 @@ export const WorkflowSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="lg:w-1/2">
-            <div className="bg-brand/10 mb-8 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-              {t("badge")}
-            </div>
+            <Reveal>
+              <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
+                {t("badge")}
+              </div>
 
-            <h2 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-              {t("titleLine1")} <br />
-              <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-                {t("titleLine2")}
-              </span>
-            </h2>
+              <h2 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+                {t("titleLine1")} <br />
+                <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
+                  {t("titleLine2")}
+                </span>
+              </h2>
 
-            <p className="mb-16 max-w-lg text-lg leading-relaxed font-light text-slate-500">
-              {t("description")}
-            </p>
+              <p className="mb-16 max-w-lg text-lg leading-relaxed font-light text-slate-500">
+                {t("description")}
+              </p>
+            </Reveal>
 
             <div className="relative space-y-12">
               <div className="absolute top-4 bottom-4 left-6.75 w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />
@@ -73,7 +77,7 @@ export const WorkflowSection = () => {
           <div className="relative flex w-full justify-center lg:w-1/2 lg:justify-end">
             <div className="pointer-events-none absolute top-1/2 left-1/2 h-3/2 w-3/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/20 blur-[120px]" />
 
-            <div className="relative z-10">
+            <Reveal delay={100} className="relative z-10">
               <div className="relative rounded-[2.5rem] border-8 border-slate-950 bg-slate-950 shadow-2xl">
                 <div className="absolute top-0 left-1/2 z-20 h-6 w-32 -translate-x-1/2 rounded-b-xl bg-slate-950" />
 
@@ -85,7 +89,7 @@ export const WorkflowSection = () => {
                   className="relative z-10 rounded-4xl"
                 />
 
-                <div className="absolute -right-12 bottom-20 z-30 animate-bounce duration-3000">
+                <Reveal delay={500} className="absolute -right-12 bottom-20 z-30">
                   <div className="flex items-center gap-3 rounded-2xl border border-white/50 bg-white/90 p-4 pr-6 shadow-xl shadow-slate-200/50 backdrop-blur-xl">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                       <CheckCircle2 className="h-6 w-6" />
@@ -97,9 +101,9 @@ export const WorkflowSection = () => {
                       <p className="text-sm font-bold text-slate-900">{t("queryExecuted")}</p>
                     </div>
                   </div>
-                </div>
+                </Reveal>
 
-                <div className="absolute top-32 -left-8 z-30">
+                <Reveal delay={300} className="absolute top-32 -left-8 z-30">
                   <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-4 shadow-xl backdrop-blur-xl">
                     <div className="mb-2 flex items-center gap-3">
                       <div className="h-3 w-3 rounded-full bg-red-500" />
@@ -111,9 +115,9 @@ export const WorkflowSection = () => {
                       <div className="h-2 w-2/3 rounded-full bg-slate-700" />
                     </div>
                   </div>
-                </div>
+                </Reveal>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

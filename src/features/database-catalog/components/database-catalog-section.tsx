@@ -1,6 +1,8 @@
 import { Database as DatabaseIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/shared/components/reveal";
+
 interface DatabaseMessage {
   name: string;
   description: string;
@@ -20,7 +22,7 @@ export const DatabaseCatalogSection = () => {
       <div className="bg-brand/10 pointer-events-none absolute top-0 left-1/2 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full mix-blend-screen blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-20 max-w-3xl text-center">
+        <Reveal className="mx-auto mb-20 max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-3 py-1 text-xs font-bold tracking-wider text-zinc-300 uppercase">
             {t("badge")}
           </div>
@@ -31,7 +33,7 @@ export const DatabaseCatalogSection = () => {
             </span>
           </h2>
           <p className="text-lg leading-relaxed font-light text-zinc-400">{t("description")}</p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((database) => (
