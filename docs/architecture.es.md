@@ -67,7 +67,7 @@ Ninguna por ahora. Todo import de una feature a otra pasa por un barrel.
 - `app/page.tsx` y `app/layout.tsx` son Server Components: solo componen
   componentes de feature, sin hooks ni estado propio.
 - `/privacy-policy`, `/terms-of-service` y la página 404 también son
-  Server Components puros — sin interactividad, solo texto y `Link`.
+  Server Components puros: sin interactividad, solo texto y `Link`.
 - `/contact` y `/download` se dividen cada uno en un Server Component
   para el chrome estático de la página (título, texto, enlaces
   laterales) y un Client Component pequeño para el formulario en sí
@@ -90,13 +90,13 @@ Ninguna por ahora. Todo import de una feature a otra pasa por un barrel.
 ## Formularios
 
 `/contact` y `/download` envían a través de EmailJS (`@emailjs/browser`),
-directamente desde el navegador — no hay backend propio. Ambos pasan por
+directamente desde el navegador: no hay backend propio. Ambos pasan por
 el mismo helper `shared/lib/email.ts` (`sendEmail`), que lee las tres
 variables de entorno
 `NEXT_PUBLIC_EMAILJS_SERVICE_ID`/`NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`/`NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`,
 inlineadas en tiempo de build, y lanza un error amigable si falta alguna
 en vez de intentar la solicitud. Ninguna prueba, spec de e2e, o ejecución
-de `act` deja que una solicitud llegue de verdad a `api.emailjs.com` —
+de `act` deja que una solicitud llegue de verdad a `api.emailjs.com`:
 siempre se intercepta o recibe credenciales falsas que solo funcionan
 contra un endpoint simulado.
 
@@ -130,7 +130,7 @@ workflow (`features/workflow/components/workflow-section.tsx`) reutiliza
   una página o sección necesita en un solo lugar, en vez de repartirlo
   entre árboles paralelos de `components/`, `constants/`, `context/`,
   `lib/`, `utils/` y `@types/`, como era el proyecto antes de esta
-  reestructuración — la estructura que describe este documento reemplazó
+  reestructuración: la estructura que describe este documento reemplazó
   eso.
 - **Por qué separar el contenido de la página del formulario.**
   `/contact` y `/download` solían ser un Client Component grande cada

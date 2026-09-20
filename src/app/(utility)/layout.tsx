@@ -16,7 +16,7 @@ interface UtilityLayoutProps {
 }
 
 // Only Header/Footer render in this tree, so only their messages ship to the
-// client — not the full catalog (Hero, Features, Faq, ...) these pages never use.
+// client: not the full catalog (Hero, Features, Faq, ...) these pages never use.
 const { Nav, Header, Footer } = enMessages;
 const headerFooterMessages = { Nav, Header, Footer };
 

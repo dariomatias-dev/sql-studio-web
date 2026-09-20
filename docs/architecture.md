@@ -66,7 +66,7 @@ None right now. Every feature-to-feature import goes through a barrel.
 - `app/page.tsx` and `app/layout.tsx` are Server Components: they only
   compose feature components, with no hooks or state of their own.
 - `/privacy-policy`, `/terms-of-service`, and the 404 page are pure Server
-  Components too — no interactivity, just text and `Link`.
+  Components too: no interactivity, just text and `Link`.
 - `/contact` and `/download` each split into a Server Component for the
   static page chrome (heading, copy, sidebar links) and a small Client
   Component for the form itself (`ContactForm`, `BetaAccessForm`), which is
@@ -86,13 +86,13 @@ None right now. Every feature-to-feature import goes through a barrel.
 ## Forms
 
 `/contact` and `/download` both submit through EmailJS
-(`@emailjs/browser`), directly from the browser — there is no backend of
+(`@emailjs/browser`), directly from the browser: there is no backend of
 our own. Both go through the same `shared/lib/email.ts` helper
 (`sendEmail`), which reads the three
 `NEXT_PUBLIC_EMAILJS_SERVICE_ID`/`NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`/`NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
 environment variables, inlined at build time, and throws a friendly error
 if any is missing instead of attempting the request. No test, e2e spec,
-or `act` run ever lets a request reach `api.emailjs.com` for real — it's
+or `act` run ever lets a request reach `api.emailjs.com` for real: it's
 always intercepted or given fake credentials that only work against a
 mocked endpoint.
 
@@ -123,7 +123,7 @@ captions in the app's README changed. The workflow section's mockup
   keeps everything a page or section needs in one place, instead of
   splitting it across parallel `components/`, `constants/`, `context/`,
   `lib/`, `utils/`, and `@types/` trees the way the project did before this
-  restructuring — the layout this document describes replaced that.
+  restructuring: the layout this document describes replaced that.
 - **Why split page content from the form.** `/contact` and `/download`
   used to be one big Client Component each, form and static copy together,
   because the form needed `"use client"` for its hooks. Pulling the form

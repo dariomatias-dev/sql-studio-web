@@ -18,7 +18,7 @@
 <strong>Language:</strong> English | <a href="README.es.md">Español</a> | <a href="README.pt-BR.md">Português (Brasil)</a>
 </p>
 
-# <p align="center">SQL Studio — Official Website</p>
+# <p align="center">SQL Studio: Official Website</p>
 
 <p align="center">
 Official website of the SQL Studio mobile app: a database client for practicing SQL on fully customizable local SQLite databases, offline-first.
@@ -50,13 +50,13 @@ Official website of the SQL Studio mobile app: a database client for practicing 
 
 ## About the Project
 
-This repository holds only the code for SQL Studio's official landing page —
+This repository holds only the code for SQL Studio's official landing page:
 not the mobile app itself. It's a static (SSG) site built with Next.js,
 showcasing the app's features, screenshots, and a way to request access
 while the app is in closed beta.
 
 SQL Studio itself is a mobile app for practicing SQL entirely offline, using
-SQLite as its storage engine — create, edit, run, and inspect queries
+SQLite as its storage engine: create, edit, run, and inspect queries
 against fully customizable local databases, no internet connection needed.
 
 ## Features
@@ -76,7 +76,7 @@ against fully customizable local databases, no internet connection needed.
 - Tailwind CSS v4.
 - `react-hook-form` with a `zod` resolver for the contact form.
 - `embla-carousel-react` for the screenshots carousel, Radix UI for the accordion and mobile menu dialog.
-- `@emailjs/browser` — forms submit directly from the browser, no backend of our own.
+- `@emailjs/browser`: forms submit directly from the browser, no backend of our own.
 - Vitest with Testing Library, and Playwright with axe.
 - ESLint, Prettier, Husky, commitlint, and GitHub Actions.
 
@@ -88,7 +88,7 @@ cp .env.example .env.local   # set the EmailJS credentials to enable the forms
 pnpm run dev                  # http://localhost:3000
 ```
 
-Without the EmailJS environment variables, both forms still render — they
+Without the EmailJS environment variables, both forms still render: they
 just show a friendly error instead of sending.
 
 ## Scripts
@@ -120,7 +120,7 @@ the rendering strategy (what's a Server vs. a Client Component, and why).
 
 - Unit and component tests with Vitest and Testing Library (`pnpm run test:run`).
 - End-to-end tests with Playwright, including axe accessibility scans (`pnpm run test:e2e`).
-- Forms never send real email in any test — EmailJS requests are always intercepted or mocked. See [docs/testing.md](docs/testing.md).
+- Forms never send real email in any test: EmailJS requests are always intercepted or mocked. See [docs/testing.md](docs/testing.md).
 
 ## Documentation
 

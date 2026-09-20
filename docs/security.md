@@ -8,7 +8,7 @@ EmailJS from the browser; there's no server of our own handling that data.
 There is no login and no stored user data. Realistic concerns here are
 things like: a dependency with a known vulnerability, a Content Security
 Policy bypass, a cross-site scripting vector, or a build/CI supply-chain
-issue — not account takeover or a data breach, since neither accounts nor
+issue: not account takeover or a data breach, since neither accounts nor
 stored user data exist.
 
 ## Supported versions

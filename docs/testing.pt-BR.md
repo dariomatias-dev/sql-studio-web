@@ -8,7 +8,7 @@ Cobertura é um piso, não uma meta. Veja os limiares e a razão deles em
 - **Lógica de verdade**: um cálculo, um branch, um pedaço de estado que
   pode dar errado. O schema zod do formulário de contato, o estado
   sólido/transparente do header e o menu mobile, o expandir/colapsar do
-  acordeão do FAQ, o slide ativo do carrossel — todos merecem um teste.
+  acordeão do FAQ, o slide ativo do carrossel: todos merecem um teste.
 - **Interação real do usuário**: clicar em algo, esperar um resultado
   específico. Os testes de componente aqui renderizam o componente de
   verdade e interagem com ele por queries da Testing Library
@@ -16,10 +16,10 @@ Cobertura é um piso, não uma meta. Veja os limiares e a razão deles em
 - **Resultados de envio de formulário**: um envio válido chama a função
   certa com o payload certo e mostra sucesso; um inválido bloqueia o
   envio e mostra os erros de campo; uma falha mostra o estado de erro.
-  `sendEmail`/`emailjs.send` são sempre mockados — veja a regra "nunca
+  `sendEmail`/`emailjs.send` são sempre mockados: veja a regra "nunca
   enviar e-mail de verdade nos testes" no `AGENTS.md`.
 - **Destinos de link**: todo botão ou link que aponta pra algo externo
-  (GitHub, LinkedIn, mailto, as páginas legais) merece uma asserção — é
+  (GitHub, LinkedIn, mailto, as páginas legais) merece uma asserção: é
   exatamente o tipo de coisa que um erro de copiar e colar quebra em
   silêncio.
 
@@ -30,7 +30,7 @@ em `vitest.config.mts`:
   `features-section.tsx`, `hero-section.tsx`, `workflow-section.tsx`, os
   dois componentes wrapper `*-section.tsx` (`faq`, `screenshots`), e os
   dois conteúdos de página legal. Markup fixo sem props e sem
-  renderização condicional — não há lógica pra dar errado. Coberto de
+  renderização condicional: não há lógica pra dar errado. Coberto de
   verdade por `e2e/smoke.spec.ts` e `e2e/navigation.spec.ts`.
 - **Objetos de dado simples**:
   `features/layout/data/{nav-links,social-links}.ts` e
@@ -60,7 +60,7 @@ que corrigi-las suba o número em vez de serem esquecidas em silêncio:
 - **As lacunas do jsdom são reais e merecem um comentário, não um
   workaround.** `IntersectionObserver`, `ResizeObserver` e `matchMedia`
   simplesmente não existem no jsdom; veja os polyfills em
-  `vitest.setup.ts` — o `embla-carousel` (carrossel de screenshots)
+  `vitest.setup.ts`: o `embla-carousel` (carrossel de screenshots)
   precisa de `ResizeObserver`. Os outros dois ainda não são exercitados
   por nenhum componente, mas ficam polyfilled com antecedência, batendo
   com o que um navegador de verdade fornece.
@@ -70,7 +70,7 @@ que corrigi-las suba o número em vez de serem esquecidas em silêncio:
   de snap ainda resolve certo. `screenshots-carousel.test.tsx` afirma
   navegação de verdade (botões próximo/anterior, clicar num ponto)
   direto, sem precisar de um recorte só pra e2e.
-- **O Accordion do Radix desmonta o conteúdo fechado**, não só esconde —
+- **O Accordion do Radix desmonta o conteúdo fechado**, não só esconde:
   `faq-section.test.tsx` afirma a ausência de uma resposta colapsada com
   `queryByText(...)` retornando `null`, não um atributo
   `data-state="closed"` num elemento que não existe.

@@ -16,7 +16,7 @@ concurrency:
 # Dummy EmailJS credentials so /contact and /download attempt a real
 # request in e2e (which the specs intercept) instead of failing early on
 # the "missing env vars" guard. NEXT_PUBLIC_* vars are inlined at build
-# time, so they must be set for the build step, not just at runtime — keep
+# time, so they must be set for the build step, not just at runtime: keep
 # these in sync with playwright.config.ts's webServer.env.
 env:
   NEXT_PUBLIC_EMAILJS_SERVICE_ID: test-service-id

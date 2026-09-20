@@ -43,7 +43,7 @@ del framework (React, React DOM, el runtime de Next.js,
 principal). `/download` es más liviana ya que su formulario usa
 `useState` puro, sin librería de formularios. Las páginas legales
 (`/privacy-policy`, `/terms-of-service`) no envían código de formulario
-alguno — su peso está cerca de la línea base pura del framework, ya
+alguno: su peso está cerca de la línea base pura del framework, ya
 que ninguna de las dos páginas tiene una isla de cliente propia más
 allá del `Header`/`Footer` compartido.
 

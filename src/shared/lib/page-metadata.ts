@@ -40,7 +40,7 @@ const localizedPath = (path: string, locale: string) =>
   path === "/" ? `/${locale}` : `/${locale}${path}`;
 
 // Only locale-aware pages (under `[locale]`) pass `locale`; /contact,
-// /privacy-policy, and /terms-of-service never do — they're single-language
+// /privacy-policy, and /terms-of-service never do: they're single-language
 // and stay outside the `[locale]` tree, so hreflang doesn't apply to them.
 export const localeAlternates = (path: string, locale: string): Metadata["alternates"] => ({
   canonical: localizedPath(path, locale),

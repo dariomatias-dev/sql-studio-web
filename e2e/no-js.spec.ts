@@ -26,7 +26,7 @@ const getTextColorRgb = (page: Page, text: string) =>
 // render solid (dark nav text) or transparent (light nav text, for the
 // dark hero) inside a useEffect, which never runs without JavaScript. On
 // any page but the home page, that left the header's light text sitting
-// on that page's white background — illegible. The header now derives
+// on that page's white background, illegible. The header now derives
 // this from the route synchronously, so it must render solid on first
 // paint, with no JavaScript at all.
 test.describe("header without JavaScript", () => {

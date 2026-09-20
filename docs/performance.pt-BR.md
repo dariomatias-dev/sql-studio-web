@@ -42,7 +42,7 @@ compartilhada do framework (React, React DOM, o runtime do Next.js,
 inicial). `/download` é mais leve já que o formulário dela usa
 `useState` puro, sem biblioteca de formulário. As páginas legais
 (`/privacy-policy`, `/terms-of-service`) não enviam nenhum código de
-formulário — o peso delas fica perto da linha de base pura do
+formulário: o peso delas fica perto da linha de base pura do
 framework, já que nenhuma das duas páginas tem uma ilha client própria
 além do `Header`/`Footer` compartilhado.
 

@@ -67,7 +67,7 @@ barrel.
 - `app/page.tsx` e `app/layout.tsx` são Server Components: só compõem
   componentes de feature, sem hooks ou estado próprio.
 - `/privacy-policy`, `/terms-of-service` e a página 404 também são Server
-  Components puros — sem interatividade, só texto e `Link`.
+  Components puros: sem interatividade, só texto e `Link`.
 - `/contact` e `/download` cada um se divide num Server Component pro
   chrome estático da página (título, texto, links laterais) e num Client
   Component pequeno pro formulário em si (`ContactForm`, `BetaAccessForm`),
@@ -89,12 +89,12 @@ barrel.
 ## Formulários
 
 `/contact` e `/download` enviam pelo EmailJS (`@emailjs/browser`), direto
-do navegador — não há backend próprio. Os dois passam pelo mesmo helper
+do navegador: não há backend próprio. Os dois passam pelo mesmo helper
 `shared/lib/email.ts` (`sendEmail`), que lê as três variáveis de ambiente
 `NEXT_PUBLIC_EMAILJS_SERVICE_ID`/`NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`/`NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`,
 inlinadas em tempo de build, e lança um erro amigável se alguma faltar em
 vez de tentar a requisição. Nenhum teste, spec de e2e, ou execução de
-`act` deixa uma requisição chegar de verdade em `api.emailjs.com` — ela é
+`act` deixa uma requisição chegar de verdade em `api.emailjs.com`: ela é
 sempre interceptada ou recebe credenciais falsas que só funcionam contra
 um endpoint mockado.
 
@@ -126,7 +126,7 @@ do README do app mudaram. O mockup da seção de workflow
   dado ou formulário. Agrupar por feature mantém tudo que uma página ou
   seção precisa num lugar só, em vez de espalhar entre árvores paralelas
   de `components/`, `constants/`, `context/`, `lib/`, `utils/` e
-  `@types/`, do jeito que o projeto era antes dessa reestruturação — a
+  `@types/`, do jeito que o projeto era antes dessa reestruturação: a
   estrutura que este documento descreve substituiu aquilo.
 - **Por que separar o conteúdo da página do formulário.** `/contact` e
   `/download` costumavam ser um Client Component grande cada, formulário e

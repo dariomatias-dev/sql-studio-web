@@ -9,7 +9,7 @@ servidor próprio tratando esse dado. Não há login e nenhum dado de
 usuário armazenado. Preocupações realistas aqui são coisas como: uma
 dependência com uma vulnerabilidade conhecida, um contorno da Content
 Security Policy, um vetor de cross-site scripting, ou um problema de
-supply-chain de build/CI — não tomada de conta ou vazamento de dado, já
+supply-chain de build/CI: não tomada de conta ou vazamento de dado, já
 que nem contas nem dado de usuário armazenado existem.
 
 ## Versões suportadas

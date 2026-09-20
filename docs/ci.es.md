@@ -67,7 +67,7 @@ act -j quality        # corre un job
 `act`. El resto tiene límites documentados:
 
 - **`build` y `e2e`** necesitan el servidor local de artefactos de
-  `act` habilitado explícitamente — sin eso, `actions/upload-artifact`
+  `act` habilitado explícitamente: sin eso, `actions/upload-artifact`
   y `actions/download-artifact` fallan con "Unable to get the
   ACTIONS_RUNTIME_TOKEN env variable":
 
@@ -78,7 +78,7 @@ act -j quality        # corre un job
 
 - **`lighthouse`** descarga el artefacto del build sin problema bajo
   `act`, pero falla la verificación de salud de Chrome ("Chrome
-  installation not found") — la imagen mínima
+  installation not found"): la imagen mínima
   `catthehacker/ubuntu:act-latest` no trae Chrome. Solo corre de
   verdad en un runner `ubuntu-latest` real de GitHub, que sí lo tiene;
   `continue-on-error` evita que esto tumbe el job localmente de todos
@@ -88,13 +88,13 @@ act -j quality        # corre un job
 - **El job `analyze` de `codeql.yml`** corre el escaneo completo
   localmente bajo `act` (todos los paquetes de consultas, cada archivo
   fuente) y solo falla en el último paso, al subir el resultado SARIF a
-  la API de code scanning de GitHub — que no existe para una ejecución
+  la API de code scanning de GitHub: que no existe para una ejecución
   de workflow que nunca fue disparada por GitHub. Ese fallo es esperado
   localmente y no dice nada sobre el escaneo en sí.
 - **`dependency-review.yml`** y **`release-please.yml`** necesitan un
   pull request real o una rama `main` real en GitHub para hacer algo
   útil (el diff de dependencias de un PR; el archivo de configuración
-  obtenido de la rama remota) — bajo `act` fallan de inmediato con un
+  obtenido de la rama remota): bajo `act` fallan de inmediato con un
   número de PR faltante o un archivo de configuración remoto faltante.
   Ambos se validan de otra forma estáticamente (`act -l`, parsing de
   JSON/YAML, el validador del propio proveedor cuando existe uno).

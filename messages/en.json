@@ -217,7 +217,7 @@
       },
       {
         "question": "What practice databases are included?",
-        "answer": "SQL Studio comes with a catalog of pre-built databases covering common domains — e-commerce, banking, logistics, and more — each with its own schema and seed data, ready to query immediately. You can reset any of them back to their original state at any time."
+        "answer": "SQL Studio comes with a catalog of pre-built databases covering common domains (e-commerce, banking, logistics, and more), each with its own schema and seed data, ready to query immediately. You can reset any of them back to their original state at any time."
       },
       {
         "question": "Does SQL Studio need an internet connection?",

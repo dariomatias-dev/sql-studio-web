@@ -18,7 +18,7 @@
 <strong>Idioma:</strong> <a href="README.md">English</a> | Español | <a href="README.pt-BR.md">Português (Brasil)</a>
 </p>
 
-# <p align="center">SQL Studio — Sitio Oficial</p>
+# <p align="center">SQL Studio: Sitio Oficial</p>
 
 <p align="center">
 Sitio oficial de la app móvil SQL Studio: un cliente de bases de datos para practicar SQL en bases SQLite locales y totalmente personalizables, offline-first.
@@ -51,13 +51,13 @@ Sitio oficial de la app móvil SQL Studio: un cliente de bases de datos para pra
 ## Sobre el Proyecto
 
 Este repositorio contiene solo el código de la landing page oficial de SQL
-Studio — no la app móvil en sí. Es un sitio totalmente estático (SSG)
+Studio: no la app móvil en sí. Es un sitio totalmente estático (SSG)
 hecho con Next.js, que presenta las funcionalidades de la app, capturas de
 pantalla, y una forma de solicitar acceso mientras la app está en beta
 cerrada.
 
 SQL Studio en sí es una app móvil para practicar SQL completamente sin
-conexión, usando SQLite como motor de almacenamiento — crea, edita,
+conexión, usando SQLite como motor de almacenamiento: crea, edita,
 ejecuta e inspecciona consultas en bases de datos locales totalmente
 personalizables, sin necesitar conexión a internet.
 
@@ -78,7 +78,7 @@ personalizables, sin necesitar conexión a internet.
 - Tailwind CSS v4.
 - `react-hook-form` con resolver `zod` en el formulario de contacto.
 - `embla-carousel-react` en el carrusel de capturas, Radix UI en el acordeón y en el diálogo del menú móvil.
-- `@emailjs/browser` — los formularios se envían directamente desde el navegador, sin backend propio.
+- `@emailjs/browser`: los formularios se envían directamente desde el navegador, sin backend propio.
 - Vitest con Testing Library, y Playwright con axe.
 - ESLint, Prettier, Husky, commitlint y GitHub Actions.
 
@@ -91,7 +91,7 @@ pnpm run dev                  # http://localhost:3000
 ```
 
 Sin las variables de entorno de EmailJS, ambos formularios se siguen
-renderizando normalmente — solo muestran un error amigable en vez de
+renderizando normalmente: solo muestran un error amigable en vez de
 enviar.
 
 ## Scripts
@@ -124,7 +124,7 @@ Client Component, y por qué).
 
 - Pruebas unitarias y de componentes con Vitest y Testing Library (`pnpm run test:run`).
 - Pruebas end-to-end con Playwright, incluyendo escaneos de accesibilidad con axe (`pnpm run test:e2e`).
-- Los formularios nunca envían correo real en ninguna prueba — las solicitudes a EmailJS siempre se interceptan o simulan. Ver [docs/testing.es.md](docs/testing.es.md).
+- Los formularios nunca envían correo real en ninguna prueba: las solicitudes a EmailJS siempre se interceptan o simulan. Ver [docs/testing.es.md](docs/testing.es.md).
 
 ## Documentación
 

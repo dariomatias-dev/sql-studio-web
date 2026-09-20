@@ -18,7 +18,7 @@
 <strong>Idioma:</strong> <a href="README.md">English</a> | <a href="README.es.md">Español</a> | Português (Brasil)
 </p>
 
-# <p align="center">SQL Studio — Site Oficial</p>
+# <p align="center">SQL Studio: Site Oficial</p>
 
 <p align="center">
 Site oficial do aplicativo móvel SQL Studio: um cliente de banco de dados para praticar SQL em bancos SQLite locais e totalmente customizáveis, offline-first.
@@ -51,12 +51,12 @@ Site oficial do aplicativo móvel SQL Studio: um cliente de banco de dados para 
 ## Sobre o Projeto
 
 Este repositório contém apenas o código da landing page oficial do SQL
-Studio — não o aplicativo móvel em si. É um site totalmente estático (SSG)
+Studio: não o aplicativo móvel em si. É um site totalmente estático (SSG)
 feito com Next.js, que apresenta as funcionalidades do app, screenshots, e
 uma forma de solicitar acesso enquanto o app está em beta fechado.
 
 O SQL Studio em si é um aplicativo móvel para praticar SQL totalmente
-offline, usando SQLite como motor de armazenamento — crie, edite, execute
+offline, usando SQLite como motor de armazenamento: crie, edite, execute
 e inspecione queries em bancos de dados locais totalmente customizáveis,
 sem precisar de conexão com a internet.
 
@@ -77,7 +77,7 @@ sem precisar de conexão com a internet.
 - Tailwind CSS v4.
 - `react-hook-form` com resolver `zod` no formulário de contato.
 - `embla-carousel-react` no carrossel de screenshots, Radix UI no acordeão e no diálogo do menu mobile.
-- `@emailjs/browser` — os formulários enviam direto do navegador, sem backend próprio.
+- `@emailjs/browser`: os formulários enviam direto do navegador, sem backend próprio.
 - Vitest com Testing Library, e Playwright com axe.
 - ESLint, Prettier, Husky, commitlint e GitHub Actions.
 
@@ -90,7 +90,7 @@ pnpm run dev                  # http://localhost:3000
 ```
 
 Sem as variáveis de ambiente do EmailJS, os dois formulários continuam
-renderizando normalmente — só mostram um erro amigável em vez de enviar.
+renderizando normalmente: só mostram um erro amigável em vez de enviar.
 
 ## Scripts
 
@@ -122,7 +122,7 @@ quê).
 
 - Testes de unidade e componente com Vitest e Testing Library (`pnpm run test:run`).
 - Testes end-to-end com Playwright, incluindo varreduras de acessibilidade com axe (`pnpm run test:e2e`).
-- Formulários nunca enviam e-mail de verdade em nenhum teste — as requisições ao EmailJS são sempre interceptadas ou mockadas. Veja [docs/testing.pt-BR.md](docs/testing.pt-BR.md).
+- Formulários nunca enviam e-mail de verdade em nenhum teste: as requisições ao EmailJS são sempre interceptadas ou mockadas. Veja [docs/testing.pt-BR.md](docs/testing.pt-BR.md).
 
 ## Documentação
 

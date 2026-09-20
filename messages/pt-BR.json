@@ -225,7 +225,7 @@
       },
       {
         "question": "Quais bancos de dados de prática estão incluídos?",
-        "answer": "O SQL Studio vem com um catálogo de bancos de dados prontos, cobrindo domínios comuns — e-commerce, banco, logística e mais — cada um com seu próprio esquema e dados de exemplo, prontos para consultar imediatamente. Você pode resetar qualquer um deles ao estado original a qualquer momento."
+        "answer": "O SQL Studio vem com um catálogo de bancos de dados prontos, cobrindo domínios comuns (e-commerce, banco, logística e mais), cada um com seu próprio esquema e dados de exemplo, prontos para consultar imediatamente. Você pode resetar qualquer um deles ao estado original a qualquer momento."
       },
       {
         "question": "O SQL Studio precisa de conexão com a internet?",

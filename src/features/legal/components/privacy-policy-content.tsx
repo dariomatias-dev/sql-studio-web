@@ -41,9 +41,9 @@ const PrivacyPolicyContent = () => {
               </h2>
               <p className="mb-4 leading-relaxed">
                 SQL Studio does not collect, transmit, or share any data, and it does not require an
-                internet connection to work. Every database you create or practice with — its
-                schema, its data, your queries — stays entirely on your device. We have no server,
-                no account system, and no way to see what you do in the app.
+                internet connection to work. Every database you create or practice with (its schema,
+                its data, your queries) stays entirely on your device. We have no server, no account
+                system, and no way to see what you do in the app.
               </p>
             </section>
 

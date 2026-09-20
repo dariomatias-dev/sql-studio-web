@@ -51,7 +51,7 @@ export const HeroSection = () => {
         </h1>
 
         <p className="mb-14 max-w-3xl text-lg leading-relaxed font-light text-zinc-400 md:text-2xl">
-          Practice SQL right on your phone —{" "}
+          Practice SQL right on your phone:{" "}
           <span className="font-medium text-zinc-200">{t("descriptionStrong")}</span>
           <br className="hidden md:block" /> {t("descriptionRest")}
         </p>

@@ -9,7 +9,7 @@ servidor propio manejando esos datos. No hay inicio de sesión ni datos
 de usuario almacenados. Las preocupaciones realistas aquí son cosas
 como: una dependencia con una vulnerabilidad conocida, una forma de
 sortear la Content Security Policy, un vector de cross-site scripting,
-o un problema de supply-chain de build/CI — no toma de control de
+o un problema de supply-chain de build/CI: no toma de control de
 cuenta ni una filtración de datos, ya que ni las cuentas ni los datos de
 usuario almacenados existen.
 

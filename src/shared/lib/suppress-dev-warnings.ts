@@ -1,5 +1,5 @@
 // Next.js 16 warns in dev whenever it detects `scroll-behavior: smooth` on
-// <html> without the data-scroll-behavior="smooth" opt-in — but that
+// <html> without the data-scroll-behavior="smooth" opt-in, but that
 // attribute does the opposite of what its name suggests (it forces an
 // *instant* scroll during route transitions, the pre-16 default). We want
 // the smooth scroll-to-top on navigation, so the warning is expected and

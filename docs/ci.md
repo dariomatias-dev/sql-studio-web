@@ -63,7 +63,7 @@ act -j quality        # run one job
 `act`. The rest have documented limits:
 
 - **`build` and `e2e`** need `act`'s local artifact server explicitly
-  enabled — without it, `actions/upload-artifact` and
+  enabled: without it, `actions/upload-artifact` and
   `actions/download-artifact` fail with "Unable to get the
   ACTIONS_RUNTIME_TOKEN env variable":
 
@@ -73,7 +73,7 @@ act -j quality        # run one job
   ```
 
 - **`lighthouse`** downloads the build artifact fine under `act`, but
-  fails the Chrome healthcheck ("Chrome installation not found") — the
+  fails the Chrome healthcheck ("Chrome installation not found"): the
   minimal `catthehacker/ubuntu:act-latest` image doesn't ship Chrome. It
   only runs for real on an actual `ubuntu-latest` GitHub-hosted runner,
   which does; `continue-on-error` keeps this from failing the job locally
@@ -81,14 +81,14 @@ act -j quality        # run one job
   a local build, without `act`, as a substitute during development.
 - **`codeql.yml`**'s `analyze` job runs the full scan locally under `act`
   (all query packs, every source file) and only fails at the very last
-  step, uploading the SARIF result to GitHub's code scanning API — which
+  step, uploading the SARIF result to GitHub's code scanning API: which
   doesn't exist for a workflow run that was never dispatched by GitHub.
   That failure is expected locally and says nothing about the scan
   itself.
 - **`dependency-review.yml`** and **`release-please.yml`** both need a
   real pull request or a real `main` branch on GitHub to do anything
   useful (a PR's dependency diff; the config file fetched from the remote
-  branch) — under `act` they fail immediately with a missing PR number or
+  branch): under `act` they fail immediately with a missing PR number or
   a missing remote config file. Both are otherwise validated statically
   (`act -l`, JSON/YAML parsing, the vendor's own config validator where
   one exists).

@@ -65,7 +65,7 @@ act -j quality        # roda um job
 `act`. O resto tem limites documentados:
 
 - **`build` e `e2e`** precisam do servidor local de artefatos do `act`
-  explicitamente ativado — sem isso, `actions/upload-artifact` e
+  explicitamente ativado: sem isso, `actions/upload-artifact` e
   `actions/download-artifact` falham com "Unable to get the
   ACTIONS_RUNTIME_TOKEN env variable":
 
@@ -76,7 +76,7 @@ act -j quality        # roda um job
 
 - **`lighthouse`** baixa o artefato do build direitinho sob o `act`,
   mas falha na checagem de saúde do Chrome ("Chrome installation not
-  found") — a imagem mínima `catthehacker/ubuntu:act-latest` não vem
+  found"): a imagem mínima `catthehacker/ubuntu:act-latest` não vem
   com Chrome. Só roda de verdade num runner `ubuntu-latest` de verdade
   do GitHub, que tem; `continue-on-error` evita que isso derrube o job
   localmente de qualquer jeito. `pnpm run lighthouse` roda as mesmas
@@ -85,13 +85,13 @@ act -j quality        # roda um job
 - **O job `analyze` do `codeql.yml`** roda o scan completo localmente
   sob o `act` (todos os pacotes de query, todo arquivo fonte) e só
   falha no último passo, subindo o resultado SARIF pra API de code
-  scanning do GitHub — que não existe pra uma execução de workflow que
+  scanning do GitHub: que não existe pra uma execução de workflow que
   nunca foi disparada pelo GitHub. Essa falha é esperada localmente e
   não diz nada sobre o scan em si.
 - **`dependency-review.yml`** e **`release-please.yml`** precisam de
   um pull request de verdade ou uma branch `main` de verdade no GitHub
   pra fazer algo útil (o diff de dependência de um PR; o arquivo de
-  config buscado da branch remota) — sob o `act` eles falham
+  config buscado da branch remota): sob o `act` eles falham
   imediatamente com um número de PR faltando ou um arquivo de config
   remoto faltando. Os dois são validados de outra forma
   estaticamente (`act -l`, parsing de JSON/YAML, o validador do próprio

@@ -21,7 +21,7 @@ export const Header = () => {
   const isHomePage = pathname === "/";
 
   // Every page but the home page has a light background from the first
-  // paint, so the header must render solid immediately there — no flash of
+  // paint, so the header must render solid immediately there: no flash of
   // white-on-white text while waiting for an effect to run. Only the home
   // page's dark hero needs the header to start transparent and turn solid
   // on scroll.

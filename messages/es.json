@@ -229,7 +229,7 @@
       },
       {
         "question": "¿Qué bases de datos de práctica están incluidas?",
-        "answer": "SQL Studio viene con un catálogo de bases de datos preconstruidas que cubren dominios comunes — e-commerce, banca, logística y más — cada una con su propio esquema y datos de ejemplo, listas para consultar de inmediato. Puedes restablecer cualquiera de ellas a su estado original en cualquier momento."
+        "answer": "SQL Studio viene con un catálogo de bases de datos preconstruidas que cubren dominios comunes (e-commerce, banca, logística y más), cada una con su propio esquema y datos de ejemplo, listas para consultar de inmediato. Puedes restablecer cualquiera de ellas a su estado original en cualquier momento."
       },
       {
         "question": "¿SQL Studio necesita conexión a internet?",

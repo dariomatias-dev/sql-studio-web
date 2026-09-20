@@ -27,7 +27,7 @@ to depend on.
 
 `/` has no budget: since [E89](../plan.md) it's server-rendered on demand
 rather than prerendered to static HTML (see the E89 notes for why), so
-there's no `<script src>`-bearing HTML file for this script to measure —
+there's no `<script src>`-bearing HTML file for this script to measure:
 `next-intl`'s locale detection couldn't be made to fully statically
 render the home page in this Next.js version, and that's tracked as a
 follow-up rather than solved here.
@@ -41,14 +41,14 @@ measurement to back it, same as raising one.
 
 Every route's baseline jumped by roughly 370 KB at E89: `next-intl`'s
 client runtime (locale/message context, ICU message formatting) is now
-part of the shared framework chunk, since `Header`/`Footer` — rendered on
-every route — read their labels through it. `/contact` is the heaviest
+part of the shared framework chunk, since `Header`/`Footer`, rendered on
+every route, read their labels through it. `/contact` is the heaviest
 route: it ships `react-hook-form` and its zod resolver for the contact
 form, on top of that shared baseline (React, React DOM, the Next.js
 runtime, `next-intl`, `embla-carousel-react` used by the home page's
 screenshots carousel). `/download` is lighter since its form uses plain
 `useState`, no form library. The legal pages (`/privacy-policy`,
-`/terms-of-service`) ship no form code at all — their weight is close to
+`/terms-of-service`) ship no form code at all: their weight is close to
 that shared baseline, since neither page has a client-side island of its
 own beyond `Header`/`Footer`.
 
