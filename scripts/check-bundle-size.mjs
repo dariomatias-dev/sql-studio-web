@@ -1,11 +1,6 @@
-// Budgets the initial JS actually shipped for a route's first load: the set
-// of /_next/static/chunks/*.js files referenced as <script src> in that
-// route's prerendered HTML, summed by their real on-disk size. This reads
-// the real static output rather than a manifest, since App Router's
-// per-route client-reference manifest format isn't a stable, documented
-// contract to parse against. Run as a CLI against a real `.next` build, or
-// import checkBundleSize() to test the parsing/summing logic against a
-// fixture directory.
+// Budgets each route's initial JS: the /_next/static/chunks/*.js files referenced
+// as <script src> in its prerendered HTML, summed by on-disk size.
+// Run as a CLI against a `.next` build, or import checkBundleSize().
 
 import fs from "node:fs";
 import path from "node:path";
@@ -21,8 +16,6 @@ function chunkSizesForRoute(buildDir, htmlPath) {
   let totalBytes = 0;
   const missing = [];
   for (const src of seen) {
-    // src is an absolute app URL like /_next/static/chunks/abc.js; the real
-    // file lives under <buildDir>/static/chunks/abc.js.
     const relative = src.replace(/^\/_next\//, "");
     const filePath = path.join(buildDir, relative);
     if (!fs.existsSync(filePath)) {
@@ -69,12 +62,8 @@ const isMain = process.argv[1] && import.meta.url === `file://${process.argv[1]}
 
 if (isMain) {
   const buildDir = path.join(process.cwd(), ".next");
-  // Budgets are a floor against regressing past the measured baseline (see
-  // docs/performance.md), not a target.
-  // "/" has no entry: since E89, the home page is server-rendered on demand
-  // (see plan.md's E89 notes), so there's no prerendered HTML file to measure
-  // its initial JS from. "/download" is measured through its default-locale
-  // (English, unprefixed) output, the one most visitors actually get.
+  // Budgets are a floor, not a target (see docs/performance.md). "/" has no
+  // entry: it is server-rendered on demand, so there is no HTML file to measure.
   const routes = [
     {
       name: "/contact",

@@ -15,14 +15,11 @@ interface UtilityLayoutProps {
   children: React.ReactNode;
 }
 
-// Only Header/Footer render in this tree, so only their messages ship to the
-// client: not the full catalog (Hero, Features, Faq, ...) these pages never use.
+// Only Header/Footer render in this tree, so only their messages reach the client.
 const { Nav, Header, Footer } = enMessages;
 const headerFooterMessages = { Nav, Header, Footer };
 
-// /contact, /privacy-policy, and /terms-of-service never gain a locale
-// prefix or redirect (see AGENTS.md invariants), so this tree stays
-// hardcoded to English, with no dynamic locale resolution.
+// English-only tree for /contact, /privacy-policy, and /terms-of-service, which stay unprefixed.
 const UtilityLayout = ({ children }: UtilityLayoutProps) => {
   setRequestLocale("en");
 

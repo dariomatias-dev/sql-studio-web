@@ -12,8 +12,7 @@ export const MESSAGES_BY_LOCALE: Record<string, Record<string, unknown>> = {
   es: esMessages,
 };
 
-// Extracted so it can be unit-tested without importing next-intl/server,
-// which refuses to load outside a server (React Server Component) context.
+// Locale resolution, separate from getRequestConfig so it can be unit-tested.
 export const resolveLocale = (requested: string | undefined): string =>
   hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
 

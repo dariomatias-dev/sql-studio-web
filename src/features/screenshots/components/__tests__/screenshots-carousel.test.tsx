@@ -4,11 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { ScreenshotsCarousel } from "../screenshots-carousel";
 
-// The active dot is the only one whose bar div carries the "w-6" width
-// class; the rest stay at "w-1.5". embla-carousel still tracks the
-// selected snap correctly in jsdom even though layout measurements
-// (getBoundingClientRect) are all zero, since every slide is the same
-// (zero) size.
+// Index of the active dot: the only one whose bar carries "w-6".
 const activeDotIndex = () =>
   screen
     .getAllByLabelText(/Go to slide \d+/)
@@ -54,8 +50,6 @@ describe("ScreenshotsCarousel", () => {
     expect(firstSlideImage.getAttribute("alt")).not.toMatch(/^Screen \d+$/);
   });
 
-  // next/image marks a `priority` image by preloading it via a
-  // `<link rel="preload">` in <head>, not an attribute on the <img> itself.
   const preloadedImageUrls = () =>
     Array.from(document.head.querySelectorAll('link[rel="preload"][as="image"]')).map((link) =>
       link.getAttribute("imagesrcset"),

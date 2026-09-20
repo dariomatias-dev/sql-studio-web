@@ -1,8 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-// Both routes below are linked from the app's settings screen (and the
-// Play Store listing, for /privacy-policy). Breaking them affects users of
-// the app, not just the website: see the invariants in AGENTS.md.
+// Both routes are linked from the app and must never redirect.
 
 test.describe("/privacy-policy", () => {
   test("returns 200 without redirecting", async ({ page }) => {
@@ -37,7 +35,6 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
-    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
     await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Send Message" }).click();
 
@@ -54,7 +51,6 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
-    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
     await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Send Message" }).click();
 

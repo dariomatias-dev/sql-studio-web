@@ -3,8 +3,6 @@ import { SITE_URL } from "@/shared/lib/site";
 
 import type { MetadataRoute } from "next";
 
-// localePrefix: "always" (routing.ts) means every locale, including the
-// default, is always prefixed.
 const localizedPath = (path: string, locale: string) =>
   path === "/" ? `/${locale}` : `/${locale}${path}`;
 

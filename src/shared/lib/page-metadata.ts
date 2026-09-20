@@ -4,8 +4,7 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
 import type { Metadata } from "next";
 
-// Both root layouts (the `[locale]` tree and the utility-pages tree) declare
-// this identically since Next.js has no shared ancestor left to inherit it from.
+// Shared by both root layouts.
 export const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -34,14 +33,10 @@ const OG_LOCALES: Record<string, string> = {
   es: "es_ES",
 };
 
-// localePrefix: "always" (routing.ts) means every locale, including the
-// default, is always prefixed.
 const localizedPath = (path: string, locale: string) =>
   path === "/" ? `/${locale}` : `/${locale}${path}`;
 
-// Only locale-aware pages (under `[locale]`) pass `locale`; /contact,
-// /privacy-policy, and /terms-of-service never do: they're single-language
-// and stay outside the `[locale]` tree, so hreflang doesn't apply to them.
+// hreflang alternates for locale-aware pages under `[locale]`.
 export const localeAlternates = (path: string, locale: string): Metadata["alternates"] => ({
   canonical: localizedPath(path, locale),
   languages: {

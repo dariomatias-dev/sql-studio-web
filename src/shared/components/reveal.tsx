@@ -10,10 +10,7 @@ interface RevealProps {
   delay?: number;
 }
 
-// Fades and slides content up on scroll into view. Starts visible (matching
-// SSR/no-JS output); if it turns out to be below the fold, it hides itself
-// instantly (no transition) so a scan or screen reader never catches it
-// mid-fade, then animates back in once actually scrolled into view.
+// Fades and slides content up when it scrolls into view. Renders visible without JavaScript.
 export const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(true);

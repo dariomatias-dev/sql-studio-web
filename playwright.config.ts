@@ -23,20 +23,13 @@ export default defineConfig({
     },
   ],
   webServer: {
-    // Unlike npm, pnpm forwards extra args to the underlying script without
-    // needing a "--" separator; passing one here makes Next's CLI treat
-    // "--port" itself as a positional project-directory argument and fail.
     command: process.env.CI
       ? `pnpm run start --port ${PORT}`
       : `pnpm run build && pnpm run start --port ${PORT}`,
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    // Dummy EmailJS credentials so the forms attempt a real request (which
-    // e2e specs intercept, per the "never send real email in tests" rule)
-    // instead of failing early on the "missing env vars" guard. NEXT_PUBLIC_*
-    // vars are inlined at build time, so they must be set here, not just at
-    // runtime.
+    // Dummy EmailJS credentials; specs intercept the request.
     env: {
       NEXT_PUBLIC_EMAILJS_SERVICE_ID: "test-service-id",
       NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: "test-template-id",

@@ -24,9 +24,7 @@ describe("DatabaseCatalogSection", () => {
   it("pluralizes the table count correctly", () => {
     render(<DatabaseCatalogSection />);
 
-    // To-Do List has tableCount: 1 -> singular "table".
     expect(screen.getByText("1 table")).toBeInTheDocument();
-    // Contacts has tableCount: 2 -> plural "tables".
     expect(screen.getByText("2 tables")).toBeInTheDocument();
   });
 });

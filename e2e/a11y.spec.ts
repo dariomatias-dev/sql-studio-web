@@ -64,7 +64,6 @@ test.describe("skip link", () => {
 
 test.describe("touch targets", () => {
   test("screenshots carousel dots are at least 24px", async ({ page }) => {
-    // Dots only render at "sm" and up; below that a counter replaces them.
     await page.setViewportSize({ width: 1024, height: 800 });
     await page.goto("/#screenshots");
 

@@ -18,9 +18,7 @@ vi.mock("next-intl", () => ({
       return typeof value === "string" ? interpolate(value, values) : key;
     };
     t.raw = (key: string) => getByPath(base, key);
-    // Mirrors next-intl's real t.rich: replaces <tag>chunk</tag> with the
-    // matching renderer's output, so components exercise their own link
-    // renderers instead of the tags being silently stripped.
+    // Like next-intl's t.rich: replaces <tag>chunk</tag> with the matching renderer's output.
     t.rich = (key: string, tags?: Record<string, (chunks: React.ReactNode) => React.ReactNode>) => {
       const value = getByPath(base, key);
       if (typeof value !== "string") return key;

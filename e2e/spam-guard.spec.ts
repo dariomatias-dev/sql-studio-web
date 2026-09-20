@@ -12,7 +12,6 @@ test.describe("spam guard", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the honeypot.");
-    // Real users never see or fill this field; bots that fill every input do.
     await page.locator("#company").fill("Acme Inc");
     await page.getByRole("button", { name: "Send Message" }).click();
 
@@ -48,7 +47,6 @@ test.describe("spam guard", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
-    // Real users never see or fill this field; bots that fill every input do.
     await page.locator("#company").fill("Acme Inc");
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 

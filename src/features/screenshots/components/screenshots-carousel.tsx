@@ -35,10 +35,7 @@ export const ScreenshotsCarousel = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Embla only exists after mount, so the first render where it becomes
-  // available needs selectedIndex synced to it. Doing that here, during
-  // render, avoids calling setState from inside an effect body just to
-  // read an already-current value (see https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes).
+  // Syncs selectedIndex once Embla becomes available.
   const [syncedApi, setSyncedApi] = useState<UseEmblaCarouselType[1]>(undefined);
   if (emblaApi !== syncedApi) {
     setSyncedApi(emblaApi);

@@ -93,8 +93,6 @@ describe("pageMetadata", () => {
       title: "Download",
       description: "Get the app.",
       path: "/download",
-      // Cast is deliberate: only next-intl's routing.locales are valid callers in
-      // practice, but the function shouldn't crash on an unexpected value either.
       locale: "fr" as string,
     });
 

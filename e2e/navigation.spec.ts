@@ -1,10 +1,5 @@
 import { expect, test } from "@playwright/test";
 
-// This project only runs smoke.spec.ts and app-integration.spec.ts on
-// mobile-chrome (see playwright.config.ts); everything here assumes a
-// desktop viewport, except the mobile menu test below, which resizes the
-// page itself.
-
 test.describe("header", () => {
   test("desktop nav links scroll to the matching section", async ({ page }) => {
     await page.goto("/");
@@ -88,8 +83,6 @@ test.describe("footer", () => {
     await page.goto("/");
     const footer = page.locator("footer");
 
-    // The icon-only social links appear before the "Built by" bar at the
-    // bottom, which also links to the same GitHub profile by name.
     await expect(footer.getByRole("link", { name: "GitHub" })).toHaveAttribute(
       "href",
       "https://github.com/dariomatias-dev",

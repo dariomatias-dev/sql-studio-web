@@ -4,7 +4,6 @@ test.describe("/contact validation", () => {
   test("shows field errors on an invalid submission", async ({ page }) => {
     await page.goto("/contact");
 
-    // Name and message stay empty; subject keeps its valid default.
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(page.getByText("Name must be at least 2 characters")).toBeVisible();
@@ -23,7 +22,6 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
-    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
     await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
@@ -38,7 +36,6 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
-    // Clears the spam guard's minimum-fill-time check (see spam-guard.ts).
     await page.waitForTimeout(1600);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 

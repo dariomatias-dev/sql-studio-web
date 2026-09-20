@@ -22,17 +22,12 @@ export default defineConfig({
         "src/app/**/{layout,page,not-found,opengraph-image}.tsx",
         "**/*.types.ts",
         "**/index.ts",
-        // Thin next-intl re-export with no logic of our own; exercised
-        // end-to-end by every /pt-BR and /es e2e assertion.
+        // Thin next-intl re-export.
         "src/i18n/navigation.ts",
-        // shadcn/Radix primitives: styling only, no logic of our own.
+        // shadcn/Radix primitives.
         "src/shared/components/ui/**",
       ],
-      // Floor, not a target: measured minus a small margin (actual was
-      // 97.23/94.69/94.49/98.67 on 2026-09-18, after adding tests for every
-      // previously-untested section component, page-metadata.ts, and
-      // i18n/request.ts). Raise it whenever a change measurably improves
-      // the aggregate; lowering it needs a reason in the commit message.
+      // Floor, not a target: raise it when coverage improves.
       thresholds: {
         statements: 96,
         branches: 93,

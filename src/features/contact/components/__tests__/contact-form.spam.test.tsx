@@ -23,7 +23,6 @@ describe("ContactForm spam guard", () => {
     await user.type(screen.getByLabelText("Name"), "Ada Lovelace");
     await user.type(screen.getByLabelText("Email"), "ada@example.com");
     await user.type(screen.getByLabelText("Message"), "Testing the honeypot.");
-    // Real users never see or fill this field; bots that fill every input do.
     await user.type(document.getElementById("company") as HTMLInputElement, "Acme Inc");
     await user.click(screen.getByRole("button", { name: "Send Message" }));
 
@@ -36,7 +35,6 @@ describe("ContactForm spam guard", () => {
     const user = userEvent.setup({ delay: null });
     render(<ContactForm />);
 
-    // No time advances here: the form is filled and submitted in the same tick.
     await user.type(screen.getByLabelText("Name"), "Ada Lovelace");
     await user.type(screen.getByLabelText("Email"), "ada@example.com");
     await user.type(screen.getByLabelText("Message"), "Testing the fill-time guard.");

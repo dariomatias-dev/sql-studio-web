@@ -1,9 +1,4 @@
-// Next.js 16 warns in dev whenever it detects `scroll-behavior: smooth` on
-// <html> without the data-scroll-behavior="smooth" opt-in, but that
-// attribute does the opposite of what its name suggests (it forces an
-// *instant* scroll during route transitions, the pre-16 default). We want
-// the smooth scroll-to-top on navigation, so the warning is expected and
-// permanently silenced here rather than worked around.
+// Filters Next.js's dev-only `scroll-behavior: smooth` warning.
 const IGNORED_WARNING = "Detected `scroll-behavior: smooth` on the `<html>` element.";
 
 if (typeof window !== "undefined" && process.env.NODE_ENV !== "production") {

@@ -28,7 +28,6 @@ describe("Header", () => {
     render(<Header />);
 
     for (const label of ["Features", "Workflow", "Screenshots", "FAQ"]) {
-      // Each label appears twice: desktop nav and mobile menu.
       expect(screen.getAllByText(label).length).toBeGreaterThan(0);
     }
   });

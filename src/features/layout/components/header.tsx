@@ -20,11 +20,7 @@ export const Header = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
-  // Every page but the home page has a light background from the first
-  // paint, so the header must render solid immediately there: no flash of
-  // white-on-white text while waiting for an effect to run. Only the home
-  // page's dark hero needs the header to start transparent and turn solid
-  // on scroll.
+  // Home starts transparent over the dark hero and turns solid on scroll; other pages start solid.
   const [scrolled, setScrolled] = useState(!isHomePage);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuId = useId();
@@ -41,7 +37,7 @@ export const Header = () => {
   }, [isHomePage]);
 
   useEffect(() => {
-    // Fixes B5: without this, resizing to desktop with the menu open leaves the page scroll-locked.
+    // Close the mobile menu when the viewport grows to desktop.
     const desktopQuery = window.matchMedia("(min-width: 768px)");
 
     const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
@@ -54,8 +50,7 @@ export const Header = () => {
     return () => desktopQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // The mobile menu overlay is an opaque light panel, so the header above
-  // it must read as solid while it's open, even on the home page.
+  // Solid while the mobile menu is open, even on the home page.
   const solid = scrolled || mobileMenuOpen;
 
   return (

@@ -1,11 +1,6 @@
-// Keeps docs/*.md (English, default), docs/*.pt-BR.md, and docs/*.es.md in
-// parity: the same set of base documents, each with the same section
-// structure (heading levels, in order), so a doc added or restructured in
-// one language can't silently drift out of sync in the others. Doesn't
-// compare heading *text* (the languages are supposed to differ there),
-// only the shape (an H1 followed by three H2s followed by an H3, say). Run
-// as a CLI or import checkDocsLocales() to test it against a fixture
-// directory.
+// Checks that docs/*.md, docs/*.pt-BR.md, and docs/*.es.md share the same set of
+// documents and heading structure (levels, in order), not heading text.
+// Run as a CLI or import checkDocsLocales().
 
 import fs from "node:fs";
 import path from "node:path";
