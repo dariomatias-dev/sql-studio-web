@@ -19,7 +19,7 @@ Two principles run through every workflow here:
 | ----------------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `commit-lint`     | PR title against Conventional Commits (pull requests only)                            | Gate, blocks merge                       |
 | `quality`         | format, lint, types, docs locale parity                                               | Gate, blocks merge                       |
-| `unit`            | Vitest with coverage thresholds, then a Codecov upload                                | Tests gate; the upload is report only    |
+| `unit`            | Vitest with coverage thresholds, then a Codecov upload                                | Gate, blocks merge                       |
 | `build`           | `next build`                                                                          | Gate, blocks merge                       |
 | `e2e`             | Playwright (smoke, navigation, app integration, no-js; desktop and a mobile viewport) | Gate, blocks merge                       |
 | `vulnerabilities` | `pnpm audit`, `osv-scanner` against the lockfile, `gitleaks` for committed secrets    | Report only, never blocks a PR           |
@@ -89,10 +89,10 @@ act -j quality        # run one job
   (`act -l`, JSON/YAML parsing, the vendor's own config validator where
   one exists).
 
-Whichever job you run under `act`, don't run the `unit` job's Codecov
-upload step without `CODECOV_TOKEN` set unless you mean to: the Codecov
-CLI accepts anonymous uploads and will publish real coverage data to the
-public Codecov project for this repository.
+The `unit` job's Codecov upload is skipped when `CODECOV_TOKEN` isn't
+set, so `act -j unit` runs the tests for real and never publishes
+coverage. With a token set, a failed upload fails the job: a silent
+failure would leave the coverage badge reporting an older commit.
 
 ## Debugging a failed e2e run
 

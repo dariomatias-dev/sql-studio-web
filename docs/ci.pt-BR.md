@@ -15,15 +15,15 @@ Dois princípios atravessam todo workflow aqui:
 
 ## `.github/workflows/ci.yml`
 
-| Job               | Checagens                                                                            | Gate ou relatório?                       |
-| ----------------- | ------------------------------------------------------------------------------------ | ---------------------------------------- |
-| `commit-lint`     | Título do PR contra Conventional Commits (só em pull requests)                       | Gate, bloqueia merge                     |
-| `quality`         | format, lint, tipos, paridade de idioma dos docs                                     | Gate, bloqueia merge                     |
-| `unit`            | Vitest com limiares de cobertura, depois um upload pro Codecov                       | Testes são gate; o upload é só relatório |
-| `build`           | `next build`                                                                         | Gate, bloqueia merge                     |
-| `e2e`             | Playwright (smoke, navigation, app integration, no-js; desktop e um viewport mobile) | Gate, bloqueia merge                     |
-| `vulnerabilities` | `pnpm audit`, `osv-scanner` contra o lockfile, `gitleaks` pra segredos commitados    | Só relatório, nunca bloqueia um PR       |
-| `lighthouse`      | Lighthouse (performance, acessibilidade, SEO, boas práticas) contra as 5 rotas       | Só relatório, toda asserção é `"warn"`   |
+| Job               | Checagens                                                                            | Gate ou relatório?                     |
+| ----------------- | ------------------------------------------------------------------------------------ | -------------------------------------- |
+| `commit-lint`     | Título do PR contra Conventional Commits (só em pull requests)                       | Gate, bloqueia merge                   |
+| `quality`         | format, lint, tipos, paridade de idioma dos docs                                     | Gate, bloqueia merge                   |
+| `unit`            | Vitest com limiares de cobertura, depois um upload pro Codecov                       | Gate, bloqueia merge                   |
+| `build`           | `next build`                                                                         | Gate, bloqueia merge                   |
+| `e2e`             | Playwright (smoke, navigation, app integration, no-js; desktop e um viewport mobile) | Gate, bloqueia merge                   |
+| `vulnerabilities` | `pnpm audit`, `osv-scanner` contra o lockfile, `gitleaks` pra segredos commitados    | Só relatório, nunca bloqueia um PR     |
+| `lighthouse`      | Lighthouse (performance, acessibilidade, SEO, boas práticas) contra as 5 rotas       | Só relatório, toda asserção é `"warn"` |
 
 `build` sobe `.next` como artefato; `e2e` e `lighthouse` baixam esse
 artefato em vez de rebuildar, então o app é buildado só uma vez por
@@ -94,11 +94,11 @@ act -j quality        # roda um job
   estaticamente (`act -l`, parsing de JSON/YAML, o validador do próprio
   fornecedor quando existe um).
 
-Seja qual for o job que você rodar sob `act`, não rode o passo de
-upload pro Codecov do job `unit` sem `CODECOV_TOKEN` configurado a não
-ser que seja essa a intenção: a CLI do Codecov aceita uploads anônimos
-e vai publicar dados de cobertura de verdade pro projeto público do
-Codecov deste repositório.
+O upload pro Codecov do job `unit` é pulado quando `CODECOV_TOKEN` não
+está configurado, então `act -j unit` roda os testes de verdade e nunca
+publica cobertura. Com token configurado, um upload que falha derruba o
+job: uma falha silenciosa deixaria o badge de cobertura mostrando um
+commit antigo.
 
 ## Depurando uma execução de e2e que falhou
 
