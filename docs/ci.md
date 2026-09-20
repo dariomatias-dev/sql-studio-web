@@ -47,6 +47,10 @@ noise.
   unrelated PR (that's what the `vulnerabilities` job reports on instead).
 - **`release-please.yml`**: on push to `main`, keeps a standing release
   pull request with `CHANGELOG.md` and the `package.json` version bump.
+  It needs Settings → Actions → General → Workflow permissions → "Allow
+  GitHub Actions to create and approve pull requests" turned on; without
+  it the run pushes the release branch, then fails with "GitHub Actions
+  is not permitted to create or approve pull requests".
 
 ## Reproducing CI locally with `act`
 

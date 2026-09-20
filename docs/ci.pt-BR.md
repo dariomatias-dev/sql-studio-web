@@ -49,7 +49,10 @@ execução.
   `vulnerabilities` já reporta).
 - **`release-please.yml`**: em todo push pra `main`, mantém um pull
   request de release permanente com o `CHANGELOG.md` e o bump de versão
-  do `package.json`.
+  do `package.json`. Precisa de Settings → Actions → General → Workflow
+  permissions → "Allow GitHub Actions to create and approve pull requests"
+  ligado; sem isso a execução envia a branch de release e depois falha
+  com "GitHub Actions is not permitted to create or approve pull requests".
 
 ## Reproduzindo o CI localmente com `act`
 

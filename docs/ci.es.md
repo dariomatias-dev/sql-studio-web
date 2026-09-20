@@ -50,7 +50,11 @@ ejecución a ejecución.
   job `vulnerabilities`).
 - **`release-please.yml`**: en cada push a `main`, mantiene un pull
   request de release permanente con el `CHANGELOG.md` y el incremento
-  de versión de `package.json`.
+  de versión de `package.json`. Necesita Settings → Actions → General →
+  Workflow permissions → "Allow GitHub Actions to create and approve pull
+  requests" activado; sin eso la ejecución sube la rama de release y
+  luego falla con "GitHub Actions is not permitted to create or approve
+  pull requests".
 
 ## Reproduciendo el CI localmente con `act`
 
