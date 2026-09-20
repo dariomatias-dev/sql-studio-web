@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/vitest";
+import { createElement, Fragment } from "react";
 import { vi } from "vitest";
 
 import en from "./messages/en.json";
@@ -25,16 +26,18 @@ vi.mock("next-intl", () => ({
       if (!tags) return value.replace(/<[^>]+>/g, "");
 
       const parts: React.ReactNode[] = [];
+      const push = (node: React.ReactNode) =>
+        parts.push(createElement(Fragment, { key: parts.length }, node));
       const tagPattern = /<(\w+)>(.*?)<\/\1>/g;
       let lastIndex = 0;
       let match: RegExpExecArray | null;
       while ((match = tagPattern.exec(value))) {
-        if (match.index > lastIndex) parts.push(value.slice(lastIndex, match.index));
+        if (match.index > lastIndex) push(value.slice(lastIndex, match.index));
         const [, tagName, inner] = match;
-        parts.push(tags[tagName] ? tags[tagName](inner) : inner);
+        push(tags[tagName] ? tags[tagName](inner) : inner);
         lastIndex = tagPattern.lastIndex;
       }
-      if (lastIndex < value.length) parts.push(value.slice(lastIndex));
+      if (lastIndex < value.length) push(value.slice(lastIndex));
       return parts;
     };
     return t;
@@ -49,6 +52,7 @@ vi.mock("next-intl", () => ({
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root = null;
   readonly rootMargin = "";
+  readonly scrollMargin = "";
   readonly thresholds: ReadonlyArray<number> = [];
 
   constructor(private callback: IntersectionObserverCallback) {}

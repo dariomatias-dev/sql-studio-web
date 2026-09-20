@@ -22,7 +22,7 @@ test.describe("header without JavaScript", () => {
   test.use({ javaScriptEnabled: false });
 
   test("nav links are legible (dark text) on /privacy-policy", async ({ page }) => {
-    await page.goto("/privacy-policy");
+    await page.goto("/privacy-policy", { waitUntil: "domcontentloaded" });
 
     await expect(page.locator("header").getByText("Features")).toBeVisible();
 
@@ -44,7 +44,7 @@ test.describe("main content without JavaScript", () => {
     ["/terms-of-service", "Terms of Service"],
   ] as const) {
     test(`${path} shows its heading`, async ({ page }) => {
-      await page.goto(path);
+      await page.goto(path, { waitUntil: "domcontentloaded" });
 
       await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
     });
@@ -56,7 +56,7 @@ test.describe("forms warn when JavaScript is off", () => {
 
   for (const path of ["/contact", "/download"] as const) {
     test(`${path} shows the no-JS warning inside the form`, async ({ page }) => {
-      await page.goto(path);
+      await page.goto(path, { waitUntil: "domcontentloaded" });
 
       const warning = page.locator("form noscript");
       await expect(warning).toBeVisible();

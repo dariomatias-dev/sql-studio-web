@@ -56,6 +56,7 @@ describe("Reveal", () => {
     class NotIntersectingObserver implements IntersectionObserver {
       readonly root = null;
       readonly rootMargin = "";
+      readonly scrollMargin = "";
       readonly thresholds: ReadonlyArray<number> = [];
       constructor(private callback: IntersectionObserverCallback) {}
       observe = (target: Element) => {
