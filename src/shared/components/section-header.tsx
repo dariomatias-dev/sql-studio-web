@@ -8,7 +8,7 @@ interface SectionHeaderProps {
   titleClassName?: string;
   description: React.ReactNode;
   descriptionClassName?: string;
-  className: string;
+  className?: string;
 }
 
 export const SectionHeader = ({

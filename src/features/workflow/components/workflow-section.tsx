@@ -24,7 +24,6 @@ export const WorkflowSection = () => {
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="lg:w-1/2">
             <SectionHeader
-              className=""
               titleClassName="leading-[1.1]"
               descriptionClassName="mb-16 max-w-lg"
               badge={t("badge")}
