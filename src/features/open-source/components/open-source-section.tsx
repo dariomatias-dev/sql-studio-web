@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle2, Code2, TestTube } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { DarkGridBackdrop } from "@/shared/components/dark-grid-backdrop";
 import { SectionHeader } from "@/shared/components/section-header";
 import { APP_REPOSITORY_URL } from "@/shared/lib/site";
 
@@ -26,7 +27,7 @@ export const OpenSourceSection = () => {
       id="open-source"
       className="relative overflow-hidden bg-black px-4 py-24 md:px-8 md:py-32"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[4rem_4rem] opacity-20" />
+      <DarkGridBackdrop />
       <div className="bg-brand/10 pointer-events-none absolute top-0 left-1/2 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full mix-blend-screen blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">

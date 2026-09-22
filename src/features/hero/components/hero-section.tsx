@@ -2,6 +2,7 @@ import { ArrowRight, Database, Sparkles, WifiOff, Zap } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
+import { DarkGridBackdrop } from "@/shared/components/dark-grid-backdrop";
 import { DownloadButton } from "@/shared/components/download-button";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 
@@ -16,7 +17,7 @@ export const HeroSection = () => {
 
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-16">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[4rem_4rem] opacity-20" />
+      <DarkGridBackdrop />
 
       <div className="pointer-events-none absolute top-0 left-1/2 h-125 w-full -translate-x-1/2">
         <div className="animate-pulse-slow bg-brand/20 absolute -top-25 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full mix-blend-screen blur-[120px]" />
