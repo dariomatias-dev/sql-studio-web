@@ -73,7 +73,7 @@ export const Header = () => {
               <div className="relative">
                 <Image
                   src="/icons/sql_studio.png"
-                  alt="SQL Studio Logo"
+                  alt={tHeader("logoAlt")}
                   width={40}
                   height={40}
                   className="drop-shadow-sm"
@@ -126,7 +126,7 @@ export const Header = () => {
 
             <Dialog.Trigger asChild>
               <button
-                aria-label="Open menu"
+                aria-label={tHeader("openMenu")}
                 aria-controls={mobileMenuId}
                 className={cn(
                   "focus-visible:ring-brand relative z-50 rounded-md p-2 transition-colors duration-300 focus-visible:ring-2 focus-visible:outline-none md:hidden",
@@ -151,11 +151,11 @@ export const Header = () => {
             "data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:slide-out-to-top",
           )}
         >
-          <Dialog.Title className="sr-only">Navigation menu</Dialog.Title>
+          <Dialog.Title className="sr-only">{tHeader("navigationMenu")}</Dialog.Title>
 
           <Dialog.Close asChild>
             <button
-              aria-label="Close menu"
+              aria-label={tHeader("closeMenu")}
               className="focus-visible:ring-brand absolute top-6 right-4 p-2 text-slate-800 focus-visible:ring-2 focus-visible:outline-none"
             >
               <X className="h-7 w-7" />

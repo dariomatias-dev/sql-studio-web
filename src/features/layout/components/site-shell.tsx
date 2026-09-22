@@ -1,4 +1,4 @@
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, useTranslations } from "next-intl";
 
 import { jsonLd } from "@/shared/lib/json-ld";
 import {
@@ -18,45 +18,49 @@ interface SiteShellProps {
   children: React.ReactNode;
 }
 
-export const SiteShell = ({ locale, messages, children }: SiteShellProps) => (
-  <>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: jsonLd({
-          "@context": "https://schema.org",
-          "@type": "MobileApplication",
-          name: SITE_NAME,
-          description: SITE_DESCRIPTION,
-          operatingSystem: "Android",
-          applicationCategory: "DeveloperApplication",
-          url: SITE_URL,
-          license: "https://opensource.org/licenses/MIT",
-          codeRepository: APP_REPOSITORY_URL,
-          author: {
-            "@type": "Person",
-            name: "Dário Matias",
-            url: GITHUB_URL,
-          },
-        }),
-      }}
-    />
+export const SiteShell = ({ locale, messages, children }: SiteShellProps) => {
+  const t = useTranslations("Header");
 
-    <a
-      href="#main-content"
-      className="bg-brand focus:ring-brand fixed top-4 left-4 z-100 -translate-y-24 rounded-lg px-4 py-2 font-semibold text-black transition-transform focus:translate-y-0 focus:ring-4 focus:outline-none"
-    >
-      Skip to content
-    </a>
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd({
+            "@context": "https://schema.org",
+            "@type": "MobileApplication",
+            name: SITE_NAME,
+            description: SITE_DESCRIPTION,
+            operatingSystem: "Android",
+            applicationCategory: "DeveloperApplication",
+            url: SITE_URL,
+            license: "https://opensource.org/licenses/MIT",
+            codeRepository: APP_REPOSITORY_URL,
+            author: {
+              "@type": "Person",
+              name: "Dário Matias",
+              url: GITHUB_URL,
+            },
+          }),
+        }}
+      />
 
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <Header />
+      <a
+        href="#main-content"
+        className="bg-brand focus:ring-brand fixed top-4 left-4 z-100 -translate-y-24 rounded-lg px-4 py-2 font-semibold text-black transition-transform focus:translate-y-0 focus:ring-4 focus:outline-none"
+      >
+        {t("skipToContent")}
+      </a>
 
-      <main id="main-content" tabIndex={-1} className="focus:outline-none">
-        {children}
-      </main>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <Header />
 
-      <Footer />
-    </NextIntlClientProvider>
-  </>
-);
+        <main id="main-content" tabIndex={-1} className="focus:outline-none">
+          {children}
+        </main>
+
+        <Footer />
+      </NextIntlClientProvider>
+    </>
+  );
+};

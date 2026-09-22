@@ -2,7 +2,7 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Check, Globe } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -26,12 +26,13 @@ export const LanguageSwitcher = ({
   onNavigate,
 }: LanguageSwitcherProps) => {
   const locale = useLocale();
+  const t = useTranslations("Header");
   const pathname = usePathname();
 
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
-        aria-label="Change language"
+        aria-label={t("changeLanguage")}
         className={cn(
           "focus-visible:ring-brand flex items-center gap-1.5 rounded-full p-2 transition-colors duration-200 focus-visible:ring-2 focus-visible:outline-none",
           variant === "dark"

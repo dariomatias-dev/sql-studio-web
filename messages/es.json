@@ -10,7 +10,13 @@
     "whatsNew": "Novedades"
   },
   "Header": {
-    "downloadApp": "Descargar App"
+    "downloadApp": "Descargar App",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "navigationMenu": "Menú de navegación",
+    "logoAlt": "Logo de SQL Studio",
+    "changeLanguage": "Cambiar idioma",
+    "skipToContent": "Saltar al contenido"
   },
   "Footer": {
     "tagline": "El cliente de base de datos profesional diseñado para desarrolladores modernos. Gestiona tus bases de datos SQLite con velocidad, eficiencia y estilo directamente desde tu dispositivo móvil.",
@@ -25,13 +31,15 @@
     "contributingGuide": "Guía de Contribución",
     "connectHeading": "Conéctate",
     "connectTagline": "Hecho con pasión para la comunidad SQL.",
-    "builtBy": "Creado por"
+    "builtBy": "Creado por",
+    "backToTop": "Volver Arriba"
   },
   "Hero": {
     "badge": "Cliente SQLite Nativo",
     "titleLine1": "SQL Studio",
     "titleLine2": "En Cualquier Lugar.",
     "descriptionStrong": "sin instalación, sin servidor, totalmente offline.",
+    "descriptionLead": "Practica SQL directo en tu celular:",
     "descriptionRest": "Toda base de datos viene lista para consultar. Actualmente en beta cerrada en Android.",
     "exploreFeatures": "Explorar Funciones",
     "sqliteNative": "SQLite Nativo",
@@ -205,6 +213,11 @@
     "titleLine1": "Diseñado para",
     "titleLine2": "Velocidad y Precisión.",
     "description": "Una interfaz poderosa que se siente nativa. Diseño limpio, navegación intuitiva y optimizada para el uso con una sola mano.",
+    "carouselLabel": "Capturas de pantalla de la app",
+    "previousSlide": "Diapositiva anterior",
+    "nextSlide": "Siguiente diapositiva",
+    "goToSlide": "Ir a la diapositiva {number}",
+    "slideLabel": "{current} de {total}",
     "items": [
       { "alt": "Inicio / editor SQL" },
       { "alt": "Bases de datos" },
@@ -391,6 +404,7 @@
     "submitting": "Procesando...",
     "successTitle": "Solicitud Recibida",
     "successMessage": "Has sido añadido a la lista de espera. Una vez que tu correo sea aprobado como probador, recibirás un <strong>correo de invitación</strong> con el enlace de la Play Store.",
-    "error": "Error al enviar la solicitud. Inténtalo de nuevo."
+    "error": "Error al enviar la solicitud. Inténtalo de nuevo.",
+    "noJsWarning": "Este formulario requiere que JavaScript esté activado en tu navegador para enviarse."
   }
 }

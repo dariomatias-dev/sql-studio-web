@@ -10,7 +10,13 @@
     "whatsNew": "What's New"
   },
   "Header": {
-    "downloadApp": "Download App"
+    "downloadApp": "Download App",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navigationMenu": "Navigation menu",
+    "logoAlt": "SQL Studio Logo",
+    "changeLanguage": "Change language",
+    "skipToContent": "Skip to content"
   },
   "Footer": {
     "tagline": "The professional database client designed for modern developers. Manage your SQLite databases with speed, efficiency, and style directly from your mobile device.",
@@ -25,13 +31,15 @@
     "contributingGuide": "Contributing Guide",
     "connectHeading": "Connect",
     "connectTagline": "Built with passion for the SQL community.",
-    "builtBy": "Built by"
+    "builtBy": "Built by",
+    "backToTop": "Back to Top"
   },
   "Hero": {
     "badge": "Native SQLite Client",
     "titleLine1": "SQL Studio",
     "titleLine2": "Anywhere.",
     "descriptionStrong": "no setup, no server, fully offline.",
+    "descriptionLead": "Practice SQL right on your phone:",
     "descriptionRest": "Every database comes ready to query. Currently in closed beta on Android.",
     "exploreFeatures": "Explore Features",
     "sqliteNative": "SQLite Native",
@@ -193,6 +201,11 @@
     "titleLine1": "Built for",
     "titleLine2": "Speed & Precision.",
     "description": "A powerful interface that feels native. Clean layout, intuitive navigation, and optimized for one-handed use.",
+    "carouselLabel": "App screenshots",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {number}",
+    "slideLabel": "{current} of {total}",
     "items": [
       { "alt": "Home / SQL editor" },
       { "alt": "Databases" },
@@ -370,6 +383,7 @@
     "submitting": "Processing...",
     "successTitle": "Request Received",
     "successMessage": "You have been added to the waiting list. Once your email is approved as a tester, you'll receive an <strong>invitation email</strong> with the Play Store link.",
-    "error": "Failed to send request. Please try again."
+    "error": "Failed to send request. Please try again.",
+    "noJsWarning": "This form requires JavaScript to be enabled in your browser to submit."
   }
 }

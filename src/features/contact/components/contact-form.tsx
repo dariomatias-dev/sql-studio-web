@@ -83,7 +83,7 @@ export const ContactForm = () => {
       <div className="absolute top-0 right-0 -z-10 h-32 w-32 rounded-bl-full bg-slate-50 transition-transform group-hover:scale-110" />
 
       <form onSubmit={(e) => void handleSubmit(onSubmit, onInvalid)(e)} className="space-y-6">
-        <NoJsWarning />
+        <NoJsWarning message="This form requires JavaScript to be enabled in your browser to submit." />
         <HoneypotField inputRef={honeypotRef} />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

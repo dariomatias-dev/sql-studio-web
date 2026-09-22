@@ -85,7 +85,7 @@ export const ScreenshotsCarousel = () => {
           ref={emblaRef}
           role="region"
           aria-roledescription="carousel"
-          aria-label="App screenshots"
+          aria-label={t("carouselLabel")}
         >
           <div className="flex touch-pan-y items-center">
             {screenshots.map(({ src, alt }, index) => {
@@ -98,7 +98,7 @@ export const ScreenshotsCarousel = () => {
                   style={{ transformStyle: "preserve-3d" }}
                   role="group"
                   aria-roledescription="slide"
-                  aria-label={`${index + 1} of ${screenshots.length}`}
+                  aria-label={t("slideLabel", { current: index + 1, total: screenshots.length })}
                 >
                   <button
                     type="button"
@@ -145,7 +145,7 @@ export const ScreenshotsCarousel = () => {
         <button
           onClick={scrollPrev}
           className="group hover:bg-brand flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:text-white active:scale-95 sm:h-10 sm:w-10"
-          aria-label="Previous slide"
+          aria-label={t("previousSlide")}
         >
           <ArrowLeft className="h-4 w-4 text-slate-400 transition-colors group-hover:text-white sm:h-5 sm:w-5" />
         </button>
@@ -156,7 +156,7 @@ export const ScreenshotsCarousel = () => {
               key={i}
               className="relative flex h-6 w-6 cursor-pointer items-center justify-center"
               onClick={() => scrollTo(i)}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={t("goToSlide", { number: i + 1 })}
             >
               <div
                 className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
@@ -176,7 +176,7 @@ export const ScreenshotsCarousel = () => {
         <button
           onClick={scrollNext}
           className="group hover:bg-brand flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-50 transition-all duration-300 hover:text-white active:scale-95 sm:h-10 sm:w-10"
-          aria-label="Next slide"
+          aria-label={t("nextSlide")}
         >
           <ArrowRight className="h-4 w-4 text-slate-400 transition-colors group-hover:text-white sm:h-5 sm:w-5" />
         </button>

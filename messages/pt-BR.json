@@ -10,7 +10,13 @@
     "whatsNew": "Novidades"
   },
   "Header": {
-    "downloadApp": "Baixar App"
+    "downloadApp": "Baixar App",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "navigationMenu": "Menu de navegação",
+    "logoAlt": "Logo do SQL Studio",
+    "changeLanguage": "Mudar idioma",
+    "skipToContent": "Pular para o conteúdo"
   },
   "Footer": {
     "tagline": "O cliente de banco de dados profissional criado para desenvolvedores modernos. Gerencie seus bancos SQLite com velocidade, eficiência e estilo direto do seu celular.",
@@ -25,13 +31,15 @@
     "contributingGuide": "Guia de Contribuição",
     "connectHeading": "Conecte-se",
     "connectTagline": "Feito com paixão para a comunidade SQL.",
-    "builtBy": "Criado por"
+    "builtBy": "Criado por",
+    "backToTop": "Voltar ao Topo"
   },
   "Hero": {
     "badge": "Cliente SQLite Nativo",
     "titleLine1": "SQL Studio",
     "titleLine2": "Em Qualquer Lugar.",
     "descriptionStrong": "sem instalação, sem servidor, totalmente offline.",
+    "descriptionLead": "Pratique SQL direto no seu celular:",
     "descriptionRest": "Todo banco de dados já vem pronto para consultar. Atualmente em beta fechado no Android.",
     "exploreFeatures": "Explorar Recursos",
     "sqliteNative": "SQLite Nativo",
@@ -201,6 +209,11 @@
     "titleLine1": "Feito para",
     "titleLine2": "Velocidade e Precisão.",
     "description": "Uma interface poderosa que parece nativa. Layout limpo, navegação intuitiva e otimizada para uso com uma mão.",
+    "carouselLabel": "Capturas de tela do app",
+    "previousSlide": "Slide anterior",
+    "nextSlide": "Próximo slide",
+    "goToSlide": "Ir para o slide {number}",
+    "slideLabel": "{current} de {total}",
     "items": [
       { "alt": "Tela inicial / editor SQL" },
       { "alt": "Bancos de dados" },
@@ -384,6 +397,7 @@
     "submitting": "Processando...",
     "successTitle": "Solicitação Recebida",
     "successMessage": "Você foi adicionado à lista de espera. Assim que seu e-mail for aprovado como testador, você receberá um <strong>e-mail de convite</strong> com o link da Play Store.",
-    "error": "Falha ao enviar a solicitação. Tente novamente."
+    "error": "Falha ao enviar a solicitação. Tente novamente.",
+    "noJsWarning": "Este formulário exige que o JavaScript esteja ativado no navegador para ser enviado."
   }
 }

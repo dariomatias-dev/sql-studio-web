@@ -72,7 +72,7 @@ export const BetaAccessForm = () => {
           </div>
         ) : (
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
-            <NoJsWarning />
+            <NoJsWarning message={t("noJsWarning")} />
             <HoneypotField inputRef={honeypotRef} />
 
             <div className="space-y-3">
