@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Reveal } from "@/shared/components/reveal";
+import { SectionHeader } from "@/shared/components/section-header";
 
 import { stepColors, stepIcons } from "../data/workflow-icons";
 
@@ -22,22 +23,21 @@ export const WorkflowSection = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="lg:w-1/2">
-            <Reveal>
-              <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-                {t("badge")}
-              </div>
-
-              <h2 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                {t("titleLine1")} <br />
-                <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-                  {t("titleLine2")}
-                </span>
-              </h2>
-
-              <p className="mb-16 max-w-lg text-lg leading-relaxed font-light text-slate-500">
-                {t("description")}
-              </p>
-            </Reveal>
+            <SectionHeader
+              className=""
+              titleClassName="leading-[1.1]"
+              descriptionClassName="mb-16 max-w-lg"
+              badge={t("badge")}
+              title={
+                <>
+                  {t("titleLine1")} <br />
+                  <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
+                    {t("titleLine2")}
+                  </span>
+                </>
+              }
+              description={t("description")}
+            />
 
             <div className="relative space-y-12">
               <div className="absolute top-4 bottom-4 left-6.75 w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />

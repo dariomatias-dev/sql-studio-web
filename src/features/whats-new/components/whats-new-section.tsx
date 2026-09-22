@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Reveal } from "@/shared/components/reveal";
+import { SectionHeader } from "@/shared/components/section-header";
 import { APP_VERSION } from "@/shared/lib/app-release";
 
 interface ReleaseMessage {
@@ -22,18 +23,19 @@ export const WhatsNewSection = () => {
       <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl">
-        <Reveal className="mx-auto mb-20 max-w-3xl text-center">
-          <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            {t("badge")}
-          </div>
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            {t("titleLine1")} <br />
-            <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              {t("titleLine2")}
-            </span>
-          </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
-        </Reveal>
+        <SectionHeader
+          className="mx-auto mb-20 max-w-3xl text-center"
+          badge={t("badge")}
+          title={
+            <>
+              {t("titleLine1")} <br />
+              <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
+                {t("titleLine2")}
+              </span>
+            </>
+          }
+          description={t("description")}
+        />
 
         <div className="relative space-y-12">
           <div className="absolute top-4 bottom-4 left-6.75 w-0.5 bg-linear-to-b from-slate-200 via-slate-200 to-transparent" />

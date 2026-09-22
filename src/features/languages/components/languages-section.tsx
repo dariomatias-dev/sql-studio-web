@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Reveal } from "@/shared/components/reveal";
+import { SectionHeader } from "@/shared/components/section-header";
 
 import { languages } from "../data/languages";
 
@@ -17,18 +18,19 @@ export const LanguagesSection = () => {
       <div className="pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/2 translate-y-1/2 rounded-full bg-slate-100 blur-[80px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <Reveal className="mx-auto mb-20 max-w-3xl text-center">
-          <div className="border-brand/30 bg-brand/5 mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold tracking-wider text-cyan-700 uppercase">
-            {t("badge")}
-          </div>
-          <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-            {t("titleLine1")} <br />
-            <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
-              {t("titleLine2")}
-            </span>
-          </h2>
-          <p className="text-lg leading-relaxed font-light text-slate-500">{t("description")}</p>
-        </Reveal>
+        <SectionHeader
+          className="mx-auto mb-20 max-w-3xl text-center"
+          badge={t("badge")}
+          title={
+            <>
+              {t("titleLine1")} <br />
+              <span className="from-brand bg-linear-to-r to-cyan-600 bg-clip-text text-transparent">
+                {t("titleLine2")}
+              </span>
+            </>
+          }
+          description={t("description")}
+        />
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           {languages.map((language, index) => (
