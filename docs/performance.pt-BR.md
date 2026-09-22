@@ -22,11 +22,17 @@ contrato estável pra depender.
 
 | Rota                | Orçamento | Medido na última revisão |
 | ------------------- | --------- | ------------------------ |
-| `/`                 | 720 KB    | ~690,7 KB                |
-| `/contact`          | 820 KB    | ~798,2 KB                |
-| `/download`         | 690 KB    | ~663,5 KB                |
-| `/privacy-policy`   | 680 KB    | ~652,9 KB                |
-| `/terms-of-service` | 680 KB    | ~652,9 KB                |
+| `/contact`          | 1.240 KB  | ~1.218,3 KB              |
+| `/download`         | 1.210 KB  | ~1.183,9 KB              |
+| `/privacy-policy`   | 1.200 KB  | ~1.174,6 KB              |
+| `/terms-of-service` | 1.200 KB  | ~1.174,6 KB              |
+
+`/` não tem orçamento: ela é renderizada no servidor sob demanda em vez
+de pré-renderizada como HTML estático, então não existe arquivo HTML
+com `<script src>` pra esse script medir. A detecção de locale do
+`next-intl` não pôde ser ajustada pra renderizar a home totalmente
+estática nessa versão do Next.js; isso fica em aberto, não foi
+resolvido aqui.
 
 Esses são um **piso contra regredir além da linha de base medida**, não
 uma meta: mesma filosofia dos limiares de cobertura do Vitest em
@@ -35,16 +41,24 @@ precisa de uma medição pra justificar, assim como subir um.
 
 ### O que realmente compõe esse peso
 
-`/contact` é a rota mais pesada: ela envia `react-hook-form` e o
-resolver zod dele pro formulário de contato, além da linha de base
-compartilhada do framework (React, React DOM, o runtime do Next.js,
-`embla-carousel-react` usado pelo carrossel de screenshots da página
-inicial). `/download` é mais leve já que o formulário dela usa
-`useState` puro, sem biblioteca de formulário. As páginas legais
-(`/privacy-policy`, `/terms-of-service`) não enviam nenhum código de
-formulário: o peso delas fica perto da linha de base pura do
-framework, já que nenhuma das duas páginas tem uma ilha client própria
-além do `Header`/`Footer` compartilhado.
+O baseline de toda rota deu um salto de uns 370 KB quando o roteamento
+por locale entrou: o runtime cliente do `next-intl` (contexto de
+locale/mensagens, formatação de mensagens ICU) agora faz parte do chunk
+compartilhado do framework, já que `Header`/`Footer`, renderizados em
+toda rota, leem os textos deles por ali. `/contact` é a rota mais
+pesada: ela envia `react-hook-form` e o resolver zod dele pro
+formulário de contato, além dessa linha de base compartilhada (React,
+React DOM, o runtime do Next.js, `next-intl`, `embla-carousel-react`
+usado pelo carrossel de screenshots da página inicial). `/download` é
+mais leve já que o formulário dela usa `useState` puro, sem biblioteca
+de formulário. As páginas legais (`/privacy-policy`,
+`/terms-of-service`) não enviam nenhum código de formulário: o peso
+delas fica perto dessa linha de base compartilhada, já que nenhuma das
+duas páginas tem uma ilha client própria além do `Header`/`Footer`.
+
+Os orçamentos subiram de novo quando o `Header` ganhou um seletor de
+idioma construído com `@radix-ui/react-dropdown-menu` (~15 KB/rota, já
+que o `Header` faz parte do chunk compartilhado em toda rota).
 
 ## Lighthouse CI
 

@@ -25,12 +25,11 @@ to depend on.
 | `/privacy-policy`   | 1,200 KB | ~1,174.6 KB             |
 | `/terms-of-service` | 1,200 KB | ~1,174.6 KB             |
 
-`/` has no budget: since [E89](../plan.md) it's server-rendered on demand
-rather than prerendered to static HTML (see the E89 notes for why), so
-there's no `<script src>`-bearing HTML file for this script to measure:
-`next-intl`'s locale detection couldn't be made to fully statically
-render the home page in this Next.js version, and that's tracked as a
-follow-up rather than solved here.
+`/` has no budget: it's server-rendered on demand rather than
+prerendered to static HTML, so there's no `<script src>`-bearing HTML
+file for this script to measure. `next-intl`'s locale detection
+couldn't be made to fully statically render the home page in this
+Next.js version; that's an open follow-up, not something solved here.
 
 These are a **floor against regressing past the measured baseline**, not a
 target: same philosophy as the Vitest coverage thresholds in
@@ -39,7 +38,8 @@ measurement to back it, same as raising one.
 
 ### What's actually in that weight
 
-Every route's baseline jumped by roughly 370 KB at E89: `next-intl`'s
+Every route's baseline jumped by roughly 370 KB when locale routing
+landed: `next-intl`'s
 client runtime (locale/message context, ICU message formatting) is now
 part of the shared framework chunk, since `Header`/`Footer`, rendered on
 every route, read their labels through it. `/contact` is the heaviest
