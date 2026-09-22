@@ -124,7 +124,7 @@ export const BetaAccessForm = () => {
                 )}
               </button>
 
-              {status === Status.Error && (
+              {status == Status.Error && (
                 <div
                   role="alert"
                   className="animate-in fade-in slide-in-from-top-2 flex items-center justify-center gap-2 rounded-xl border border-red-100 bg-red-50 p-3 text-red-600"
