@@ -38,7 +38,7 @@ test.describe("header", () => {
     await expect(dialog).not.toBeVisible();
   });
 
-  test("resizing to desktop with the mobile menu open unlocks scroll (B5)", async ({ page }) => {
+  test("resizing to desktop with the mobile menu open unlocks scroll", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 800 });
     await page.goto("/");
 

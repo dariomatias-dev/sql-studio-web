@@ -3,22 +3,13 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 
 import { SiteShell } from "@/features/layout";
+import { MESSAGES_BY_LOCALE } from "@/i18n/request";
 import { routing } from "@/i18n/routing";
 import { baseMetadata } from "@/shared/lib/page-metadata";
-
-import enMessages from "../../../messages/en.json";
-import esMessages from "../../../messages/es.json";
-import ptBrMessages from "../../../messages/pt-BR.json";
 
 import type { Metadata } from "next";
 
 import "../globals.css";
-
-const MESSAGES_BY_LOCALE: Record<string, Record<string, unknown>> = {
-  en: enMessages,
-  "pt-BR": ptBrMessages,
-  es: esMessages,
-};
 
 export const metadata: Metadata = baseMetadata;
 

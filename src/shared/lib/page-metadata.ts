@@ -33,7 +33,7 @@ const OG_LOCALES: Record<string, string> = {
   es: "es_ES",
 };
 
-const localizedPath = (path: string, locale: string) =>
+export const localizedPath = (path: string, locale: string) =>
   path === "/" ? `/${locale}` : `/${locale}${path}`;
 
 // hreflang alternates for locale-aware pages under `[locale]`.

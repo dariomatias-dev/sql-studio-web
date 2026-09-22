@@ -1,10 +1,8 @@
 import { routing } from "@/i18n/routing";
+import { localizedPath } from "@/shared/lib/page-metadata";
 import { SITE_URL } from "@/shared/lib/site";
 
 import type { MetadataRoute } from "next";
-
-const localizedPath = (path: string, locale: string) =>
-  path === "/" ? `/${locale}` : `/${locale}${path}`;
 
 const languageAlternates = (path: string) =>
   Object.fromEntries(

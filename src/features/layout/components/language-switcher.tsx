@@ -7,12 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/shared/lib/cn";
-
-const LOCALE_LABELS: Record<string, string> = {
-  en: "English",
-  "pt-BR": "Português (Brasil)",
-  es: "Español",
-};
+import { LOCALE_NAMES } from "@/shared/lib/locale-names";
 
 interface LanguageSwitcherProps {
   variant?: "light" | "dark";
@@ -57,7 +52,7 @@ export const LanguageSwitcher = ({
                 locale={l}
                 className="hover:bg-brand/5 flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 outline-none"
               >
-                {LOCALE_LABELS[l]}
+                {LOCALE_NAMES[l]}
                 {l === locale && <Check className="text-brand h-4 w-4" />}
               </Link>
             </DropdownMenu.Item>
