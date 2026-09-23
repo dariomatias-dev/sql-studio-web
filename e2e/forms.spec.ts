@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+import { MIN_FILL_TIME_MS } from "../src/shared/lib/spam-guard";
+
 test.describe("/contact validation", () => {
   test("shows field errors on an invalid submission", async ({ page }) => {
     await page.goto("/contact");
@@ -22,7 +24,7 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
-    await page.waitForTimeout(1600);
+    await page.waitForTimeout(MIN_FILL_TIME_MS + 100);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
     await expect(page.getByRole("heading", { name: "Request Received" })).toBeVisible();
@@ -36,7 +38,7 @@ test.describe("/download beta request", () => {
 
     await page.goto("/download");
     await page.locator("#email").fill("tester@example.com");
-    await page.waitForTimeout(1600);
+    await page.waitForTimeout(MIN_FILL_TIME_MS + 100);
     await page.getByRole("button", { name: "Join Beta Waitlist" }).click();
 
     await expect(page.getByText("Failed to send request. Please try again.")).toBeVisible();

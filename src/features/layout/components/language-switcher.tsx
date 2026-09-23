@@ -50,10 +50,11 @@ export const LanguageSwitcher = ({
               <Link
                 href={pathname}
                 locale={l}
+                aria-current={l === locale ? "true" : undefined}
                 className="hover:bg-brand/5 flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 outline-none"
               >
                 {LOCALE_NAMES[l]}
-                {l === locale && <Check className="text-brand h-4 w-4" />}
+                {l === locale && <Check aria-hidden="true" className="text-brand h-4 w-4" />}
               </Link>
             </DropdownMenu.Item>
           ))}

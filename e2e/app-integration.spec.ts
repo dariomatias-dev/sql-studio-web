@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+import { MIN_FILL_TIME_MS } from "../src/shared/lib/spam-guard";
+
 // Both routes are linked from the app and must never redirect.
 
 test.describe("/privacy-policy", () => {
@@ -35,7 +37,7 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
-    await page.waitForTimeout(1600);
+    await page.waitForTimeout(MIN_FILL_TIME_MS + 100);
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(page.locator("form").getByRole("status")).toHaveText("Message sent successfully!");
@@ -51,7 +53,7 @@ test.describe("/contact", () => {
     await page.locator("#name").fill("Ada Lovelace");
     await page.locator("#email").fill("ada@example.com");
     await page.locator("#message").fill("Testing the contact form.");
-    await page.waitForTimeout(1600);
+    await page.waitForTimeout(MIN_FILL_TIME_MS + 100);
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(page.locator("form").getByRole("alert")).toHaveText(

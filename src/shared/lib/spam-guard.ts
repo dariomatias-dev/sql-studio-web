@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const MIN_FILL_TIME_MS = 1500;
+export const MIN_FILL_TIME_MS = 1500;
 
 export const useSpamGuard = () => {
   const mountedAt = useRef(0);
