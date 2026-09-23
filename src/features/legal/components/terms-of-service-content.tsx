@@ -1,12 +1,12 @@
 import { Calendar, FileText } from "lucide-react";
 
+import { PageHeaderBackdrop } from "@/shared/components/page-header-backdrop";
 import { APP_REPOSITORY_URL, SITE_EMAIL } from "@/shared/lib/site";
 
 const TermsOfServiceContent = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-32 pb-24">
-      <div className="pointer-events-none absolute top-0 right-0 h-150 w-150 translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 blur-[120px]" />
-      <div className="bg-brand/5 pointer-events-none absolute bottom-0 left-0 h-125 w-125 -translate-x-1/4 translate-y-1/2 rounded-full blur-[100px]" />
+      <PageHeaderBackdrop />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <div className="mb-16 border-b border-slate-100 pb-12 text-center">
