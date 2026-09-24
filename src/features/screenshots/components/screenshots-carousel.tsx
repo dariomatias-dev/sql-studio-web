@@ -102,6 +102,7 @@ export const ScreenshotsCarousel = () => {
                 >
                   <button
                     type="button"
+                    tabIndex={isSelected ? 0 : -1}
                     className="group relative w-full cursor-pointer transition-all duration-500 ease-out"
                     onClick={() => scrollTo(index)}
                     onKeyDown={handleSlideKeyDown}
