@@ -35,6 +35,19 @@ describe("BetaAccessForm", () => {
     });
   });
 
+  it("shows a validation error and does not submit for an invalid email", async () => {
+    const user = userEvent.setup();
+    render(<BetaAccessForm />);
+
+    await user.type(screen.getByLabelText("Google Play Email Address"), "not-an-email");
+    await user.click(screen.getByRole("button", { name: "Join Beta Waitlist" }));
+
+    const input = screen.getByLabelText("Google Play Email Address");
+    expect(await screen.findByText("Please enter a valid email address.")).toBeInTheDocument();
+    expect(input).toHaveAttribute("aria-invalid", "true");
+    expect(sendEmail).not.toHaveBeenCalled();
+  });
+
   it("shows an error message when sendEmail rejects", async () => {
     vi.mocked(sendEmail).mockRejectedValueOnce(new Error("network down"));
     vi.spyOn(console, "error").mockImplementation(() => {});

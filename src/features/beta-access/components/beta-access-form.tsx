@@ -19,6 +19,7 @@ enum Status {
 export const BetaAccessForm = () => {
   const t = useTranslations("BetaAccessForm");
   const [email, setEmail] = useState("");
+  const [emailInvalid, setEmailInvalid] = useState(false);
   const [status, setStatus] = useState<Status>(Status.Idle);
   const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { honeypotRef, isSpam } = useSpamGuard();
@@ -91,16 +92,35 @@ export const BetaAccessForm = () => {
                     id="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailInvalid(false);
+                    }}
+                    onInvalid={(e) => {
+                      e.preventDefault();
+                      setEmailInvalid(true);
+                    }}
                     placeholder={t("emailPlaceholder")}
+                    aria-invalid={emailInvalid}
+                    aria-describedby={emailInvalid ? "email-error" : undefined}
                     className="w-full bg-transparent px-4 py-4 font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
                   />
                 </div>
               </div>
-              <p className="ml-1 flex items-center gap-1.5 text-[11px] text-slate-500">
-                <span className="bg-brand h-1 w-1 rounded-full"></span>
-                {t("emailHint")}
-              </p>
+              {emailInvalid ? (
+                <p
+                  id="email-error"
+                  className="ml-1 flex items-center gap-1.5 text-[11px] text-red-500"
+                >
+                  <span className="h-1 w-1 rounded-full bg-red-500"></span>
+                  {t("invalidEmail")}
+                </p>
+              ) : (
+                <p className="ml-1 flex items-center gap-1.5 text-[11px] text-slate-500">
+                  <span className="bg-brand h-1 w-1 rounded-full"></span>
+                  {t("emailHint")}
+                </p>
+              )}
             </div>
 
             <div className="flex flex-col gap-3">

@@ -379,6 +379,7 @@
     "emailLabel": "Google Play Email Address",
     "emailPlaceholder": "your-account@gmail.com",
     "emailHint": "Must match the account logged in on your Android device.",
+    "invalidEmail": "Please enter a valid email address.",
     "submit": "Join Beta Waitlist",
     "submitting": "Processing...",
     "successTitle": "Request Received",

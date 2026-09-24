@@ -400,6 +400,7 @@
     "emailLabel": "Correo de la Cuenta de Google Play",
     "emailPlaceholder": "tu-cuenta@gmail.com",
     "emailHint": "Debe coincidir con la cuenta con la sesión iniciada en tu dispositivo Android.",
+    "invalidEmail": "Ingresa una dirección de correo electrónico válida.",
     "submit": "Unirse a la Lista de Espera del Beta",
     "submitting": "Procesando...",
     "successTitle": "Solicitud Recibida",
