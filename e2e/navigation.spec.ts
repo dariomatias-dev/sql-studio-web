@@ -4,10 +4,10 @@ test.describe("header", () => {
   test("desktop nav links scroll to the matching section", async ({ page }) => {
     await page.goto("/");
 
-    await page.getByRole("navigation").getByText("Features").click();
+    await page.getByRole("navigation").getByRole("link", { name: "Features", exact: true }).click();
     await expect(page).toHaveURL("/en#features");
 
-    await page.getByRole("navigation").getByText("FAQ").click();
+    await page.getByRole("navigation").getByRole("link", { name: "FAQ", exact: true }).click();
     await expect(page).toHaveURL("/en#faq");
   });
 
@@ -24,7 +24,7 @@ test.describe("header", () => {
 
     await toggle.click();
     await expect(dialog).toBeVisible();
-    const mobileFaqLink = dialog.getByText("FAQ", { exact: true });
+    const mobileFaqLink = dialog.getByRole("link", { name: "FAQ", exact: true });
     await expect(mobileFaqLink).toBeVisible();
 
     const scrollYBeforeWheel = await page.evaluate(() => window.scrollY);
