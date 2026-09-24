@@ -2,7 +2,17 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 test.describe("axe scan", () => {
-  for (const path of ["/", "/contact", "/download", "/privacy-policy", "/terms-of-service"]) {
+  for (const path of [
+    "/",
+    "/contact",
+    "/download",
+    "/privacy-policy",
+    "/terms-of-service",
+    "/pt-BR",
+    "/pt-BR/download",
+    "/es",
+    "/es/download",
+  ]) {
     test(`${path} has no automatically detectable violations`, async ({ page }) => {
       await page.goto(path);
 

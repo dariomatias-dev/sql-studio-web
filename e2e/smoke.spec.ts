@@ -6,6 +6,10 @@ const routes = [
   { path: "/download", heading: "Join the Development Program" },
   { path: "/privacy-policy", heading: "Privacy Policy" },
   { path: "/terms-of-service", heading: "Terms of Service" },
+  { path: "/pt-BR", heading: "SQL Studio Em Qualquer Lugar." },
+  { path: "/pt-BR/download", heading: "Participe do Programa de Desenvolvimento" },
+  { path: "/es", heading: "SQL Studio En Cualquier Lugar." },
+  { path: "/es/download", heading: "Únete al Programa de Desarrollo" },
 ];
 
 for (const { path, heading } of routes) {
