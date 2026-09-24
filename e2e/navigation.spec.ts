@@ -30,7 +30,9 @@ test.describe("header", () => {
     const scrollYBeforeWheel = await page.evaluate(() => window.scrollY);
     await page.mouse.move(200, 400);
     await page.mouse.wheel(0, 500);
-    await page.waitForTimeout(200);
+    await page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+    );
     expect(await page.evaluate(() => window.scrollY)).toBe(scrollYBeforeWheel);
 
     await mobileFaqLink.click();
@@ -51,8 +53,9 @@ test.describe("header", () => {
     const scrollYBeforeWheel = await page.evaluate(() => window.scrollY);
     await page.mouse.move(640, 400);
     await page.mouse.wheel(0, 500);
-    await page.waitForTimeout(200);
-    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(scrollYBeforeWheel);
+    await expect
+      .poll(() => page.evaluate(() => window.scrollY))
+      .toBeGreaterThan(scrollYBeforeWheel);
   });
 });
 
