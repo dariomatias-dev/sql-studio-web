@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -48,6 +48,19 @@ describe("Header", () => {
     if (!mobileFaqLink) throw new Error("Mobile FAQ link not found");
 
     await user.click(mobileFaqLink);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("closes the mobile menu when a locale is selected from its language switcher", async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    await user.click(screen.getByRole("button", { name: "Open menu" }));
+    const dialog = await screen.findByRole("dialog");
+
+    await user.click(within(dialog).getByRole("button", { name: "Change language" }));
+    await user.click(screen.getByRole("menuitem", { name: /Português/ }));
+
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 

@@ -35,6 +35,18 @@ describe("ScreenshotsCarousel", () => {
     expect(activeDotIndex()).toBe(4);
   });
 
+  it("jumps to a slide when the slide itself is clicked", async () => {
+    const user = userEvent.setup();
+    render(<ScreenshotsCarousel />);
+
+    const thirdSlideGroup = screen.getByRole("group", { name: /3 of 10/ });
+    const thirdSlideButton = thirdSlideGroup.querySelector("button");
+    if (!thirdSlideButton) throw new Error("Third slide button not found");
+
+    await user.click(thirdSlideButton);
+    expect(activeDotIndex()).toBe(2);
+  });
+
   it("renders each slide as a focusable button with a descriptive label", () => {
     render(<ScreenshotsCarousel />);
 
