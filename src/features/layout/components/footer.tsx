@@ -1,30 +1,23 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { Link as LocaleLink } from "@/i18n/navigation";
 import { PingIndicator } from "@/shared/components/ping-indicator";
 import { APP_RELEASE_LABEL, APP_VERSION } from "@/shared/lib/app-release";
-import { APP_REPOSITORY_URL, GITHUB_URL } from "@/shared/lib/site";
+import { GITHUB_URL } from "@/shared/lib/site";
 
 import { BackToTopButton } from "./back-to-top-button";
+import { FooterLinkContent } from "./footer-link-content";
+import { legalNavLinks } from "../data/legal-nav-links";
 import { navLinks } from "../data/nav-links";
+import { openSourceLinks } from "../data/open-source-links";
 import { socialLinks } from "../data/social-links";
 
 export const Footer = () => {
   const t = useTranslations("Nav");
   const tFooter = useTranslations("Footer");
-
-  const openSourceLinks = [
-    { href: APP_REPOSITORY_URL, label: tFooter("sourceCode") },
-    { href: `${APP_REPOSITORY_URL}/issues`, label: tFooter("issues") },
-    {
-      href: `${APP_REPOSITORY_URL}/blob/main/docs/contributing.md`,
-      label: tFooter("contributingGuide"),
-    },
-  ];
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-12">
@@ -71,10 +64,7 @@ export const Footer = () => {
                     href={href}
                     className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                   >
-                    <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      {t(labelKey)}
-                    </span>
+                    <FooterLinkContent>{t(labelKey)}</FooterLinkContent>
                   </LocaleLink>
                 </li>
               ))}
@@ -85,39 +75,16 @@ export const Footer = () => {
               {tFooter("legalHeading")}
             </h3>
             <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
-                >
-                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    {tFooter("privacyPolicy")}
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms-of-service"
-                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
-                >
-                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    {tFooter("termsOfService")}
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
-                >
-                  <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    {tFooter("contactSupport")}
-                  </span>
-                </Link>
-              </li>
+              {legalNavLinks.map(({ href, labelKey }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
+                  >
+                    <FooterLinkContent>{tFooter(labelKey)}</FooterLinkContent>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -125,7 +92,7 @@ export const Footer = () => {
               {tFooter("openSourceHeading")}
             </h3>
             <ul className="space-y-3 text-sm">
-              {openSourceLinks.map(({ href, label }) => (
+              {openSourceLinks.map(({ href, labelKey }) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -133,10 +100,7 @@ export const Footer = () => {
                     rel="noopener noreferrer"
                     className="group hover:text-brand flex items-center text-zinc-400 transition-colors duration-200"
                   >
-                    <ChevronRight className="text-brand mr-0 h-2.5 w-0 opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-2.5 group-hover:opacity-100" />
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      {label}
-                    </span>
+                    <FooterLinkContent>{tFooter(labelKey)}</FooterLinkContent>
                   </a>
                 </li>
               ))}
