@@ -11,6 +11,8 @@ import type { EmailData } from "@/shared/lib/email";
 import { sendEmail } from "@/shared/lib/email";
 import { useSpamGuard } from "@/shared/lib/spam-guard";
 
+import { FieldError } from "./field-error";
+import { fieldBorderClass } from "../lib/field-border-class";
 import { schema, type FormData } from "../lib/schema";
 
 enum SubmitStatus {
@@ -99,19 +101,11 @@ export const ContactForm = () => {
                 id="name"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? "name-error" : undefined}
-                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
-                  errors.name
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-slate-200"
-                }`}
+                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${fieldBorderClass(!!errors.name)}`}
                 placeholder="Your name"
               />
             </div>
-            {errors.name && (
-              <p id="name-error" className="mt-1 text-xs text-red-500">
-                {errors.name.message}
-              </p>
-            )}
+            <FieldError id="name-error" message={errors.name?.message} />
           </div>
 
           <div className="space-y-2">
@@ -126,19 +120,11 @@ export const ContactForm = () => {
                 id="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
-                  errors.email
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-slate-200"
-                }`}
+                className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 py-3 pr-4 pl-12 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${fieldBorderClass(!!errors.email)}`}
                 placeholder="you@example.com"
               />
             </div>
-            {errors.email && (
-              <p id="email-error" className="mt-1 text-xs text-red-500">
-                {errors.email.message}
-              </p>
-            )}
+            <FieldError id="email-error" message={errors.email?.message} />
           </div>
         </div>
 
@@ -151,18 +137,14 @@ export const ContactForm = () => {
             id="subject"
             aria-invalid={!!errors.subject}
             aria-describedby={errors.subject ? "subject-error" : undefined}
-            className="focus:border-brand focus:ring-brand/50 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 transition-all focus:ring-2 focus:outline-none"
+            className={`focus:border-brand focus:ring-brand/50 w-full rounded-xl border bg-slate-50 px-4 py-3 text-slate-900 transition-all focus:ring-2 focus:outline-none ${fieldBorderClass(!!errors.subject)}`}
           >
             <option value="General Inquiry">General Inquiry</option>
             <option value="Bug Report">Bug Report</option>
             <option value="Feature Request">Feature Request</option>
             <option value="Feedback">Feedback</option>
           </select>
-          {errors.subject && (
-            <p id="subject-error" className="mt-1 text-xs text-red-500">
-              {errors.subject.message}
-            </p>
-          )}
+          <FieldError id="subject-error" message={errors.subject?.message} />
         </div>
 
         <div className="space-y-2">
@@ -175,18 +157,10 @@ export const ContactForm = () => {
             rows={5}
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className={`focus:border-brand focus:ring-brand/50 w-full resize-none rounded-xl border bg-slate-50 px-4 py-3 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${
-              errors.message
-                ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                : "border-slate-200"
-            }`}
+            className={`focus:border-brand focus:ring-brand/50 w-full resize-none rounded-xl border bg-slate-50 px-4 py-3 text-slate-900 transition-all placeholder:text-slate-400 focus:ring-2 focus:outline-none ${fieldBorderClass(!!errors.message)}`}
             placeholder="How can we help you?"
           ></textarea>
-          {errors.message && (
-            <p id="message-error" className="mt-1 text-xs text-red-500">
-              {errors.message.message}
-            </p>
-          )}
+          <FieldError id="message-error" message={errors.message?.message} />
         </div>
 
         <div className="flex flex-col gap-4">
